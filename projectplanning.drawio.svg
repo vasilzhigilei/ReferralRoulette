@@ -1,0 +1,297 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="773px" height="562px" viewBox="-0.5 -0.5 773 562" content="&lt;mxfile host=&quot;5bf75aa0-d9ee-4769-807b-7ef014aaf66a&quot; modified=&quot;2020-12-21T14:48:49.098Z&quot; agent=&quot;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36&quot; version=&quot;13.10.0&quot; etag=&quot;Gp3O-jNfEhFM8VBOkOG2&quot; type=&quot;embed&quot;&gt;&lt;diagram id=&quot;TGE-YtpCUtIJg1y82PJE&quot; name=&quot;Page-1&quot;&gt;5VlLk5s4EP41Ps4WD+PMNTOebLaSVG3F+zxtydAGZQRNhDB4f/1KSIAx4GE8nnWcnJBarVb31w9aMHPv4/JnTtLoEwbAZo4VlDN3OXMc27Jc+VCUnabcvrE1IeQ0MEwtYUX/hXqnoeY0gKzDKBCZoGmX6GOSgC86NMI5Fl22DbLuqSkJoUdY+YT1qX/SQETGCs9q6e+BhlF9srRYr8SkZjaELCIBFnsk92Hm3nNEoUdxeQ9MgVfjove9G1ltFOOQiCkbHL1hS1hubJs5Cya33m1QSpAKip2xevE1x3rhJqt88lYy2Iu0bBflKFTPz7ABzgn7jDkDIaCWKjXRgjWbAaE5w+GYJwEo5Wy5XERUwColvlotZCxJWiRiZpaVpJXZq+aZ4PjYeMRp5G+BCyhHEbIb3GXAAsYg+E6ymA3u3NNbTKy6xnNF63h7YWjRntPnhkZMrIWN5NYdcmA8Muyd+YB3DgCDJHirIlrOEkygC9AYIBD04vtJOPbs9QbMrWkcGBF02xU/hIE54VekVZyVXdTqwnAAYoY598Hs2Q/rAzG39nE5gvAQRE9O5Y/G5kku8l6eQPOhBKqlrGtCVUWzvTxaH7KeNbdeJZcOvGs7A7nkvFIuLfqpI7OgLh/IRYQhJoQ9tNS7FjFLzlqej4ipwemLrG4784YiucAuilBS8Zfa/pNnZn/vrSxLI7ma7Mzk9KSV1lX50YlMHep7pL53JufsVKzf/F9J8QeFosmJNR/IiCvMEse6YJrcjrouoNtRP6yAb6kPptM7Cv6AmMlB4UwKiiMK5+yQwujltMlSkoyfVBjPqrMS5DFh/dMSEu+3VlrgFMgnZUZD7oPUp7yKfSmHDS1PtXCK2kMCR03RNCqvFaeqNML8Spquibz/8OvQ1UeGV6KqLO3in2vSl4TZdWjqM+o/XkLX8xT9J6wjftVlnWjd5Nosif333AteA6MNkupWn90gSZt9moRmRhgNEzlmsBHt4sdqtlw0x5/11nE7sZ1qrvov6afqi+hYQzUQcqq83BhgVMzxSqWnO436m8u31YVdoOViNHl8VoRfoFQ0SkFM6FPe+na07RXoF6k7Vql+uJo0n3rFs+1z1CT7pEveEjYkZyqall9IEqIc/J6p9tKKn1txvjP3efOJ7vPO4b3xb/bHvPeLRLh8jo/OWT+OvQSWNEsZUeAKTNXfGCAi5zIa5Kn6s0LWvgQtUijWSSXwDhgWM+e++s2iRpZPBIRYOTIDBrId69zkjgn7LZKF74ZmkdIQUXSuVcc2vgcSVEkidciZsioiqgm01pwkgVYvIds14XrMMKTq1rzOhZis3QrVdwArQ64wwo36XFhKVBOiTdQkA6dCUTRwkzVW6gzB7r6Tsw8Aio8KbQPXW9XOLdKK3efImEpAszDowRNeA99Xye991hvoQx3PO08fKqftT0T9W6P9Fes+/Ac=&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs/>
+    <g>
+        <rect x="306" y="1" width="160" height="40" rx="6" ry="6" fill="#ffffff" stroke="#000000" stroke-width="2" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 158px; height: 1px; padding-top: 21px; margin-left: 307px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; word-wrap: normal; ">
+                                <font style="font-size: 16px">
+                                    ReferralRoulette
+                                </font>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="386" y="25" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle" font-weight="bold">
+                    ReferralRoulette
+                </text>
+            </switch>
+        </g>
+        <path d="M 1 51 L 771 51" fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" pointer-events="stroke"/>
+        <rect x="1" y="91" width="120" height="40" rx="6" ry="6" fill="#ffffff" stroke="#000000" stroke-width="2" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 111px; margin-left: 2px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <font style="font-size: 14px">
+                                    <b>
+                                        Models
+                                    </b>
+                                </font>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="61" y="115" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    Models
+                </text>
+            </switch>
+        </g>
+        <path d="M 61 131 L 61 131" fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 61 131 L 61 131 L 61 131 L 61 131 Z" fill="#000000" stroke="#000000" stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
+        <rect x="161" y="91" width="120" height="40" rx="6" ry="6" fill="#ffffff" stroke="#000000" stroke-width="2" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 111px; margin-left: 162px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <font style="font-size: 14px">
+                                    <b>
+                                        Views
+                                        <br/>
+                                    </b>
+                                </font>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="221" y="115" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    Views&#xa;
+                </text>
+            </switch>
+        </g>
+        <rect x="1" y="151" width="120" height="230" fill="#ffffff" stroke="#000000" stroke-width="2" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 112px; height: 1px; padding-top: 266px; margin-left: 9px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div>
+                                    <b>
+                                        ServiceModel
+                                    </b>
+                                </div>
+                                <font style="font-size: 12px">
+                                    <b>
+                                        <div>
+                                            <ul>
+                                                <li>
+                                                    <font style="font-size: 12px">
+                                                        <b>
+                                                            <div>
+                                                                <span style="font-weight: normal">
+                                                                    name
+                                                                </span>
+                                                            </div>
+                                                        </b>
+                                                    </font>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <span style="font-weight: normal">
+                                                            prefix
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <span>
+                                                        <div>
+                                                            <span>
+                                                                icon
+                                                            </span>
+                                                        </div>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span>
+                                                        <div>
+                                                            <span>
+                                                                banner
+                                                            </span>
+                                                        </div>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span>
+                                                        <div>
+                                                            <span>
+                                                                color
+                                                            </span>
+                                                        </div>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span>
+                                                        <div>
+                                                            <span>
+                                                                text_color
+                                                            </span>
+                                                        </div>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span>
+                                                        <div>
+                                                            <span>
+                                                                tags
+                                                            </span>
+                                                        </div>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span>
+                                                        <div>
+                                                            <span>
+                                                                clicks
+                                                            </span>
+                                                        </div>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <font style="font-size: 12px">
+                                                        <div>
+                                                            <span>
+                                                                active
+                                                            </span>
+                                                        </div>
+                                                    </font>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </b>
+                                </font>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="9" y="270" fill="#000000" font-family="Helvetica" font-size="12px">
+                    ServiceModelnamepre...
+                </text>
+            </switch>
+        </g>
+        <rect x="1" y="391" width="120" height="110" fill="#ffffff" stroke="#000000" stroke-width="2" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 112px; height: 1px; padding-top: 446px; margin-left: 9px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="text-align: right">
+                                    <b>
+                                        ReferralModel
+                                    </b>
+                                </div>
+                                <font style="font-size: 12px">
+                                    <b>
+                                        <ul>
+                                            <li>
+                                                <font style="font-size: 12px">
+                                                    <b>
+                                                        link
+                                                    </b>
+                                                </font>
+                                            </li>
+                                            <li>
+                                                <font style="font-size: 12px">
+                                                    <b>
+                                                        email
+                                                    </b>
+                                                </font>
+                                            </li>
+                                            <li>
+                                                <font style="font-size: 12px">
+                                                    <b>
+                                                        clicks
+                                                    </b>
+                                                </font>
+                                            </li>
+                                        </ul>
+                                    </b>
+                                </font>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="9" y="450" fill="#000000" font-family="Helvetica" font-size="12px">
+                    ReferralModellinkem...
+                </text>
+            </switch>
+        </g>
+        <rect x="1" y="511" width="120" height="50" fill="#ffffff" stroke="#000000" stroke-width="2" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 112px; height: 1px; padding-top: 536px; margin-left: 9px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div>
+                                    <b>
+                                        Default Django User model
+                                    </b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="9" y="540" fill="#000000" font-family="Helvetica" font-size="12px">
+                    Default Django User...
+                </text>
+            </switch>
+        </g>
+        <rect x="161" y="151" width="255" height="230" fill="#ffffff" stroke="#000000" stroke-width="2" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 247px; height: 1px; padding-top: 266px; margin-left: 169px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div>
+                                    <b>
+                                        Index
+                                    </b>
+                                </div>
+                                <font style="font-size: 12px">
+                                    <ul>
+                                        <li>
+                                            Display top featured services right away
+                                        </li>
+                                        <li>
+                                            Below, show category selection
+                                        </li>
+                                        <li>
+                                            Thick-ish footer
+                                        </li>
+                                        <li>
+                                            Header should have brand, navbar, login button
+                                        </li>
+                                        <li>
+                                            Some sort of explanation of service at top above featured services? Keep it short to avoid scrolling to featured services
+                                        </li>
+                                    </ul>
+                                </font>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="169" y="270" fill="#000000" font-family="Helvetica" font-size="12px">
+                    IndexDisplay top featured services right...
+                </text>
+            </switch>
+        </g>
+    </g>
+    <switch>
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
+        <a transform="translate(0,-5)" xlink:href="https://desk.draw.io/support/solutions/articles/16000042487" target="_blank">
+            <text text-anchor="middle" font-size="10px" x="50%" y="100%">
+                Viewer does not support full SVG 1.1
+            </text>
+        </a>
+    </switch>
+</svg>
