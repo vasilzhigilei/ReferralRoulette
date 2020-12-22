@@ -6,7 +6,7 @@ class ServiceModel(models.Model):
     name = models.CharField(max_length=30)
     description = models.CharField(max_length=100, default="")
     prefix = models.CharField(max_length=100)
-    image = models.ImageField(upload_to="images",
+    image = models.ImageField(upload_to="service_images",
                               default="/static/referralroulette/missing.png")
     color = ColorField(default='#F5F5F5')
     text_color = ColorField(default='#212529')
