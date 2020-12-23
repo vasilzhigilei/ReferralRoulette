@@ -24,7 +24,7 @@
   <!-- search2-->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="{% static '/select2-bootstrap4.css' %}">
         <!-- js -->
         <script src="../static/index.js"></script>
 </head>
@@ -47,11 +47,18 @@
     <div class="navbar navbar-default navbar-expand-md navbar-dark bg-darkblue">
       <div class="container">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <select class="js-example-basic-single js-states form-control" id="id_label_single">
+          <div class="row" style="width: 100%;">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+              <select class="js-example-basic-single" id="id_label_single" style="width: 100%;">
+                <option value=""></option>  
                 {% for service in services %}
-                  <option>{{ service.display_name }}</option>
+                  <option value="{{ service.name }}">{{ service.display_name }}</option>
                 {% endfor %}
-            </select>
+              </select>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -59,9 +66,11 @@
 
     <!-- START PAGE CONTENT -->
     <div id="maincontent">
-      <br>
       <div class="bg-lightsandywhite">
-        <div class="container">
+        <div class="container" style="text-align: center;">
+          <br>
+          <h1 class="display-4">Share all your referral links!</h1>
+          <h1 class="display-6 text-muted">Click on a service card to get sent to a random user's referral link!</h1>
           <div class="row">
               <div class="col-md-12 padding rounded servicelist">
                   {% for service in services %}
@@ -70,7 +79,7 @@
                     <h5 class="servicecard-text">{{ service.description }}</h5>
                     <a href="/for/{{ service.name }}">
                       <span class="link-spanner"></span>
-                    </a>  
+                    </a>
                   </div>
                   {% endfor %}
               </div>
@@ -80,7 +89,7 @@
       <br>
     </div>
     <!-- STOP PAGE CONTENT -->
-
+    
     <!-- START FOOTER -->
     <div class="spacer"></div>
     <footer class="font-small bg-darkblue text-darkerlight">

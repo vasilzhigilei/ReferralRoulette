@@ -7,3 +7,6 @@ def index(request):
         'services': ServiceModel.objects.all(),
     }
     return render(request, "index.html", context)
+
+def for_service(request):
+    pass
