@@ -8,5 +8,5 @@ def index(request):
     }
     return render(request, "index.html", context)
 
-def for_service(request):
-    pass
+def for_service(request, slug):
+    return HttpResponse(slug)

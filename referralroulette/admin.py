@@ -1,9 +1,15 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import ServiceModel as S
-from .models import ReferralModel as R
+from .models import ServiceModel
+from .models import ReferralModel
 
+@admin.register(ServiceModel)
+class ServiceAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',)}
+
+
+admin.site.unregister(ServiceModel)
 # import into admin
-admin.site.register(S)
-admin.site.register(R)
+admin.site.register(ServiceModel, ServiceAdmin)
+admin.site.register(ReferralModel)

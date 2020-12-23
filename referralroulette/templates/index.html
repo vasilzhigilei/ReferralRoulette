@@ -53,7 +53,7 @@
               <select class="js-example-basic-single" id="id_label_single" style="width: 100%;">
                 <option value=""></option>  
                 {% for service in services %}
-                  <option value="{{ service.name }}">{{ service.display_name }}</option>
+                  <option value="{{ service.slug }}">{{ service.name }}</option>
                 {% endfor %}
               </select>
             </div>
@@ -77,7 +77,7 @@
                   <div class="servicecard hvr-shadow" id="{{ service.name }}" style="background-color: {{ service.background_color }}; border-color: {{ service.text_color }}; color: {{ service.text_color }};">
                     <img class="servicecard-img" src="{{ service.image.url }}">
                     <h5 class="servicecard-text">{{ service.description }}</h5>
-                    <a href="/for/{{ service.name }}">
+                    <a href="/for/{{ service.slug }}">
                       <span class="link-spanner"></span>
                     </a>
                   </div>
