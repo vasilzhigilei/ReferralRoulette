@@ -8,6 +8,7 @@
     <!-- CSS only -->
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static '/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/hover.css' %}">
     
 
     <!-- Bootstrap -->
@@ -48,30 +49,35 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <select class="js-example-basic-single js-states form-control" id="id_label_single">
                 {% for service in services %}
-                <option>{{ service.display_name }}</option>
+                  <option>{{ service.display_name }}</option>
                 {% endfor %}
-              </select>
-                
+            </select>
         </div>
       </div>
     </div>
     <!-- STOP HEADER -->
 
     <!-- START PAGE CONTENT -->
-    <div id="maincontent" class="container">
-        <br>
-        <div class="row">
-            <div class="col-md-12 bg-light padding rounded servicelist">
-                {% for service in services %}
-                <div class="servicecard" id="{{ service.name }}" onclick="somefunc(this)" style="background-color: {{ service.background_color }}; border-color: {{ service.text_color }}; color: {{ service.text_color }};">
+    <div id="maincontent">
+      <br>
+      <div class="bg-lightsandywhite">
+        <div class="container">
+          <div class="row">
+              <div class="col-md-12 padding rounded servicelist">
+                  {% for service in services %}
+                  <div class="servicecard hvr-shadow" id="{{ service.name }}" style="background-color: {{ service.background_color }}; border-color: {{ service.text_color }}; color: {{ service.text_color }};">
                     <img class="servicecard-img" src="{{ service.image.url }}">
                     <h5 class="servicecard-text">{{ service.description }}</h5>
-                </div>
-                {% endfor %}
-
-            </div>
+                    <a href="/for/{{ service.name }}">
+                      <span class="link-spanner"></span>
+                    </a>  
+                  </div>
+                  {% endfor %}
+              </div>
+          </div>
         </div>
-        <br>
+      </div>
+      <br>
     </div>
     <!-- STOP PAGE CONTENT -->
 
