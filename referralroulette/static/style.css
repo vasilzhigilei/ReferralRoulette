@@ -58,3 +58,35 @@ body {
 footer {
     width: 100%;
 }
+
+.servicelist {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.servicecard {
+    width: 23%;
+    margin: 1%;
+    text-align: center;
+    padding: 4px;
+    border-style: solid;
+    border-radius: 5px;
+    height: 110px;
+}
+
+.servicecard-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.servicecard-img {
+    max-height: 50%;
+    max-width: 100%;
+}
+
+.orgcard-inner:hover {
+    background-color: #47627e;
+    color: white;
+}

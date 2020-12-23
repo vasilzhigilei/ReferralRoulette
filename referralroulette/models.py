@@ -8,11 +8,11 @@ class ServiceModel(models.Model):
     prefix = models.CharField(max_length=100)
     image = models.ImageField(upload_to="service_images",
                               default="/static/referralroulette/missing.png")
-    color = ColorField(default='#F5F5F5')
+    background_color = ColorField(default='#F5F5F5')
     text_color = ColorField(default='#212529')
     tags = TaggableManager()
-    clicks = models.IntegerField()
-    active = models.BooleanField()
+    clicks = models.IntegerField(default=0)
+    active = models.BooleanField(default=True)
 
 class ReferralModel(models.Model):
     link = models.CharField(max_length=100)
