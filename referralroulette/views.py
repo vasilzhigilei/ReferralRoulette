@@ -9,4 +9,9 @@ def index(request):
     return render(request, "index.html", context)
 
 def for_service(request, slug):
-    return HttpResponse(slug)
+    context = {
+        'services': ServiceModel.objects.all(),
+        'for_service': ServiceModel.objects.get(slug=slug),
+    }
+    # should have a try except here of ServiceModel.DoesNotExist
+    return render(request, "for.html", context)
