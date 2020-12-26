@@ -3,7 +3,11 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    font-family: Helvetica, sans-serif;
+    font-family: montserrat, Helvetica, sans-serif;
+}
+
+.h1, h1, h2, h3, h4, h5, h6 {
+    font-weight: bold !important;
 }
 
 .bg-darkblue {
@@ -97,4 +101,14 @@ footer {
     /* edit: fixes overlap error in IE7/8, 
        make sure you have an empty gif 
     background-image: url('empty.gif');*/
+}
+
+.footer-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
 }

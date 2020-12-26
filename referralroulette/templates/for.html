@@ -4,11 +4,15 @@
 <div class="bg-lightsandywhite">
     <div class="container" style="text-align: center;">
       <br>
-      <h1 class="display-4">{{ for_service.name }}</h1>
-      <h1 class="display-6 text-muted">{{ for_service.description }}</h1>
       <div class="row">
-          <div class="col-md-12 padding rounded servicelist">
-            info on the service goes here!
+          <div class="col-md-3">
+            <img src="{{ for_service.image.url }}">
+          </div>
+          <div class="col-md-6">
+            <p>{{ for_service.description }}</p>
+          </div>
+          <div class="col-md-3">
+            
           </div>
       </div>
     </div>

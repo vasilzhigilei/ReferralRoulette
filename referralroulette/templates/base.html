@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>ReferralRoulette</title>
     
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     {% load static %}
     <!-- LIBRARIES -->
     <!-- Bootstrap -->
@@ -29,14 +32,23 @@
     <!-- First navbar row -->
     <div class="navbar navbar-default navbar-expand-md navbar-light bg-lightsandywhite">
       <div class="container">
-        <a href="#" class="h1 navbar-brand nomargin">ReferralRoulette</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- links to browse, categories, contact, about-->
-        links here
-        <!-- sign up/log in button-->
-        button here
+        <div class="row" style="width: 100%;">
+          <div class="col-md-1"></div>
+          <div class="col-md-5">
+            <a href="/" class="h1 navbar-brand nomargin">ReferralRoulette</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <div class="col-md-5" style="text-align: right;">
+              <!-- links to browse, categories, contact, about-->
+              links here
+              <!-- sign up/log in button-->
+              button here
+          </div>
+          </div>
+          <div class="col-md-1"></div>
+        </div>
       </div>
     </div>
     <!-- Second navbar row -->
@@ -69,9 +81,46 @@
     <!-- START FOOTER -->
     <div class="spacer"></div>
     <footer class="font-small bg-darkblue text-darkerlight">
-        <!-- bunch of links in columns -->
-        <!-- col 1: ReferralRoulette header, items: header links -->
-        <!-- col 2-4: "Favorite CATEGORY links" -->
+      <!-- bunch of links in columns -->
+      <!-- col 1: ReferralRoulette header, items: header links -->
+      <!-- col 2-4: "Favorite CATEGORY links" -->
+      <br>
+      <div class="container">
+        <div class="row" style="width: 100%;">
+          <div class="col-md-1"></div>
+          <div class="col-md-2">
+            <ul class="footer-list">
+              <li><h6>ReferralRoulette</h6></li>
+              <li><h6><a href="/signup">Sign Up</a></h6></li>
+              <li><h6><a href="/browse">Browse Codes</a></h6></li>
+              <li><h6><a href="/blog">Blog</a></h6></li>
+              <li><h6><a href="/about">About</a></h6></li>
+              <li><h6><a href="/contact">Contact</a></h6></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <ul class="footer-list">
+              <li><h6>Featured Financial</h6></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <ul class="footer-list">
+              <li><h6>Featured Travel</h6></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <ul class="footer-list">
+              <li><h6>Featured Food</h6></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <ul class="footer-list">
+              <li><h6>Featured Fun</h6></li>
+            </ul>
+          </div>
+          <div class="col-md-1"></div>
+        </div>
+      </div>
       <div class="footer-copyright text-center py-3">
         2020
         <b>ReferralRoulette</b>
