@@ -27,6 +27,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('for/', RedirectView.as_view(url='/')), # empty for/ should redirect to index.html
     path('for/<slug:slug>', views.for_service, name='for_service'),
+    path('api/generatereferral/<str:service>', views.generate_referral, name='generate_referral'),
     path('admin/', admin.site.urls),
     url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
