@@ -3,16 +3,20 @@
 {% load static %}
 <div class="bg-lightsandywhite">
     <div class="container" style="text-align: center;">
-      <br>
-      <div class="row">
+      <div class="row for-section">
           <div class="col-md-3">
-            <img src="{{ for_service.image.url }}">
+            <img class="for-image" src="{{ for_service.image.url }}">
+            <br>
+            <h3>{{ for_service.name }} Tags:</h3>
+            {% for tag in for_service.tags.all %}
+                <a href="/category/{{ tag.slug }}" class="for-badge badge rounded-pill bg-info text-dark">#{{ tag }}</a>
+            {% endfor %}
           </div>
           <div class="col-md-6">
             <p>{{ for_service.description }}</p>
           </div>
           <div class="col-md-3">
-            
+
           </div>
       </div>
     </div>

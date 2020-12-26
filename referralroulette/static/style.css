@@ -112,3 +112,17 @@ footer {
 a {
     text-decoration: none;
 }
+.for-section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.for-image {
+    max-width: 100%;
+    max-height: 75px;
+}
+
+.for-badge {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
