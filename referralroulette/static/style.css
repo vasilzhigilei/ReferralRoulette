@@ -126,3 +126,91 @@ a {
     margin-top: 3px;
     margin-bottom: 3px;
 }
+
+.buttoncontainer {
+    text-align: center;
+    position: relative;
+    width: 300px;
+    margin: 0 auto;
+    cursor: pointer;
+    z-index: 10;
+    clear: both;
+}
+  
+.indexbutton {
+    color: white;
+    position: relative;
+    height: 50px;
+    width: 280px;
+    border: 0;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    letter-spacing: 0.2em;
+    overflow: hidden;
+    box-shadow: 0 4px 12px 0 rgba(54, 21, 21, 0.3);
+    z-index: -2;
+}
+
+.fill {
+    position: absolute;
+    background-image: linear-gradient(to right, #E040FB, #00BCD4);
+    background-size: 150% 150%;
+    height: 70px;
+    width: 420px;
+    border-radius: 5px;
+    margin: -40px 0 0 -140px;
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+.fill-two {
+    background-image: linear-gradient(to right, #00BCD4, #E040FB);
+}
+  
+.buttoncontainer:hover .fill{
+    -webkit-animation: gradient 3s ease infinite;
+    -moz-animation: gradient 3s ease infinite;
+    animation: gradient 3s ease infinite;
+}
+
+@-webkit-keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@-moz-keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.copyimage {
+  height: 60%;
+  width: auto;
+}

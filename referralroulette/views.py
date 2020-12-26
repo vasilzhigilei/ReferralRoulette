@@ -12,9 +12,17 @@ def index(request):
     return render(request, "index.html", context)
 
 def for_service(request, slug):
+    links = ReferralModel.objects.filter(service=slug)
+    link = ""
+    if len(links) == 0:
+        link = "No links error"
+    else:
+        i = random.randint(0,len(links))
+        link = links[i]
     context = {
         'services': ServiceModel.objects.all(),
         'for_service': ServiceModel.objects.get(slug=slug),
+        'link': link,
     }
     # should have a try except here of ServiceModel.DoesNotExist
     return render(request, "for.html", context)

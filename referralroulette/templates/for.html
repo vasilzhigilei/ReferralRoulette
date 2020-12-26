@@ -8,14 +8,35 @@
         <div class="col-md-3">
             <img class="for-image" src="{{ for_service.image.url }}">
             <br>
-            <h3>{{ for_service.name }} Tags:</h3>
+            <h4>{{ for_service.name }} Referral Link Tags:</h4>
             {% for tag in for_service.tags.all %}
                 <a href="/category/{{ tag.slug }}" class="for-badge badge rounded-pill bg-info text-dark">#{{ tag }}</a>
             {% endfor %}
         </div>
-        <div class="col-md-4" style="text-align: left;">
-            <h5>{{ for_service.description }}</h5>
+        <div class="col-md-4">
+            <h5 style="text-align: left;">{{ for_service.description }}</h5>
             <br>
+            <div class="input-group input-group-lg">
+                <input class="form-control" value="{{ link }}" type="text" id="link" style="font-weight: bold;" readonly>
+                <div class="input-group-append">
+                    <button id="copy-button" style="height: 100%;" class="btn btn-outline-secondary" data-clipboard-target="#room" type="button">
+                        <span><img src="../static/icons/clipboard.svg" class="copyimage" alt="Copy to clipboard"></span>
+                    </button> <!-- possible bug with inspect element changing size exiting copy button svg size -->
+                </div>
+                <div class="input-group-append">
+                    <button id="copy-button" style="height: 100%;" class="btn btn-outline-secondary" data-clipboard-target="#room" type="button">
+                        <span><img src="../static/icons/open-link.svg" class="copyimage" alt="Copy to clipboard"></span>
+                    </button> <!-- possible bug with inspect element changing size exiting copy button svg size -->
+                </div>
+            </div>
+            <small id="codeHelp" class="form-text">Copy link or open in new tab.</small>
+            <br>
+            <div class="buttoncontainer" onclick="redirect(document.getElementById('code').value)">
+                <button type="button" class="indexbutton">
+                    NEW RANDOM LINK
+                    <div class="fill fill-two"></div>
+                </button>
+            </div>
         </div>
         <div class="col-md-3">
 
@@ -45,4 +66,5 @@
   </div>
   <script src="{% static '/for.js' %}"></script>
 -->
+    <script src="{% static '/clipboard.js' %}"></script>
 {% endblock %}
