@@ -58,7 +58,7 @@
           <div class="row" style="width: 100%;">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-              <select class="js-example-basic-single" id="id_label_single" style="width: 100%;">
+              <select id="searchbox" style="width: 100%;">
                 <option value=""></option>  
                 {% for service in services %}
                   <option value="{{ service.slug }}">{{ service.name }}</option>
