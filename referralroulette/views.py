@@ -23,6 +23,7 @@ def for_service(request, slug):
         'services': ServiceModel.objects.all(),
         'for_service': ServiceModel.objects.get(slug=slug),
         'link': link,
+        'users': len(links)
     }
     # should have a try except here of ServiceModel.DoesNotExist
     return render(request, "for.html", context)

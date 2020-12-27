@@ -31,44 +31,39 @@
             </div>
             <small id="codeHelp" class="form-text">Copy link or open in a new tab.</small>
             <br>
-            <div class="buttoncontainer" onclick="redirect(document.getElementById('code').value)">
+            <div class="buttoncontainer" onclick="generatenew()">
                 <button type="button" class="indexbutton">
                     NEW RANDOM LINK
                     <div class="fill fill-two"></div>
                 </button>
             </div>
         </div>
-        <div class="col-md-3" style="text-align: left;">
-          <h4>{{ for_service.name }} Referral Link Statistics:</h4>
-          <p>Popularity (clicks): {{ for_service.clicks }}</p>
-          <input type="text" style="position: absolute; left: -999em" id="url">
-          <button id="copy-button-url" style="height: 60px;" class="btn btn-outline-secondary" data-clipboard-target="#url" type="button">
-            <span><img src="../static/icons/clipboard.svg" class="copyimage" alt="Copy to clipboard"> Copy page URL</span>
-          </button>
+        <div class="col-md-3" style="position: static;">
+          <div style="text-align: left;">
+            <h4>{{ for_service.name }} Referral Link Statistics:</h4>
+            <h6>Popularity (clicks): {{ for_service.clicks }}</h6>
+            <h6>Users: {{ users }}</h6>
+          </div>
+          <div style="bottom: 0; margin-top: auto;">
+            <input type="text" style="position: absolute; left: -999em" id="url">
+            <button id="copy-button-url" style="height: 60px;" class="btn btn-outline-secondary" data-clipboard-target="#url" type="button">
+              <span><img src="../static/icons/clipboard.svg" class="copyimage" alt="Copy to clipboard"><span style="margin-left: 10px; font-weight: bold;">Copy page URL</span></span>
+            </button>
+          </div>
         </div>
         <div class="col-md-1"></div>
       </div>
     </div>
   </div>
   <br>
-  <!--
-  <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="{% static '/for.js' %}"></script>
--->
+  <script>
+    function generatenew(){
+      fetch("/api/generatereferral/{{ for_service.slug }}").then(function(response) {
+          response.text().then(function(text) {
+            document.getElementById('link').value = text;
+          });
+      });
+    }
+  </script>
+
 {% endblock %}
