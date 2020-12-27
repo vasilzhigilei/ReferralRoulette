@@ -1,3 +1,4 @@
+{% load socialaccount %}
 <html>
   <head>
     <!-- Required meta tags -->
@@ -37,6 +38,19 @@
           <div class="col-md-1"></div>
           <div class="col-md-5">
             <a href="/" class="h1 navbar-brand nomargin">ReferralRoulette</a>
+            {% if user.is_authenticated %}
+              <!-- Sign out button -->
+              <form method="post" action="{% url 'account_logout' %}">
+                {% csrf_token %}
+                {% if redirect_field_value %}
+                  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                {% endif %}
+                <button class="btn btn-outline-danger pull-right" name="next" value="/" role="button" type="submit">Logout</button>
+              </form>
+            {% else %}
+              <!-- Log in/Sign up button -->
+              <a class="btn btn-outline-success pull-right" name="next" value="/" role="button" href="{% provider_login_url 'google' %}">Log in/Sign up with Google</a>
+            {% endif %}
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
