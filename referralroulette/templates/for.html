@@ -12,9 +12,6 @@
             {% for tag in for_service.tags.all %}
                 <a href="/category/{{ tag.slug }}" class="for-badge badge rounded-pill bg-info text-dark">#{{ tag }}</a>
             {% endfor %}
-            <a class="btn btn-primary" style="background-color: #dd4b39" href="#!" role="button"
-  ><i class="fab fa-google"></i
-></a>
         </div>
         <div class="col-md-4">
             <h5 style="text-align: left;">{{ for_service.description }}</h5>
@@ -42,9 +39,12 @@
             </div>
         </div>
         <div class="col-md-3" style="text-align: left;">
-            <h4>{{ for_service.name }} Referral Link Statistics:</h4>
-            <p>Popularity (clicks): {{ for_service.clicks }}</p>
-            <p>Active: {{ for_service.active }}</p>
+          <h4>{{ for_service.name }} Referral Link Statistics:</h4>
+          <p>Popularity (clicks): {{ for_service.clicks }}</p>
+          <input type="text" style="position: absolute; left: -999em" id="url">
+          <button id="copy-button-url" style="height: 60px;" class="btn btn-outline-secondary" data-clipboard-target="#url" type="button">
+            <span><img src="../static/icons/clipboard.svg" class="copyimage" alt="Copy to clipboard"> Copy page URL</span>
+          </button>
         </div>
         <div class="col-md-1"></div>
       </div>

@@ -16,17 +16,26 @@ $(document).ready(function(){
     }, 1000);
   }
 
-  // Clipboard
-
+  // Clipboard for link
   var clipboard = new ClipboardJS('#copy-button');
-
   clipboard.on('success', function(e) {
     setTooltip(e.trigger, 'Copied!');
     hideTooltip(e.trigger);
   });
-
   clipboard.on('error', function(e) {
     setTooltip(e.trigger, 'Failed!');
     hideTooltip(e.trigger);
   });
+
+  // Clipboard for page URL copy
+  var clipboard = new ClipboardJS('#copy-button-url');
+  clipboard.on('success', function(e) {
+    setTooltip(e.trigger, 'Copied!');
+    hideTooltip(e.trigger);
+  });
+  clipboard.on('error', function(e) {
+    setTooltip(e.trigger, 'Failed!');
+    hideTooltip(e.trigger);
+  });
+  document.getElementById('url').value = document.URL;
 });
