@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
 ]
 
+LOGIN_REDIRECT_URL = "/"
+
 SITE_ID = 1
 
 # Provider specific settings
