@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import ServiceModel, ReferralModel
+from .forms import ProfileForm, ReferralForm
 import random
 from datetime import datetime
 random.seed(datetime.now())
@@ -37,7 +38,14 @@ def generate_referral(request, service):
         return HttpResponse(links[i])
 
 def profile(request):
-    return render(request, "profile.html")
+    form = ReferralForm(request.POST or None)
+    choices = ServiceModel.objects.all()
+    form['link'].choices = choices
+    context = {
+        'form': form,
+    }
+    print(form)
+    return render(request, "profile.html", context)
 
 def categories(request):
     return render(request, "categories.html")

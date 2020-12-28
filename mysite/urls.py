@@ -30,6 +30,7 @@ urlpatterns = [
     path('api/generatereferral/<str:service>', views.generate_referral, name='generate_referral'),
     path('categories', views.categories, name='categories'),
     path('faq', views.faq, name='faq'),
+    path('profile', views.profile, name='profile'),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),

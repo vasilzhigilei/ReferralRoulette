@@ -66,7 +66,7 @@
                   </li>
                   {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/profile' %}active{% endif %}" href="/profile">Profile</a>
+                        <a class="nav-link {% if request.path == '/profile' %}active{% endif %}" href="/profile">My Profile</a>
                     </li>
                   {% endif %}
                   <li class="nav-item">
@@ -94,20 +94,16 @@
     </div>
     <!-- Second navbar row -->
     <div class="navbar navbar-default navbar-expand-md navbar-dark bg-darkblue">
-      <div class="container">
-        <div class="row" style="width: 100%;">
-          <div class="col-md-3"></div>
-          <div class="col-md-6">
-            <select id="searchbox">
-              <option value=""></option>  
-              {% for service in services %}
-                <option value="{{ service.slug }}">{{ service.name }}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="col-md-3"></div>
-        </div>
+      <div class="col-md-3 col-lg-4"></div>
+      <div class="col-md-6 col-lg-4">
+        <select id="searchbox">
+          <option value=""></option>  
+          {% for service in services %}
+            <option value="{{ service.slug }}">{{ service.name }}</option>
+          {% endfor %}
+        </select>
       </div>
+      <div class="col-md-3 col-lg-4"></div>
     </div>
     <!-- STOP HEADER -->
 

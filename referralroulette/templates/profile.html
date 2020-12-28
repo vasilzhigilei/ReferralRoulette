@@ -1,4 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
-
+<div class="bg-lightsandywhite">
+    <div class="container" style="text-align: center;">
+        <br>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+            <form id="referralform" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-auto">
+                        {{ form.service }}
+                        <small class="form-text">Add link for...</small>
+                    </div>
+                    <div class="col">
+                        {{ form.link }}
+                        <small class="form-text">Paste referral link here.</small>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-success">Add link</button>
+                    </div>
+                </div>
+                <br>
+            </form>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <br>
+    </div>
+</div>
 {% endblock %}
