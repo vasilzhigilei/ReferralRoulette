@@ -56,33 +56,33 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav" style="margin-left: auto;">
                   <li class="nav-item">
-                    <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">Featured</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link {% if request.path == '/categories' %}active{% endif %}" href="/categories">Categories</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {% if request.path == '/about' %}active{% endif %}" href="/about">About & FAQ</a>
+                    <a class="nav-link {% if request.path == '/faq' %}active{% endif %}" href="/faq">FAQ</a>
                   </li>
                   {% if user.is_authenticated %}
-                  <li class="nav-item">
-                      <a class="nav-link {% if request.path == '/profile' %}active{% endif %}" href="/profile">My Profile</a>
-                  </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/profile' %}active{% endif %}" href="/profile">Profile</a>
+                    </li>
                   {% endif %}
                   <li class="nav-item">
                     {% if user.is_authenticated %}
-                <!-- Sign out button -->
-                <form method="post" action="{% url 'account_logout' %}">
-                  {% csrf_token %}
-                  {% if redirect_field_value %}
-                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-                  {% endif %}
-                  <button class="btn btn-outline-danger pull-right" name="next" value="/" role="button" type="submit">Logout</button>
-                </form>
-              {% else %}
-                <!-- Log in/Sign up button -->
-                <a class="btn btn-outline-success pull-right" name="next" value="/" role="button" href="{% provider_login_url 'google' %}">Log in with Google</a>
-              {% endif %}
+                      <!-- Sign out button -->
+                      <form method="post" action="{% url 'account_logout' %}">
+                        {% csrf_token %}
+                        {% if redirect_field_value %}
+                          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                        {% endif %}
+                        <button class="btn btn-outline-danger auth-button" name="next" value="/" role="button" type="submit">Logout</button>
+                      </form>
+                    {% else %}
+                      <!-- Log in/Sign up button -->
+                      <a class="btn btn-outline-success auth-button" name="next" value="/" role="button" href="{% provider_login_url 'google' %}">Log in with Google</a>
+                    {% endif %}
                   </li>
                 </ul>
               </div>
@@ -98,7 +98,7 @@
         <div class="row" style="width: 100%;">
           <div class="col-md-3"></div>
           <div class="col-md-6">
-            <select id="searchbox" style="width: 100%;">
+            <select id="searchbox">
               <option value=""></option>  
               {% for service in services %}
                 <option value="{{ service.slug }}">{{ service.name }}</option>

@@ -35,3 +35,12 @@ def generate_referral(request, service):
     else:
         i = random.randint(0,len(links))
         return HttpResponse(links[i])
+
+def profile(request):
+    return render(request, "profile.html")
+
+def categories(request):
+    return render(request, "categories.html")
+
+def faq(request):
+    return render(request, "faq.html")
