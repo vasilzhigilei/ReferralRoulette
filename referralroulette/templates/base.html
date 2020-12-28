@@ -42,49 +42,53 @@
   <body class="bg-sandywhite">
     <!-- START HEADER -->
     <!-- First navbar row -->
-    <div class="navbar navbar-expand-lg navbar-light bg-lightsandywhite">
+    <div class="bg-lightsandywhite">
       <div class="container">
-        <a href="/" class="h1 navbar-brand nomargin">ReferralRoulette</a>
-        
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
-                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i title="" class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav" style="margin-left: auto;">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/lookup">User Lookup</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/leaderboard">Leaderboard</a>
-            </li>
-            {% if user.is_authenticated %}
-            <li class="nav-item">
-                <a class="nav-link" href="/profile">My Profile</a>
-            </li>
-            {% endif %}
-            <li class="nav-item">
-              {% if user.is_authenticated %}
-          <!-- Sign out button -->
-          <form method="post" action="{% url 'account_logout' %}">
-            {% csrf_token %}
-            {% if redirect_field_value %}
-              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-            {% endif %}
-            <button class="btn btn-outline-danger pull-right" name="next" value="/" role="button" type="submit">Logout</button>
-          </form>
-        {% else %}
-          <!-- Log in/Sign up button -->
-          <a class="btn btn-outline-success pull-right" name="next" value="/" role="button" href="{% provider_login_url 'google' %}">Log in with Google</a>
-        {% endif %}
-            </li>
-          </ul>
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+            <div class="navbar navbar-expand-lg navbar-light">
+              <a href="/" class="h1 navbar-brand nomargin">ReferralRoulette</a>
+              <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+                          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <i title="" class="fa fa-bars"></i>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav" style="margin-left: auto;">
+                  <li class="nav-item">
+                    <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">Home<span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link {% if request.path == '/categories' %}active{% endif %}" href="/categories">Categories</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link {% if request.path == '/about' %}active{% endif %}" href="/about">About & FAQ</a>
+                  </li>
+                  {% if user.is_authenticated %}
+                  <li class="nav-item">
+                      <a class="nav-link {% if request.path == '/profile' %}active{% endif %}" href="/profile">My Profile</a>
+                  </li>
+                  {% endif %}
+                  <li class="nav-item">
+                    {% if user.is_authenticated %}
+                <!-- Sign out button -->
+                <form method="post" action="{% url 'account_logout' %}">
+                  {% csrf_token %}
+                  {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                  {% endif %}
+                  <button class="btn btn-outline-danger pull-right" name="next" value="/" role="button" type="submit">Logout</button>
+                </form>
+              {% else %}
+                <!-- Log in/Sign up button -->
+                <a class="btn btn-outline-success pull-right" name="next" value="/" role="button" href="{% provider_login_url 'google' %}">Log in with Google</a>
+              {% endif %}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-1"></div>
         </div>
       </div>
     </div>
