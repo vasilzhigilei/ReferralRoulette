@@ -38,13 +38,13 @@
                 </button>
             </div>
         </div>
-        <div class="col-md-3" style="position: static;">
+        <div class="col-md-3">
           <div style="text-align: left;">
             <h4>{{ for_service.name }} Referral Link Statistics:</h4>
             <h6>Popularity (clicks): {{ for_service.clicks }}</h6>
             <h6>Users: {{ users }}</h6>
           </div>
-          <div style="bottom: 0; margin-top: auto;">
+          <div>
             <input type="text" style="position: absolute; left: -999em" id="url">
             <button id="copy-button-url" style="height: 60px;" class="btn btn-outline-secondary" data-clipboard-target="#url" type="button">
               <span><img src="../static/icons/clipboard.svg" class="copyimage" alt="Copy to clipboard"><span style="margin-left: 10px; font-weight: bold;">Copy page URL</span></span>
