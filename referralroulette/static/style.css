@@ -257,3 +257,9 @@ a {
 .tooltip {
     pointer-events: none;
 }
+
+.nav-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
