@@ -29,7 +29,7 @@ class ProfileForm(forms.ModelForm):
         }
 
 class ReferralForm(forms.ModelForm):
-    service = forms.ModelChoiceField(queryset=ServiceModel.objects.all(), widget=forms.Select(attrs={'class': 'form-control forminput'}))
+    service = forms.ModelChoiceField(queryset=ServiceModel.objects.all(), to_field_name="name", widget=forms.Select(attrs={'class': 'form-control forminput'}))
     class Meta:
         model = ReferralModel
         fields = ('service', 'link')

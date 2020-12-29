@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
+from django.urls import reverse
 from .models import ServiceModel, ReferralModel
 from .forms import ProfileForm, ReferralForm
 import random
@@ -40,15 +41,21 @@ def generate_referral(request, service):
 
 def profile(request):
     form = ReferralForm(request.POST or None)
-    form['link'].choices = ServiceModel.objects.all()
 
     user_links = ReferralModel.objects.filter(email=request.user.email)
     if form.is_valid():
         referral = form.save(commit=False)
         referral.email = request.user.email
-        referral.save()
-        messages.success(
-            request, "Successfully added link!")
+        print(request.user.email, request.POST.get('service'))
+        print(ReferralModel.objects.filter(email=request.user.email, service=request.POST.get('service')))
+        num_results = ReferralModel.objects.filter(email=request.user.email, service=request.POST.get('service')).count()
+        print(num_results)
+        if num_results != 0:
+            messages.error(request, "Referral link already exists.")
+        else:    
+            referral.save()
+            messages.success(request, "Successfully added link!")
+        return HttpResponseRedirect(reverse('profile'))
     context = {
         'form': form,
         'user_links': user_links,

@@ -7,48 +7,48 @@
             <div class="col-md-3"></div>
             <div class="col-md-6">
                 {% if messages %}
-                <div class="messages">
-                    {% for message in messages %}
-                        <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{message}}</div>
-                    {% endfor %}
-                </div>
-            {% endif %}
-            <form id="referralform" method="POST">
-                {% csrf_token %}
-                <div class="row">
-                    <div class="col-auto">
-                        {{ form.service }}
-                        <small class="form-text">Add link for...</small>
+                    <div class="messages">
+                        {% for message in messages %}
+                            <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{message}}</div>
+                        {% endfor %}
                     </div>
-                    <div class="col">
-                        {{ form.link }}
-                        <small class="form-text">Paste referral link here.</small>
+                {% endif %}
+                <form id="referralform" method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-auto">
+                            {{ form.service }}
+                            <small class="form-text">Add link for...</small>
+                        </div>
+                        <div class="col">
+                            {{ form.link }}
+                            <small class="form-text">Paste referral link here.</small>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-success">Add link</button>
+                        </div>
                     </div>
-                    <div class="col-auto">
-                        <button type="submit" class="btn btn-success">Add link</button>
+                    <br>
+                </form>
+                {% for link in user_links %}
+                <form action="{% url 'delete_referral' link.service %}" method="POST">
+                    {% csrf_token %}
+                    <div class="row" style="text-align: left;">
+                        <div class="col-auto">
+                            {{ link.service }}
+                        </div>
+                        <div class="col">
+                            {{ link.link }}
+                        </div>
+                        <div class="col-auto">
+                            {{ link.clicks }}
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-outline-danger">Delete</button>
+                        </div>
                     </div>
-                </div>
-                <br>
-            </form>
-            {% for link in user_links %}
-            <form id="delete" action="{% url 'delete_referral' link.service %}" method="POST">
-                {% csrf_token %}
-                <div class="row" style="text-align: left;">
-                    <div class="col-auto">
-                        {{ link.service }}
-                    </div>
-                    <div class="col">
-                        {{ link.link }}
-                    </div>
-                    <div class="col-auto">
-                        {{ link.clicks }}
-                    </div>
-                    <div class="col-auto">
-                        <button type="submit" class="btn btn-outline-danger">Delete</button>
-                    </div>
-                </div>
-            </form>
-            {% endfor %}
+                </form>
+                {% endfor %}
             </div>
             <div class="col-md-3"></div>
         </div>
