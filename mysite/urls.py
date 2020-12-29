@@ -31,6 +31,7 @@ urlpatterns = [
     path('categories', views.categories, name='categories'),
     path('faq', views.faq, name='faq'),
     path('profile', views.profile, name='profile'),
+    path('api/deletereferral/<str:service>', views.delete_referral, name='delete_referral'),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),

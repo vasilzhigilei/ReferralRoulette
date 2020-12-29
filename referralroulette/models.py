@@ -22,4 +22,4 @@ class ReferralModel(models.Model):
     service = models.CharField(max_length=30)
     link = models.CharField(max_length=100)
     email = models.CharField(max_length=50)
-    clicks = models.IntegerField()
+    clicks = models.IntegerField(default=0)
