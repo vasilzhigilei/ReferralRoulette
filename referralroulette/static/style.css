@@ -130,7 +130,6 @@ a {
 .buttoncontainer {
     text-align: center;
     position: relative;
-    width: 300px;
     margin: 10px auto;
     cursor: pointer;
     z-index: 10;
@@ -140,8 +139,7 @@ a {
 .indexbutton {
     color: white;
     position: relative;
-    height: 50px;
-    width: 280px;
+    padding: 10px 20px;
     border: 0;
     border-radius: 5px;
     text-transform: uppercase;
@@ -156,10 +154,10 @@ a {
     position: absolute;
     background-image: linear-gradient(to right, #E040FB, #00BCD4);
     background-size: 150% 150%;
-    height: 70px;
+    height: 100px;
     width: 420px;
     border-radius: 5px;
-    margin: -40px 0 0 -140px;
+    margin: -80px 0 0 -140px;
     z-index: -1;
     transition: all 0.4s ease;
 }

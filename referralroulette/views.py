@@ -10,7 +10,7 @@ random.seed(datetime.now())
 
 def index(request):
     context = {
-        'services': ServiceModel.objects.all(),
+        'services': ServiceModel.objects.all(), # for the search bar, all pages
     }
     return render(request, "index.html", context)
 
@@ -23,7 +23,7 @@ def for_service(request, slug):
         i = random.randint(0,len(links))
         link = links[i]
     context = {
-        'services': ServiceModel.objects.all(),
+        'services': ServiceModel.objects.all(), # for the search bar, all pages
         'for_service': ServiceModel.objects.get(slug=slug),
         'link': link,
         'users': len(links)
@@ -54,6 +54,7 @@ def profile(request):
             messages.success(request, "Successfully added link!")
         return HttpResponseRedirect(reverse('profile'))
     context = {
+        'services': ServiceModel.objects.all(), # for the search bar, all pages
         'form': form,
         'user_links': user_links,
     }
