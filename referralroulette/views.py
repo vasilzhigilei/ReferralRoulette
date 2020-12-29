@@ -46,10 +46,7 @@ def profile(request):
     if form.is_valid():
         referral = form.save(commit=False)
         referral.email = request.user.email
-        print(request.user.email, request.POST.get('service'))
-        print(ReferralModel.objects.filter(email=request.user.email, service=request.POST.get('service')))
         num_results = ReferralModel.objects.filter(email=request.user.email, service=request.POST.get('service')).count()
-        print(num_results)
         if num_results != 0:
             messages.error(request, "Referral link already exists.")
         else:    

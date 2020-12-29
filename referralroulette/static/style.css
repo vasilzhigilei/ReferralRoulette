@@ -229,3 +229,29 @@ a {
     width: 100%;
     margin: auto;
 }
+
+.profile-referral-link-row {
+    text-align: left;
+    border-radius: 5px;
+    padding: 6px 0px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #123C69;
+    margin-left: 0; /* keep row in middle with rest of content */
+    margin-right: 0; /* bootstrap rows have extra neg margins */
+    display: flex;
+    align-items: center;
+}
+
+.profile-referral-link-child {
+    vertical-align: middle;
+    display: table-cell;
+    font-weight: bold;
+    white-space: nowrap; 
+    overflow: auto;
+    overflow-y: hidden;
+}
+
+.tooltip {
+    pointer-events: none;
+}

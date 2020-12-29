@@ -33,18 +33,21 @@
                 {% for link in user_links %}
                 <form action="{% url 'delete_referral' link.service %}" method="POST">
                     {% csrf_token %}
-                    <div class="row" style="text-align: left;">
-                        <div class="col-auto">
+                    <div class="row bg-sandywhite profile-referral-link-row">
+                        <div class="col-auto profile-referral-link-child">
                             {{ link.service }}
                         </div>
-                        <div class="col">
+                        <div class="col profile-referral-link-child">
                             {{ link.link }}
                         </div>
-                        <div class="col-auto">
-                            {{ link.clicks }}
+                        <div class="col-auto profile-referral-link-child">
+                            Clicks:&nbsp;{{ link.clicks }}
                         </div>
-                        <div class="col-auto">
-                            <button type="submit" class="btn btn-outline-danger">Delete</button>
+                        <div class="col-auto profile-referral-link-child">
+                            <button type="submit" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                            <!-- known bootstrap tooltip disappearing bug here -->
                         </div>
                     </div>
                 </form>
