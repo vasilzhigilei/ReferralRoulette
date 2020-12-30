@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 from django.urls import reverse
+from django.template.defaultfilters import slugify
 from .models import ServiceModel, ReferralModel
 from .forms import ProfileForm, ReferralForm
 import random
@@ -16,7 +17,7 @@ def index(request):
     return render(request, "index.html", context)
 
 def for_service(request, slug):
-    links = ReferralModel.objects.filter(service=slug)
+    links = ReferralModel.objects.filter(slug=slug)
     link = ""
     if len(links) == 0:
         link = "No links error"
@@ -32,8 +33,8 @@ def for_service(request, slug):
     # should have a try except here of ServiceModel.DoesNotExist
     return render(request, "for.html", context)
 
-def generate_referral(request, service):
-    links = ReferralModel.objects.filter(service=service)
+def generate_referral(request, slug):
+    links = ReferralModel.objects.filter(slug=slug)
     if len(links) == 0:
         return HttpResponse("No referral links")
     else:
@@ -47,8 +48,8 @@ def profile(request):
     if form.is_valid():
         referral = form.save(commit=False)
         referral.email = request.user.email
-        num_results = ReferralModel.objects.filter(email=request.user.email, service=request.POST.get('service')).count()
-        print(referral)
+        referral.slug = slugify(request.POST.get('service'))
+        num_results = ReferralModel.objects.filter(email=request.user.email, slug=referral.slug).count()
         if num_results != 0:
             messages.error(request, "You've already added this app's link.")
         else:
@@ -62,9 +63,9 @@ def profile(request):
     }
     return render(request, "profile.html", context)
 
-def delete_referral(request, service):
+def delete_referral(request, slug):
     if request.method == 'POST':
-        ReferralModel.objects.filter(email=request.user.email, service=service).delete()
+        ReferralModel.objects.filter(email=request.user.email, slug=slug).delete()
         return HttpResponseRedirect(request.path)
     return HttpResponseRedirect("/profile")
 

@@ -27,11 +27,11 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('for/', RedirectView.as_view(url='/')), # empty for/ should redirect to index.html
     path('for/<slug:slug>', views.for_service, name='for_service'),
-    path('api/generatereferral/<str:service>', views.generate_referral, name='generate_referral'),
+    path('api/generatereferral/<str:slug>', views.generate_referral, name='generate_referral'),
     path('categories', views.categories, name='categories'),
     path('faq', views.faq, name='faq'),
     path('profile', views.profile, name='profile'),
-    path('api/deletereferral/<str:service>', views.delete_referral, name='delete_referral'),
+    path('api/deletereferral/<str:slug>', views.delete_referral, name='delete_referral'),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
