@@ -126,7 +126,12 @@
           <div class="col-md-2">
             <ul class="footer-list">
               <li><h6>ReferralRoulette</h6></li>
-              <li><h6><a href="/signup">Sign Up</a></h6></li>
+              {% if user.is_authenticated %}
+                <li><h6><a href="/profile">My Profile</a></h6></li>
+              {% else %}
+                <!-- Log in button -->
+                <li><h6><a name="next" value="/" role="button" href="{% provider_login_url 'google' %}">Log in</a></h6></li>
+              {% endif %}
               <li><h6><a href="/browse">Browse Codes</a></h6></li>
               <li><h6><a href="/blog">Blog</a></h6></li>
               <li><h6><a href="/about">About</a></h6></li>
