@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 from django.urls import reverse
 from django.template.defaultfilters import slugify
+from django.contrib.auth.decorators import login_required
 from .models import ServiceModel, ReferralModel
 from .forms import ProfileForm, ReferralForm
 import random
@@ -47,6 +48,7 @@ def generate_referral(request, slug):
         i = random.randint(0,len(links))
         return HttpResponse(links[i])
 
+@login_required(login_url='/accounts/google/login/')
 def profile(request):
     form = ReferralForm(request.POST or None)
 

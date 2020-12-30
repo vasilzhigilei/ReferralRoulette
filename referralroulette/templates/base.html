@@ -81,7 +81,7 @@
                       </form>
                     {% else %}
                       <!-- Log in/Sign up button -->
-                      <a class="btn btn-outline-success auth-button" name="next" value="/" role="button" href="{% provider_login_url 'google' %}">Log in with Google</a>
+                      <a class="btn btn-outline-success auth-button" href="{% provider_login_url 'google' %}?next={% firstof request.path '/' %}">Log in with Google</a>
                     {% endif %}
                   </li>
                 </ul>
@@ -130,7 +130,7 @@
                 <li><h6><a href="/profile">My Profile</a></h6></li>
               {% else %}
                 <!-- Log in button -->
-                <li><h6><a name="next" value="/" role="button" href="{% provider_login_url 'google' %}">Log in</a></h6></li>
+                <li><h6><a href="{% provider_login_url 'google' %}?next={% firstof request.path '/' %}">Log in</a></h6></li>
               {% endif %}
               <li><h6><a href="/browse">Browse Codes</a></h6></li>
               <li><h6><a href="/blog">Blog</a></h6></li>
