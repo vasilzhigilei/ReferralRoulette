@@ -23,7 +23,13 @@ def for_service(request, slug):
         link = "No links error"
     else:
         i = random.randint(0,len(links)-1)
-        link = links[i].link
+        link_object = links[i]
+        link_object.clicks += 1
+        link_object.save()
+        service_object = ServiceModel.objects.get(slug=slug)
+        service_object.clicks += 1
+        service_object.save()
+        link = link_object.link
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
         'for_service': ServiceModel.objects.get(slug=slug),
