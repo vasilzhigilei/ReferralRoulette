@@ -20,6 +20,12 @@ class ServiceModel(models.Model):
 
 class ReferralModel(models.Model):
     service = models.CharField(max_length=30)
-    link = models.CharField(max_length=100)
+    link = models.CharField(max_length=100, unique=True)
     email = models.CharField(max_length=50)
     clicks = models.IntegerField(default=0)
+
+class CategoryModel(models.Model):
+    name = models.CharField(max_length=30)
+    slug = models.SlugField(unique=True)
+    image = models.ImageField(upload_to="category_images",
+                              default="/category_images/missing.png")

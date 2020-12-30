@@ -1,6 +1,7 @@
 from django import forms
 from django.utils.translation import gettext_lazy
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 from .models import ReferralModel, ServiceModel
 
 class ProfileForm(forms.ModelForm):
@@ -35,4 +36,7 @@ class ReferralForm(forms.ModelForm):
         fields = ('service', 'link')
         widgets = {
             'link': forms.TextInput(attrs={'class': 'form-control'})
+        }
+        error_messages = {
+            'link': {'unique': "This referral link already exists."}
         }

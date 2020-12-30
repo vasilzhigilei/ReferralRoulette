@@ -11,6 +11,7 @@ random.seed(datetime.now())
 def index(request):
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
+        'top_services': ServiceModel.objects.order_by('-clicks')[0:20],
     }
     return render(request, "index.html", context)
 
@@ -47,9 +48,10 @@ def profile(request):
         referral = form.save(commit=False)
         referral.email = request.user.email
         num_results = ReferralModel.objects.filter(email=request.user.email, service=request.POST.get('service')).count()
+        print(referral)
         if num_results != 0:
-            messages.error(request, "Referral link already exists.")
-        else:    
+            messages.error(request, "You've already added this app's link.")
+        else:
             referral.save()
             messages.success(request, "Successfully added link!")
         return HttpResponseRedirect(reverse('profile'))

@@ -263,3 +263,25 @@ a {
     flex-direction: row;
     align-items: center;
 }
+
+/* height */
+.profile-referral-link-child::-webkit-scrollbar {
+    height: 8px;
+}
+  
+/* Track */
+.profile-referral-link-child::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 20px;
+}
+
+/* Handle */
+.profile-referral-link-child::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+.profile-referral-link-child::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
