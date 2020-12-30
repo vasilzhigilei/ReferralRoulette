@@ -23,11 +23,11 @@ def for_service(request, slug):
         link = "No links error"
     else:
         i = random.randint(0,len(links)-1)
-        link = links[i]
+        link = links[i].link
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
         'for_service': ServiceModel.objects.get(slug=slug),
-        'link': link.link,
+        'link': link,
         'users': len(links)
     }
     # should have a try except here of ServiceModel.DoesNotExist

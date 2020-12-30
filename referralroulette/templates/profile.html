@@ -45,7 +45,7 @@
                     <br>
                 </form>
                 {% for link in user_links %}
-                <form action="{% url 'delete_referral' link.service %}" method="POST">
+                <form action="{% url 'delete_referral' link.slug %}" method="POST">
                     {% csrf_token %}
                     <div class="row bg-sandywhite profile-referral-link-row">
                         <div class="col-auto profile-referral-link-child">
