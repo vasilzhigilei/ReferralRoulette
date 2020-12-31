@@ -46,8 +46,8 @@ def generate_referral(request, slug):
     if len(links) == 0:
         return HttpResponse("No referral links")
     else:
-        i = random.randint(0,len(links))
-        return HttpResponse(links[i])
+        i = random.randint(0,len(links)-1)
+        return HttpResponse(links[i].link)
 
 @login_required(login_url='/accounts/google/login/')
 def profile(request):
