@@ -14,6 +14,7 @@ def index(request):
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
         'top_services': ServiceModel.objects.order_by('-clicks')[0:20],
+        'categories': CategoryModel.objects.all(),
     }
     return render(request, "index.html", context)
 

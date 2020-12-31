@@ -1,15 +1,13 @@
-<div class="container" style="text-align: center;">
-    <div class="row">
-      <div class="col-md-12 padding categorylist">
-        {% for category in categories %}
-        <div class="categorycard hvr-shadow" id="{{ category.name }}">
-          <h5 class="categorycard-text">{{ category.name }}</h5>
-          <img class="categorycard-img" src="{{ category.image.url }}">
-          <a href="/categories/{{ category.slug }}">
-            <span class="link-spanner"></span>
-          </a>
-        </div>
-        {% endfor %}
+<div class="row">
+  <div class="col-md-12 padding categorylist">
+    {% for category in categories %}
+    <div class="categorycard hvr-shadow" id="{{ category.name }}">
+      <h5 class="categorycard-text">{{ category.name }}</h5>
+      <img class="categorycard-img" src="{{ category.image.url }}">
+      <a href="/categories/{{ category.slug }}">
+        <span class="link-spanner"></span>
+      </a>
     </div>
-    </div>
-  </div>
+    {% endfor %}
+</div>
+</div>
