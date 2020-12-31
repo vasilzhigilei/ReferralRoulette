@@ -1,18 +1,15 @@
 <div class="container" style="text-align: center;">
-    <br>
-    <h1 class="display-5">Earn rewards for yourself & others for free!</h1>
-    <h3 class="text-muted">Click on a card to be sent to a random user's referral link!</h1>
     <div class="row">
-        <div class="col-md-12 padding rounded servicelist">
-            {% for service in top_services %}
-            <div class="servicecard hvr-shadow" id="{{ service.name }}" style="background-color: {{ service.background_color }}; border-color: {{ service.text_color }}; color: {{ service.text_color }};">
-              <img class="servicecard-img" src="{{ service.image.url }}">
-              <h5 class="servicecard-text">{{ service.description }}</h5>
-              <a href="/for/{{ service.slug }}">
-                <span class="link-spanner"></span>
-              </a>
-            </div>
-            {% endfor %}
+      <div class="col-md-12 padding categorylist">
+        {% for category in categories %}
+        <div class="categorycard hvr-shadow" id="{{ category.name }}">
+          <h5 class="categorycard-text">{{ category.name }}</h5>
+          <img class="categorycard-img" src="{{ category.image.url }}">
+          <a href="/categories/{{ category.slug }}">
+            <span class="link-spanner"></span>
+          </a>
         </div>
+        {% endfor %}
+    </div>
     </div>
   </div>

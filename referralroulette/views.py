@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.urls import reverse
 from django.template.defaultfilters import slugify
 from django.contrib.auth.decorators import login_required
-from .models import ServiceModel, ReferralModel
+from .models import ServiceModel, ReferralModel, CategoryModel
 from .forms import ProfileForm, ReferralForm
 import random
 from datetime import datetime
@@ -79,7 +79,10 @@ def delete_referral(request, slug):
 
 
 def categories(request):
-    return render(request, "categories.html")
+    context = {
+        'categories': CategoryModel.objects.all(),
+    }
+    return render(request, "categories.html", context)
 
 def faq(request):
     return render(request, "faq.html")
