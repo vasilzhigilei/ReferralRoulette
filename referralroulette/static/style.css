@@ -335,3 +335,13 @@ a {
     max-height: 50%;
     max-width: 100%;
 }
+
+.topcategory-row {
+    border-style: solid;
+    border-width: 2px;
+}
+
+.topcategory-label {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+}

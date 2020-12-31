@@ -80,8 +80,14 @@ def delete_referral(request, slug):
 
 
 def categories(request):
+    categories = CategoryModel.objects.all()
+    top_of_categories = {}
+    for category in categories:
+        top_of_categories[category] = ServiceModel.objects.filter(tags__name__in=[category.slug]).order_by('-clicks')[0:8]
+    print(top_of_categories)
     context = {
-        'categories': CategoryModel.objects.all(),
+        'categories': categories,
+        'top_of_categories': top_of_categories,
     }
     return render(request, "categories.html", context)
 

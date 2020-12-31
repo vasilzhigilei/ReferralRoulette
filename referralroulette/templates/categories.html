@@ -5,4 +5,22 @@
         {% include "categories_section.html" %}
     </div>
 </div>
+<div class="bg-sandywhite">
+    <div class="container">
+        {% for category, queryset in top_of_categories.items %}
+            <div class="servicelist topcategory-row" style="border-color: {{ category.color }};">
+                <div>{{ category.name }}</div>
+                {% for service in queryset %}
+                    <div class="servicecard hvr-shadow" id="{{ service.name }}" style="background-color: {{ service.background_color }}; border-color: {{ service.text_color }}; color: {{ service.text_color }};">
+                        <img class="servicecard-img" src="{{ service.image.url }}">
+                        <h5 class="servicecard-text">{{ service.description }}</h5>
+                        <a href="/for/{{ service.slug }}">
+                        <span class="link-spanner"></span>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

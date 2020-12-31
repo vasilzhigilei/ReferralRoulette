@@ -28,5 +28,6 @@ class ReferralModel(models.Model):
 class CategoryModel(models.Model):
     name = models.CharField(max_length=30)
     slug = models.SlugField(unique=True)
+    color = ColorField(default='#212529')
     image = models.ImageField(upload_to="category_images",
                               default="/category_images/missing.png")
