@@ -24,7 +24,7 @@
                     </button> <!-- possible bug with inspect element changing size exiting copy button svg size -->
                 </div>
                 <div class="input-group-append">
-                    <button onclick="window.open('{{ link }}', '_blank');" id="open-button" style="height: 100%;" class="btn btn-outline-info" data-clipboard-target="#link" type="button">
+                    <button onclick="window.open(document.getElementById('link').value, '_blank');" id="open-button" style="height: 100%;" class="btn btn-outline-info" data-clipboard-target="#link" type="button">
                         <span><img src="../static/icons/open-link.svg" class="copyimage" alt="Open in new tab"></span>
                     </button> <!-- possible bug with inspect element changing size exiting copy button svg size -->
                 </div>

@@ -86,6 +86,7 @@ def categories(request):
         top_of_categories[category] = ServiceModel.objects.filter(tags__name__in=[category.slug]).order_by('-clicks')[0:8]
     print(top_of_categories)
     context = {
+        'services': ServiceModel.objects.all(), # for the search bar, all pages
         'categories': categories,
         'top_of_categories': top_of_categories,
     }
