@@ -38,5 +38,5 @@ class ReferralForm(forms.ModelForm):
             'link': forms.TextInput(attrs={'class': 'form-control'})
         }
         error_messages = {
-            'link': {'unique': "This referral link already exists."}
+            'link': {'unique': "This referral link already exists in the website."}
         }

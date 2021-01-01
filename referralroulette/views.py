@@ -93,4 +93,7 @@ def categories(request):
     return render(request, "categories.html", context)
 
 def faq(request):
-    return render(request, "faq.html")
+    context = {
+        'services': ServiceModel.objects.all(), # for the search bar, all pages
+    }
+    return render(request, "faq.html", context)
