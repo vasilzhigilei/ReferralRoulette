@@ -22,7 +22,7 @@ def for_service(request, slug):
     links = ReferralModel.objects.filter(slug=slug)
     link = ""
     if len(links) == 0:
-        link = "No links error"
+        link = "No referral links"
     else:
         i = random.randint(0,len(links)-1)
         link_object = links[i]
@@ -47,7 +47,14 @@ def generate_referral(request, slug):
         return HttpResponse("No referral links")
     else:
         i = random.randint(0,len(links)-1)
-        return HttpResponse(links[i].link)
+        link_object = links[i]
+        link_object.clicks += 1
+        link_object.save()
+        service_object = ServiceModel.objects.get(slug=slug)
+        service_object.clicks += 1
+        service_object.save()
+        link = link_object.link
+        return HttpResponse(link)
 
 @login_required(login_url='/accounts/google/login/')
 def profile(request):
