@@ -69,8 +69,14 @@ def profile(request):
         if num_results != 0:
             messages.error(request, "You've already added this app's link.")
         else:
-            referral.save()
-            messages.success(request, "Successfully added link!")
+            prefix = ServiceModel.objects.get(slug=referral.slug).prefix
+            if(len(referral.link) < len(prefix)):
+                messages.error(request, "Link does not match prefix: " + prefix)
+            elif (prefix != referral.link[0:len(prefix)]):
+                messages.error(request, "Link does not match prefix: " + prefix)
+            else:
+                referral.save()
+                messages.success(request, "Successfully added link!")
         return HttpResponseRedirect(reverse('profile'))
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
@@ -84,7 +90,6 @@ def delete_referral(request, slug):
         ReferralModel.objects.filter(email=request.user.email, slug=slug).delete()
         return HttpResponseRedirect(request.path)
     return HttpResponseRedirect("/profile")
-
 
 def categories(request):
     categories = CategoryModel.objects.all()
