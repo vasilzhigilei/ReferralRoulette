@@ -46,12 +46,14 @@ def for_service(request, slug):
         'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
+    for_service = ServiceModel.objects.get(slug=slug)
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
-        'for_service': ServiceModel.objects.get(slug=slug),
+        'for_service': for_service,
         'link': link,
         'users': len(links),
         'featured': featured,
+        'pagetitle': for_service.name,
     }
     # should have a try except here of ServiceModel.DoesNotExist
     return render(request, "for.html", context)
@@ -105,6 +107,7 @@ def profile(request):
         'form': form,
         'user_links': user_links,
         'featured': featured,
+        'pagetitle': 'My Profile',
     }
     return render(request, "profile.html", context)
 
@@ -131,6 +134,7 @@ def categories(request):
         'categories': categories,
         'top_of_categories': top_of_categories,
         'featured': featured,
+        'pagetitle': 'Categories'
     }
     return render(request, "categories.html", context)
 
@@ -141,11 +145,13 @@ def categories_tag(request, slug):
         'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
+    category = CategoryModel.objects.get(slug=slug).name
     context = {
         'services': ServiceModel.objects.filter(tags__name__in=[slug]),
         'categories': CategoryModel.objects.all(),
         'featured': featured,
-        'category': CategoryModel.objects.get(slug=slug).name,
+        'category': category,
+        'pagetitle': category,
     }
     return render(request, "categories_tag.html", context)
 
@@ -159,5 +165,6 @@ def faq(request):
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
         'featured': featured,
+        'pagetitle': 'FAQ',
     }
     return render(request, "faq.html", context)
