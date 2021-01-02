@@ -360,3 +360,13 @@ a {
 .topcategory-label:hover {
     color: rgb(216, 216, 216);
 }
+
+.link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: inherit;
+    text-decoration: none;
+}
