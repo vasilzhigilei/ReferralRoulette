@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="bg-lightsandywhite" style="text-align: center;">
+    <div class="container bg-lightimage">
+        <br>
+        <h1 class="display-5">Referral Link Categories</h1>
+        {% include "categories_section.html" %}
+    </div>
+</div>
+<div class="container">
+    <div class="container servicecontainer">
+        <br>
+        <h3 class="text-muted" style="margin-bottom: 15px;">Most Popular for {{ category }}</h3>
+        <div class="row">
+            <div class="col-md-12 padding rounded servicelist">
+                {% for service in services %}
+                <div class="servicecard hvr-shadow" id="{{ service.name }}" style="background-color: {{ service.background_color }}; border-color: {{ service.text_color }}; color: {{ service.text_color }};">
+                  <img class="servicecard-img" src="{{ service.image.url }}">
+                  <h5 class="servicecard-text">{{ service.description }}</h5>
+                  <a href="/for/{{ service.slug }}">
+                    <span class="link-spanner"></span>
+                  </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+      </div>
+</div>
+{% endblock %}

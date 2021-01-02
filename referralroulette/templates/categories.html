@@ -13,7 +13,7 @@
         <h3 class="text-muted" style="margin-bottom: 15px;">Most Popular for Each Category</h3>
         {% for category, queryset in top_of_categories.items %}
             <div class="row topcategory-row" style="border-color: {{ category.color }}; background-color: {{ category.color }}77;">
-                <a href="/category/{{ category.slug }}" class="col-2 col-sm-3 col-md-2 col-lg-1 topcategory-label" style="background-color: {{ category.color }};">
+                <a href="/categories/{{ category.slug }}" class="col-2 col-sm-3 col-md-2 col-lg-1 topcategory-label" style="background-color: {{ category.color }};">
                     <h5 style="margin:0; margin-right:5px;">{{ category.name }}</h5>
                 </a>
                 <div class="col-10 col-xs-9 col-sm-9 col-md-10 col-lg-11 servicelist">

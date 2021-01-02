@@ -11,10 +11,17 @@ from datetime import datetime
 random.seed(datetime.now())
 
 def index(request):
+    featured = {
+        'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
+        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
+        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
+    }
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
         'top_services': ServiceModel.objects.order_by('-clicks')[0:20],
         'categories': CategoryModel.objects.all(),
+        'featured': featured,
     }
     return render(request, "index.html", context)
 
@@ -86,10 +93,18 @@ def profile(request):
                 referral.save()
                 messages.success(request, "Successfully added link!")
         return HttpResponseRedirect(reverse('profile'))
+    
+    featured = {
+        'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
+        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
+        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
+    }
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
         'form': form,
         'user_links': user_links,
+        'featured': featured,
     }
     return render(request, "profile.html", context)
 
@@ -104,15 +119,45 @@ def categories(request):
     top_of_categories = {}
     for category in categories:
         top_of_categories[category] = ServiceModel.objects.filter(tags__name__in=[category.slug]).order_by('-clicks')[0:8]
+    
+    featured = {
+        'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
+        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
+        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
+    }
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
         'categories': categories,
         'top_of_categories': top_of_categories,
+        'featured': featured,
     }
     return render(request, "categories.html", context)
 
+def categories_tag(request, slug):
+    featured = {
+        'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
+        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
+        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
+    }
+    context = {
+        'services': ServiceModel.objects.filter(tags__name__in=[slug]),
+        'categories': CategoryModel.objects.all(),
+        'featured': featured,
+        'category': CategoryModel.objects.get(slug=slug).name,
+    }
+    return render(request, "categories_tag.html", context)
+
 def faq(request):
+    featured = {
+        'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
+        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
+        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
+    }
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
+        'featured': featured,
     }
     return render(request, "faq.html", context)

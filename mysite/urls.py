@@ -29,6 +29,7 @@ urlpatterns = [
     path('for/<slug:slug>', views.for_service, name='for_service'),
     path('api/generatereferral/<str:slug>', views.generate_referral, name='generate_referral'),
     path('categories', views.categories, name='categories'),
+    path('categories/<slug:slug>', views.categories_tag, name='categories_tag'),
     path('faq', views.faq, name='faq'),
     path('profile', views.profile, name='profile'),
     path('api/deletereferral/<str:slug>', views.delete_referral, name='delete_referral'),
