@@ -16,24 +16,22 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-"""
-Original for local only
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATIC_ROOT = os.path.join(BASE_DIR, 'referralroulette/static')
-MEDIA_URL = '/media/'
-STATIC_URL = '/static/'
-"""
+if 'AZURE' in os.environ:
+    DEFAULT_FILE_STORAGE = 'referralroulette.custom_azure.AzureMediaStorage'
+    STATICFILES_STORAGE = 'referralroulette.custom_azure.AzureStaticStorage'
 
-DEFAULT_FILE_STORAGE = 'referralroulette.custom_azure.AzureMediaStorage'
-STATICFILES_STORAGE = 'referralroulette.custom_azure.AzureStaticStorage'
+    STATIC_LOCATION = "static"
+    MEDIA_LOCATION = "media"
 
-STATIC_LOCATION = "static"
-MEDIA_LOCATION = "media"
-
-AZURE_ACCOUNT_NAME = "djangostorage"
-AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
-STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
-MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
+    AZURE_ACCOUNT_NAME = "djangostorage"
+    AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
+    STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+    MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
+else:
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    STATIC_ROOT = os.path.join(BASE_DIR, 'referralroulette/static')
+    MEDIA_URL = '/media/'
+    STATIC_URL = '/static/'
 
 
 # Quick-start development settings - unsuitable for production

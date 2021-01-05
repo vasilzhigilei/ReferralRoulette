@@ -101,6 +101,14 @@ footer {
     height: 110px;
 }
 
+@media (max-width: 768px) {
+    /* CSS that should be displayed if width is equal to or less than 768px goes here */
+    .servicecard {
+        width: 48%;
+        margin: 1%;
+    }
+  }
+
 .servicecard-text {
     display: -webkit-box;
     -webkit-line-clamp: 2;
