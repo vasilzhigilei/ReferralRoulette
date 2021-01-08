@@ -107,7 +107,7 @@ footer {
         width: 48%;
         margin: 1%;
     }
-  }
+}
 
 .servicecard-text {
     display: -webkit-box;
@@ -377,4 +377,8 @@ a {
 .link:hover {
     color: inherit;
     text-decoration: none;
+}
+  
+.select2 .select2-search--dropdown {
+    padding: 0;
 }

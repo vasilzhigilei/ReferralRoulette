@@ -10,7 +10,7 @@
             <br>
             <h4>{{ for_service.name }} Referral Link Tags:</h4>
             {% for tag in for_service.tags.all %}
-                <a href="/categories/{{ tag.slug }}" class="for-badge badge rounded-pill bg-info text-dark">#{{ tag }}</a>
+                <a href="/categories/{{ tag.slug }}" class="for-badge badge rounded-pill bg-info text-light">#{{ tag }}</a>
             {% endfor %}
         </div>
         <div class="col-md-4">
