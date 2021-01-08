@@ -4,6 +4,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     font-family: montserrat, Helvetica, sans-serif;
+    overflow-x: hidden;
 }
 
 .navbar {
