@@ -57,6 +57,7 @@ def for_service(request, slug):
         'users': len(links),
         'featured': featured,
         'pagetitle': for_service.name,
+        'categories': CategoryModel.objects.all(),
     }
     # should have a try except here of ServiceModel.DoesNotExist
     return render(request, "for.html", context)
