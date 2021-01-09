@@ -6,6 +6,8 @@ from django.template.defaultfilters import slugify
 from django.contrib.auth.decorators import login_required
 from .models import ServiceModel, ReferralModel, CategoryModel
 from .forms import ProfileForm, ReferralForm
+from taggit.models import Tag
+from django.db.models import Count
 import random
 from datetime import datetime
 random.seed(datetime.now())
@@ -129,12 +131,19 @@ def categories(request):
         'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
+
+    queryset = Tag.objects.all()
+    queryset2 = queryset.annotate(num_times=Count('taggit_taggeditem_items'))
+    words = []
+    for tag in queryset2:
+        words.append([tag.name, tag.num_times])
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
         'categories': categories,
         'top_of_categories': top_of_categories,
         'featured': featured,
-        'pagetitle': 'Categories'
+        'pagetitle': 'Categories',
+        'words': words
     }
     return render(request, "categories.html", context)
 

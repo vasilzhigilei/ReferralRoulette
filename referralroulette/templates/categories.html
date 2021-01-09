@@ -1,16 +1,45 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="bg-lightsandywhite" style="text-align: center;">
+{% load static %}
+<div class="bg-lightsandywhite topbottompadding" style="text-align: center;">
     <div class="container bg-lightimage">
         <br>
         <h1 class="display-5"><a class="link" href="/categories">Referral Link Categories</a></h1>
         {% include "categories_section.html" %}
     </div>
 </div>
-<br>
-<div class="bg-sandywhite" style="text-align: center;">
+<div class="bg-sandywhite topbottompadding" style="text-align: center;">
     <div class="container">
-        <h3 class="text-muted" style="margin-bottom: 15px;">Most Popular for Each Category</h3>
+        <script src="{% static '/wordcloud2.js' %}"></script>
+        <div id="my_canvas" class="word_cloud" style="width: 100%; height: 300px;"></div>
+        <script>
+            var options = {
+                weightFactor: function (size) {
+                    return (Math.min(size/100, 1.0)+1)*30; // min 30, max (1+1)*30 @ 100 clicks
+                },
+                backgroundColor: '#ece7e400',
+                shrinkToFit: true,
+                classes: "tag-cloud-item",
+                minRotation: 0,
+                maxRotation: 0,
+            }
+            options.list = {{ words|safe }};
+            var canvas = document.getElementById('my_canvas');
+            WordCloud(canvas, options);
+
+            canvas.addEventListener('wordcloudstop', function (e) {
+                $('.tag-cloud-item').each(function () {
+                    console.log("hi");
+                    var text = $(this).html();
+                    $(this).html('<a href="/categories/' + text + '">' + text + '</a>');
+                });
+            });
+        </script>
+    </div>
+</div>
+<div class="bg-lightsandywhite topbottompadding" style="text-align: center;">
+    <div class="container">
+        <h3 style="margin-bottom: 15px;">Most Popular for Each Category</h3>
         {% for category, queryset in top_of_categories.items %}
             <div class="row topcategory-row" style="border-color: {{ category.color }}; background-color: {{ category.color }}77;">
                 <a href="/categories/{{ category.slug }}" class="col-2 col-sm-3 col-md-2 col-lg-1 topcategory-label" style="background-color: {{ category.color }};">
