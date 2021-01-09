@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 {% load static %}
+{% load socialaccount %}
 <div class="bg-lightsandywhite">
     <div class="container" style="text-align: center;">
       <div class="row for-section">
@@ -15,21 +16,6 @@
         </div>
         <div class="col-md-4">
             <h5 style="text-align: left;">{{ for_service.description }}</h5>
-            <br>
-            <div class="input-group input-group-lg">
-                <input class="form-control" value="{{ link }}" type="text" id="link" style="font-weight: bold;" readonly>
-                <div class="input-group-append">
-                    <button id="copy-button" style="height: 100%;" class="btn btn-outline-secondary" data-clipboard-target="#link" type="button">
-                        <span><img src="{% static '/icons/clipboard.svg' %}" class="copyimage" alt="Copy to clipboard"></span>
-                    </button> <!-- possible bug with inspect element changing size exiting copy button svg size -->
-                </div>
-                <div class="input-group-append">
-                    <button onclick="window.open(document.getElementById('link').value, '_blank');" id="open-button" style="height: 100%;" class="btn btn-outline-info" data-clipboard-target="#link" type="button">
-                        <span><img src="{% static '/icons/open-link.svg' %}" class="copyimage" alt="Open in new tab"></span>
-                    </button> <!-- possible bug with inspect element changing size exiting copy button svg size -->
-                </div>
-            </div>
-            <small id="codeHelp" class="form-text">Copy link or open in a new tab.</small>
             <br>
             <div class="buttoncontainer" onclick="generatenew('{{ for_service.slug }}')">
                 <button type="button" class="indexbutton">
@@ -56,9 +42,56 @@
     </div>
   </div>
   <br>
+  <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+              <h5 style="text-align: left;">{{ for_service.description }}</h5>
+              <br>
+              <div class="input-group input-group-lg">
+                  <input class="form-control" value="{{ link }}" type="text" id="link" style="font-weight: bold;" readonly>
+                  <div class="input-group-append">
+                      <button id="copy-button" style="height: 100%;" class="btn btn-outline-secondary" data-clipboard-target="#link" type="button">
+                          <span><img src="{% static '/icons/clipboard.svg' %}" class="copyimage" alt="Copy to clipboard"></span>
+                      </button> <!-- possible bug with inspect element changing size exiting copy button svg size -->
+                  </div>
+                  <div class="input-group-append">
+                      <button onclick="window.open(document.getElementById('link').value, '_blank');" id="open-button" style="height: 100%;" class="btn btn-outline-info" data-clipboard-target="#link" type="button">
+                          <span><img src="{% static '/icons/open-link.svg' %}" class="copyimage" alt="Open in new tab"></span>
+                      </button> <!-- possible bug with inspect element changing size exiting copy button svg size -->
+                  </div>
+              </div>
+              <small id="codeHelp" class="form-text">Copy link or open in a new tab.</small>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+          <br>
+        </div>
+        <div class="modal-footer">
+          {% if user.is_authenticated %}
+            <a type="button" class="btn btn-secondary" href="/profile">
+              Add your own link
+            </a>
+          {% else %}
+            <!-- Log in button -->
+            <a type="button" class="btn btn-secondary" href="{% provider_login_url 'google' %}?next={% firstof request.path '/' %}">
+              Sign Up Now to earn rewards
+            </a>
+          {% endif %}
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- clipboard -->
   <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
   <script src="{% static '/clipboard.js' %}"></script>
   <script src="{% static '/for.js' %}"></script>
-
 {% endblock %}

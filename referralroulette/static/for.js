@@ -1,3 +1,9 @@
+var myModal = new bootstrap.Modal(document.getElementById('modal'), {
+    keyboard: false
+});
+
+myModal.show();
+
 function generatenew(slug){
     fetch("/api/generatereferral/" + slug).then(function(response) {
         response.text().then(function(text) {
@@ -6,6 +12,7 @@ function generatenew(slug){
                 strval = document.getElementById('clicks').textContent;
                 document.getElementById('clicks').textContent = (Number(strval) + 1).toString();
             };
+            myModal.show();
         });
     });
 }

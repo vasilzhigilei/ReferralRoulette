@@ -20,10 +20,9 @@ $(document).ready(function() {
                 "<div style='width: 100%; padding: 4px; color: gray;'>" +
                 (this.options.get("placeholder") || "")
                 + "</div>"
+            );
                 
-                );
-                
-                $('input.select2-search__field').prop('placeholder', 'Search here...');
+            $('input.select2-search__field').prop('placeholder', 'Search here...');
             return $rendered;
         };
 
