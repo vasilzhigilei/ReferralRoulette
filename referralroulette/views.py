@@ -52,6 +52,7 @@ def for_service(request, slug):
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
         'for_service': for_service,
+        'related': for_service.tags.similar_objects()[0:7],
         'link': link,
         'users': len(links),
         'featured': featured,

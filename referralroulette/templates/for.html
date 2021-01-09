@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-{% load static %}
-{% load socialaccount %}
-<div class="bg-lightsandywhite">
+  {% load static %}
+  {% load socialaccount %}
+  <div class="bg-lightsandywhite topbottompadding">
     <div class="container" style="text-align: center;">
       <div class="row for-section">
         <div class="col-md-1"></div>
@@ -41,7 +41,30 @@
       </div>
     </div>
   </div>
-  <br>
+  <!-- bottom section -->
+  <div class="bg-sandywhite topbottompadding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-7">
+
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            
+            <div class="card-body">
+              <h5 class="card-title">Related Services</h5>
+              {% for service in related %}
+                <h6 class="card-text"><a href="/for/{{ service.slug }}">{{ service.name }}</a></h6>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+    </div>
+  </div>
+  <!-- MODAL -->
   <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
