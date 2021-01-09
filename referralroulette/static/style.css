@@ -67,7 +67,7 @@ body {
 }
 
 .padding {
-    padding: 15px;
+    padding: 10px;
 }
 
 .center {
@@ -140,10 +140,6 @@ footer {
 a {
     text-decoration: none;
 }
-.for-section {
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
 
 .for-image {
     max-width: 100%;
@@ -158,7 +154,7 @@ a {
 .buttoncontainer {
     text-align: center;
     position: relative;
-    margin: 10px auto;
+    margin: 0 auto;
     cursor: pointer;
     z-index: 10;
     clear: both;
