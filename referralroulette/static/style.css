@@ -19,6 +19,10 @@ body {
     background-color: #123C69;
 }
 
+.bg-darksandywhite {
+    background-color: #dfd9d7;
+}
+
 .bg-sandywhite {
     background-color: #ece7e4;
 }
@@ -354,29 +358,6 @@ a {
 .categorycard-img {
     max-height: 50%;
     max-width: 100%;
-}
-
-.topcategory-row {
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 10px;
-    padding: 5px;
-    margin-bottom: 12px;
-    overflow: hidden;
-}
-
-.topcategory-label {
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    margin-top: -5px;
-    margin-left: -5px;
-    margin-right: 0px;
-    margin-bottom: -5px;
-    padding: 20px;
-    background-color: #6f6f6f;
-    color: whitesmoke;
-    text-align: center;
-    font-weight: 900;
 }
 
 .topcategory-label:hover {

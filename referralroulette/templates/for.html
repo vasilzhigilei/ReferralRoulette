@@ -93,7 +93,7 @@
               {% for category in categories %}
                 <div style="padding: 3px;">
                   <img src="{{ category.image.url }}" style="width: 24px; display: inline-block;">
-                  <h6 class="card-text" style="display: inline-block; margin-left: 10px;"><a href="/for/{{ category.slug }}">{{ category.name }}</a></h6>
+                  <h6 class="card-text" style="display: inline-block; margin-left: 10px;"><a href="/categories/{{ category.slug }}">{{ category.name }}</a></h6>
                 </div>
               {% endfor %}
             </div>
