@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-3 padding">
-            <img class="for-image" src="{{ for_service.image.url }}">
+            <img class="for-image" src="{{ for_service.image.url }}" style="filter: drop-shadow(0 0 2px {{ for_service.background_color }});">
             <br>
             <h4>{{ for_service.name }} Referral Link Tags:</h4>
             {% for tag in for_service.tags.all %}
@@ -91,8 +91,10 @@
             <div class="card-body">
               <h5 class="card-title">Browse Popular Categories</h5>
               {% for category in categories %}
-                <img src="{{ category.image.url }}" style="width: 20px; display: inline;">
-                <h6 class="card-text" style="display: inline; margin-left: 10px;"><a href="/for/{{ category.slug }}">{{ category.name }}</a></h6>
+                <div style="padding: 3px;">
+                  <img src="{{ category.image.url }}" style="width: 24px; display: inline-block;">
+                  <h6 class="card-text" style="display: inline-block; margin-left: 10px;"><a href="/for/{{ category.slug }}">{{ category.name }}</a></h6>
+                </div>
               {% endfor %}
             </div>
           </div>
@@ -107,7 +109,7 @@
       <div class="modal-content bg-lightsandywhite">
         <div class="modal-header text-center">
           <h5 class="modal-title w-100" id="modalLabel">
-            <img class="for-image" style="align-self: center;" src="{{ for_service.image.url }}"></h5>
+            <img class="for-image" style="align-self: center; filter: drop-shadow(0 0 2px {{ for_service.background_color }});" src="{{ for_service.image.url }}"></h5>
             <button type="button" style="margin-bottom: auto;" class="btn-close close" data-bs-dismiss="modal" aria-label="Close">
             </button>
         </div>
