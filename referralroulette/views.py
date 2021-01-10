@@ -156,13 +156,12 @@ def categories_tag(request, slug):
         'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
-    category = CategoryModel.objects.get(slug=slug).name
     context = {
         'services': ServiceModel.objects.filter(tags__name__in=[slug]),
         'categories': CategoryModel.objects.all(),
         'featured': featured,
-        'category': category,
-        'pagetitle': category,
+        'category': slug.title(),
+        'pagetitle': slug.title(),
     }
     return render(request, "categories_tag.html", context)
 

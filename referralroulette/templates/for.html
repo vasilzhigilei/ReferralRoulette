@@ -65,11 +65,12 @@
             <div class="card-body">
               <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
-                  <h5 class="card-title">More Information About the {{ for_service.name }} Referral Link</h5>
-                  <p class="card-text">{{ for_service.company_description }}</p>
+                  <h4 class="card-title">About the {{ for_service.name }} Referral Link</h4>
+                  <p class="card-text">{{ for_service.referral_description|safe }}</p>
                 </div>
                 <div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="about-tab">
-
+                  <h4 class="card-title">About {{ for_service.name }}</h4>
+                  <p class="card-text">{{ for_service.company_description|safe }}</p>
                 </div>
               </div>
             </div>
@@ -103,7 +104,7 @@
   <!-- MODAL -->
   <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-      <div class="modal-content">
+      <div class="modal-content bg-lightsandywhite">
         <div class="modal-header text-center">
           <h5 class="modal-title w-100" id="modalLabel">
             <img class="for-image" style="align-self: center;" src="{{ for_service.image.url }}"></h5>
