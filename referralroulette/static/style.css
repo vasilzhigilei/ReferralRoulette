@@ -151,6 +151,14 @@ a {
     margin-bottom: 3px;
 }
 
+.for-tab {
+    background-color: #ffffff00 !important;
+}
+
+.for-tab:hover {
+    border-color: #1266f1 !important;
+}
+
 .buttoncontainer {
     text-align: center;
     position: relative;
