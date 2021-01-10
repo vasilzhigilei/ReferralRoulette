@@ -108,6 +108,15 @@ footer {
         width: 48%;
         margin: 1%;
     }
+    .servicecard-two {
+        width: 99% !important;
+        margin: 2% 0.5% !important;
+    }
+}
+
+.servicecard-two {
+    width: 48%;
+    margin: 1%;
 }
 
 .servicecard-text {
