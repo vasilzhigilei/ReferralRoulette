@@ -48,9 +48,32 @@
         <div class="col-md-1"></div>
         <div class="col-md-7">
           <div class="card bg-lightsandywhite">
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                </li>
+              </ul>
+            </div>
             <div class="card-body">
-              <h5 class="card-title">More Information</h5>
-              <p class="card-text">Here</p>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  <h5 class="card-title">More Information</h5>
+                  <p class="card-text">Here</p>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+                </div>
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -69,8 +92,8 @@
             <div class="card-body">
               <h5 class="card-title">Browse Popular Categories</h5>
               {% for category in categories %}
-                <img src="{{ category.image.url }}" style="width: 30px;">
-                <h6 class="card-text"><a href="/for/{{ category.slug }}">{{ category.name }}</a></h6>
+                <img src="{{ category.image.url }}" style="width: 20px; display: inline;">
+                <h6 class="card-text" style="display: inline; margin-left: 10px;"><a href="/for/{{ category.slug }}">{{ category.name }}</a></h6>
               {% endfor %}
             </div>
           </div>
