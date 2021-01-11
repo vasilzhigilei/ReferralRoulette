@@ -77,6 +77,13 @@ def generate_referral(request, slug):
         link = link_object.link
         return HttpResponse(link)
 
+def redirect(request, slug):
+    try:
+        service = ServiceModel.objects.get(slug=slug)
+        return HttpResponseRedirect(service.default_link)
+    except ServiceModel.DoesNotExist:
+        return HttpResponseRedirect("/") # need some error page, and implement 404 management
+
 @login_required(login_url='/accounts/google/login/')
 def profile(request):
     form = ReferralForm(request.POST or None)

@@ -32,6 +32,7 @@ urlpatterns = [
     path('categories/<slug:slug>', views.categories_tag, name='categories_tag'),
     path('faq', views.faq, name='faq'),
     path('profile', views.profile, name='profile'),
+    path('redirect/<str:slug>', views.redirect, name='redirect'),
     path('api/deletereferral/<str:slug>', views.delete_referral, name='delete_referral'),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
