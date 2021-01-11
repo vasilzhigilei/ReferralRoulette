@@ -81,7 +81,7 @@
         <div class="col-md-3">
           <!-- Related Services Card -->
           <div class="card bg-lightsandywhite mb-3">
-            <div class="card-body mb">
+            <div class="card-body">
               <h5 class="card-title">Related Services</h5>
               {% for service in related %}
                 <h6 class="card-text"><a href="/for/{{ service.slug }}">{{ service.name }}</a></h6>
@@ -89,7 +89,7 @@
             </div>
           </div>
           <!-- Popular Categories -->
-          <div class="card bg-lightsandywhite">
+          <div class="card bg-lightsandywhite mb-3">
             <div class="card-body">
               <h5 class="card-title">Browse Popular Categories</h5>
               {% for category in categories %}
@@ -98,6 +98,17 @@
                   <h6 class="card-text" style="display: inline-block; margin-left: 10px;"><a href="/categories/{{ category.slug }}">{{ category.name }}</a></h6>
                 </div>
               {% endfor %}
+            </div>
+          </div>
+          <!-- Donate -->
+          <div class="card bg-lightsandywhite mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Support ReferralRoulette!</h5>
+              <form action="https://www.paypal.com/donate" method="post" target="_top" style="text-align: center;">
+                <input type="hidden" name="hosted_button_id" value="UMVAGQZNPCVUQ" />
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+              </form>
             </div>
           </div>
         </div>
