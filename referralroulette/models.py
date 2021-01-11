@@ -9,6 +9,7 @@ class ServiceModel(models.Model):
     company_description = models.CharField(max_length=3000, default="")
     referral_description = models.CharField(max_length=3000, default="")
     prefix = models.CharField(max_length=100)
+    default_link = models.CharField(max_length=100, default="")
     image = models.ImageField(upload_to="service_images",
                               default="/service_images/missing.png")
     background_color = ColorField(default='#F5F5F5')
