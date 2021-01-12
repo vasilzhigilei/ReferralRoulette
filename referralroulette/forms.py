@@ -2,7 +2,7 @@ from django import forms
 from django.utils.translation import gettext_lazy
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
-from .models import ReferralModel, ServiceModel
+from .models import ReferralModel, ServiceModel, ContactModel
 
 class ProfileForm(forms.ModelForm):
     class Meta:
@@ -39,4 +39,13 @@ class ReferralForm(forms.ModelForm):
         }
         error_messages = {
             'link': {'unique': "This referral link already exists in the website."}
+        }
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = ContactModel
+        fields = ('subject', 'message')
+        widgets = {
+            'subject': forms.TextInput(attrs={'class': 'form-control', 'required': 'required'}),
+            'message': forms.Textarea(attrs={'class': 'form-control', 'required': 'required'})
         }

@@ -89,6 +89,8 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+SOCIALACCOUNT_QUERY_EMAIL = True
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -173,6 +175,3 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-
-

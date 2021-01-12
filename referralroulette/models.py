@@ -34,3 +34,8 @@ class CategoryModel(models.Model):
     color = ColorField(default='#212529')
     image = models.ImageField(upload_to="category_images",
                               default="/category_images/missing.png")
+
+class ContactModel(models.Model):
+    from_email = models.EmailField()
+    subject = models.CharField(max_length=100)
+    message = models.CharField(max_length=3000)

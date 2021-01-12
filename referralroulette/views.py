@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.template.defaultfilters import slugify
 from django.contrib.auth.decorators import login_required
 from .models import ServiceModel, ReferralModel, CategoryModel
-from .forms import ProfileForm, ReferralForm
+from .forms import ProfileForm, ReferralForm, ContactForm
 from taggit.models import Tag
 from django.db.models import Count
 import random
@@ -61,6 +61,21 @@ def for_service(request, slug):
     }
     # should have a try except here of ServiceModel.DoesNotExist
     return render(request, "for.html", context)
+
+@login_required(login_url='/accounts/google/login/')
+def contact(request):
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            contact = form.save(commit=False)
+            contact.from_email = request.user.email
+            contact.save()
+            messages.success(request, "Successfully added link!")
+            return HttpResponseRedirect(reverse('contact'))
+    return render(request, "contact.html", {'form': form})
+
 
 def generate_referral(request, slug):
     links = ReferralModel.objects.filter(slug=slug)

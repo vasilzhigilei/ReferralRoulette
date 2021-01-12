@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import ServiceModel, ReferralModel, CategoryModel
+from .models import ServiceModel, ReferralModel, CategoryModel, ContactModel
 
 @admin.register(ServiceModel)
 class ServiceAdmin(admin.ModelAdmin):
@@ -24,3 +24,5 @@ admin.site.unregister(CategoryModel)
 admin.site.register(ServiceModel, ServiceAdmin)
 admin.site.register(ReferralModel, ReferralAdmin)
 admin.site.register(CategoryModel, CategoryAdmin)
+
+admin.site.register(ContactModel)
