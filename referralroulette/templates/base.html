@@ -42,7 +42,7 @@
     <script src="{% static '/searchbox.js' %}"></script>
     <script src="{% static '/sitewide.js' %}"></script>
   </head>
-  <body class="bg-sandywhite">
+  <body class="bg-lightsandywhite">
     <!-- START HEADER -->
     <!-- First navbar row -->
     <div class="bg-lightsandywhite">
@@ -69,7 +69,7 @@
                   </li>
                   {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/profile' %}active{% endif %}" href="/profile">My Profile</a>
+                        <a class="nav-link {% if request.path == '/profile' %}active{% endif %}" href="/profile">{{ user.email }}</a>
                     </li>
                   {% endif %}
                   <li class="nav-item">
