@@ -6,12 +6,7 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <script src="https://www.google.com/recaptcha/api.js"></script>
-                <script>
-                    function onSubmit(token) {
-                    document.getElementById("demo-form").submit();
-                    }
-                </script>
+                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
                 {% if messages %}
                     <div class="messages">
                         {% for message in messages %}
@@ -34,7 +29,7 @@
                     {% endfor %}
                 {% endif %}
                 <h1>Contact Us</h1>
-                <form method="post">
+                <form id="contactform" method="post">
                     {% csrf_token %}
                     <div>
                         {{ form.subject }}
@@ -44,11 +39,12 @@
                         {{ form.message }}
                     </div>
                     <br>
-                    <div class="form-actions">
-                        <button class="g-recaptcha btn btn-success" 
-                        data-sitekey="{{ site_key }}" 
-                        data-callback='onSubmit' 
-                        data-action='submit'>Submit</button>
+                    <div>
+                        <div class="g-recaptcha" data-sitekey="{{ site_key }}"></div>
+                    </div>
+                    <br>
+                    <div>
+                        <button class="btn btn-success" type="submit">Submit</button>
                     </div>
                 </form>
             </div>

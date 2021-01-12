@@ -10,6 +10,8 @@ from .forms import ProfileForm, ReferralForm, ContactForm
 from taggit.models import Tag
 from django.db.models import Count
 import random
+import json
+import urllib
 from datetime import datetime
 random.seed(datetime.now())
 
@@ -70,33 +72,31 @@ def contact(request):
     else:
         form = ContactForm(request.POST)
         if form.is_valid():
-            secret_key = settings.RECAPTCHA_SECRET_KEY
-
-            # captcha verification
-            data = {
-                'response': data.get('g-recaptcha-response'),
-                'secret': secret_key
+            recaptcha_response = request.POST.get('g-recaptcha-response')
+            url = 'https://www.google.com/recaptcha/api/siteverify'
+            payload = {
+                'secret': settings.RECAPTCHA_SECRET_KEY,
+                'response': recaptcha_response
             }
-            resp = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
-            result_json = resp.json()
+            data = urllib.parse.urlencode(payload).encode()
+            req = urllib.request.Request(url, data=data)
 
-            print(result_json)
-
-            if not result_json.get('success'):
-                messages.error(request, "Robot detected by reCAPTCHA")
+            response = urllib.request.urlopen(req)
+            result = json.loads(response.read().decode())
+            
+            if (not result['success']):  # make sure action matches the one from your template
+                messages.error(request, 'Invalid reCAPTCHA. Please try again.')
             else:
                 contact = form.save(commit=False)
                 contact.from_email = request.user.email
                 contact.save()
-                messages.success(request, "Successfully added link!")
+                messages.success(request, "Successfully sent!")
                 return HttpResponseRedirect(reverse('contact'))
     context = {
         'site_key': settings.RECAPTCHA_SITE_KEY,
         'form': form,
     }
-    print(context['site_key'])
     return render(request, "contact.html", context)
-
 
 def generate_referral(request, slug):
     links = ReferralModel.objects.filter(slug=slug)
