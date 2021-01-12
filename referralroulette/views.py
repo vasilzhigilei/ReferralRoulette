@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 from django.urls import reverse
@@ -69,12 +70,32 @@ def contact(request):
     else:
         form = ContactForm(request.POST)
         if form.is_valid():
-            contact = form.save(commit=False)
-            contact.from_email = request.user.email
-            contact.save()
-            messages.success(request, "Successfully added link!")
-            return HttpResponseRedirect(reverse('contact'))
-    return render(request, "contact.html", {'form': form})
+            secret_key = settings.RECAPTCHA_SECRET_KEY
+
+            # captcha verification
+            data = {
+                'response': data.get('g-recaptcha-response'),
+                'secret': secret_key
+            }
+            resp = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
+            result_json = resp.json()
+
+            print(result_json)
+
+            if not result_json.get('success'):
+                messages.error(request, "Robot detected by reCAPTCHA")
+            else:
+                contact = form.save(commit=False)
+                contact.from_email = request.user.email
+                contact.save()
+                messages.success(request, "Successfully added link!")
+                return HttpResponseRedirect(reverse('contact'))
+    context = {
+        'site_key': settings.RECAPTCHA_SITE_KEY,
+        'form': form,
+    }
+    print(context['site_key'])
+    return render(request, "contact.html", context)
 
 
 def generate_referral(request, slug):

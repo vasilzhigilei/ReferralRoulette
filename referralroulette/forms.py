@@ -46,6 +46,6 @@ class ContactForm(forms.ModelForm):
         model = ContactModel
         fields = ('subject', 'message')
         widgets = {
-            'subject': forms.TextInput(attrs={'class': 'form-control', 'required': 'required'}),
-            'message': forms.Textarea(attrs={'class': 'form-control', 'required': 'required'})
+            'subject': forms.TextInput(attrs={'placeholder': 'Subject', 'class': 'form-control', 'required': 'required'}),
+            'message': forms.Textarea(attrs={'placeholder': 'Message', 'class': 'form-control', 'required': 'required'})
         }
