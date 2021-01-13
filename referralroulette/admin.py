@@ -15,6 +15,9 @@ class ReferralAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
+class ContactAdmin(admin.ModelAdmin):
+    readonly_fields = ('time',)
+
 # unregister
 admin.site.unregister(ServiceModel)
 admin.site.unregister(ReferralModel)
@@ -25,4 +28,4 @@ admin.site.register(ServiceModel, ServiceAdmin)
 admin.site.register(ReferralModel, ReferralAdmin)
 admin.site.register(CategoryModel, CategoryAdmin)
 
-admin.site.register(ContactModel)
+admin.site.register(ContactModel, ContactAdmin)

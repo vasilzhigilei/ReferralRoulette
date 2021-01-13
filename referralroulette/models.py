@@ -1,6 +1,7 @@
 from django.db import models
 from taggit.managers import TaggableManager
 from colorfield.fields import ColorField
+from django.utils import timezone
 
 class ServiceModel(models.Model):
     name = models.CharField(max_length=30)
@@ -37,5 +38,6 @@ class CategoryModel(models.Model):
 
 class ContactModel(models.Model):
     from_email = models.EmailField()
+    time = models.DateTimeField(blank=True, default=timezone.now)
     subject = models.CharField(max_length=100)
     message = models.CharField(max_length=3000)
