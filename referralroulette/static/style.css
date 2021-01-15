@@ -385,3 +385,7 @@ a {
 .topbottompadding {
     padding: 15px 0;
 }
+
+.socialbutton {
+    padding: 2px !important;
+}

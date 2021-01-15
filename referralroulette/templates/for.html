@@ -32,12 +32,23 @@
             <h6>Popularity (link views): <span id="clicks">{{ for_service.clicks }}</span></h6>
             <h6>Users: {{ users }}</h6>
           </div>
-          <div class="mt-auto" style="margin: auto auto;">
+          <!-- AddToAny BEGIN -->
+          <div style="margin: auto;" class="a2a_kit a2a_kit_size_32 a2a_default_style">
+            <a class="a2a_button_facebook socialbutton"></a>
+            <a class="a2a_button_twitter socialbutton"></a>
+            <a class="a2a_button_pinterest socialbutton"></a>
+            <a class="a2a_button_reddit socialbutton"></a>
+            <a class="a2a_button_email socialbutton"></a>
+            <a class="a2a_button_copy_link socialbutton"></a>
+          </div>
+          <script async src="https://static.addtoany.com/menu/page.js"></script>
+          <!-- AddToAny END -->
+          <!--<div class="mt-auto" style="margin: auto auto;">
             <input type="text" style="position: absolute; left: -999em" id="url">
             <button id="copy-button-url" style="height: 48px;" class="btn btn-outline-secondary" data-clipboard-target="#url" type="button">
               <span><img src="{% static 'icons/clipboard.svg' %}" class="copyimage" alt="Copy to clipboard"><span style="margin-left: 10px; font-weight: bold;">Copy page URL</span></span>
             </button>
-          </div>
+          </div> -->
         </div>
         <div class="col-md-1"></div>
       </div>
@@ -194,4 +205,10 @@
   <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
   <script src="{% static '/clipboard.js' %}"></script>
   <script src="{% static '/for.js' %}"></script>
+  <script src="https://cdn.rawgit.com/vaakash/socializer/80391a50/js/socializer.min.js"></script>
+          <script>
+          (function(){
+              socializer( '.socializer' );
+          }());
+          </script>
 {% endblock %}
