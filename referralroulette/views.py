@@ -92,7 +92,16 @@ def contact(request):
                 contact.save()
                 messages.success(request, "Successfully sent!")
                 return HttpResponseRedirect(reverse('contact'))
+    featured = {
+        'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
+        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
+        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
+    }
     context = {
+        'services': ServiceModel.objects.all(), # for the search bar, all pages
+        'featured': featured,
+        'pagetitle': 'Contact',
         'site_key': settings.RECAPTCHA_SITE_KEY,
         'form': form,
     }
