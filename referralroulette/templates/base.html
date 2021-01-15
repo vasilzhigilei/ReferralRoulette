@@ -33,8 +33,6 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.css"
     rel="stylesheet"
     />
-    <!-- sharethis -->
-    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=6000ed3f0b50bc00198f4686&product=inline-share-buttons" async="async"></script>
 
     <!-- CUSTOM LOCAL FILES -->
     <!-- CSS -->
@@ -128,7 +126,7 @@
       <div class="container">
         <div class="row" style="width: 100%;">
           <div class="col-md-1"></div>
-          <div class="col-md-2">
+          <div class="col-6 col-md-2">
             <ul class="footer-list">
               <li><h6>ReferralRoulette</h6></li>
               {% if user.is_authenticated %}
@@ -143,7 +141,7 @@
               <li><h6><a href="/contact">Contact</a></h6></li>
             </ul>
           </div>
-          <div class="col-md-2">
+          <div class="col-6 col-md-2">
             <ul class="footer-list">
               <li><h6>Top Finance</h6></li>
               {% for service in featured.finance %}
@@ -151,7 +149,7 @@
               {% endfor %}
             </ul>
           </div>
-          <div class="col-md-2">
+          <div class="col-6 col-md-2">
             <ul class="footer-list">
               <li><h6>Top Hotels</h6></li>
               {% for service in featured.hotels %}
@@ -159,7 +157,7 @@
               {% endfor %}
             </ul>
           </div>
-          <div class="col-md-2">
+          <div class="col-6 col-md-2">
             <ul class="footer-list">
               <li><h6>Top Transport</h6></li>
               {% for service in featured.transport %}
@@ -167,7 +165,7 @@
               {% endfor %}
             </ul>
           </div>
-          <div class="col-md-2">
+          <div class="col-6 col-md-2">
             <ul class="footer-list">
               <li><h6>Top Food</h6></li>
               {% for service in featured.food %}

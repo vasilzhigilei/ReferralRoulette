@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="col-md-3 padding d-flex align-items-end flex-column">
-          <div style="text-align: left;">
+          <div style="width: 100%; text-align: left;">
             <h5>{{ for_service.name }} Referral Link Statistics:</h5>
             <h6>Popularity (link views): <span id="clicks">{{ for_service.clicks }}</span></h6>
             <h6>Users: {{ users }}</h6>
@@ -84,6 +84,28 @@
                 <div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="about-tab">
                   <h4 class="card-title">About {{ for_service.name }}</h4>
                   <p class="card-text">{{ for_service.company_description|safe }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card bg-lightsandywhite mb-3">
+            <div class="row" style="text-align: center; padding: 15px 30px;">
+              <div class="col-md-4">
+                <img src="{% static '/icons/signup.png' %}" style="margin-bottom: 16px; width: 45px;">
+                <div class="caption text-center">
+                  <p class="text-muted" style="font-size: 16px; line-height: 24px;">Sign up at <strong>{{ for_service.name }}</strong> using the referral code above.</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <img src="{% static '/icons/add-money.png' %}" style="margin-bottom: 16px; width: 45px;">
+                <div class="caption text-center">
+                  <p class="text-muted" style="font-size: 16px; line-height: 24px;">Add your own referral links on <strong>ReferralRoulette</strong> and start earning NOW!</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <img src="{% static '/icons/socialshare.png' %}" style="margin-bottom: 16px; width: 45px;">
+                <div class="caption text-center">
+                  <p class="text-muted" style="font-size: 16px; line-height: 24px;"><strong>Share this page</strong> with your friends and family! Fair and random URL selection!</p>
                 </div>
               </div>
             </div>
@@ -205,10 +227,4 @@
   <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
   <script src="{% static '/clipboard.js' %}"></script>
   <script src="{% static '/for.js' %}"></script>
-  <script src="https://cdn.rawgit.com/vaakash/socializer/80391a50/js/socializer.min.js"></script>
-          <script>
-          (function(){
-              socializer( '.socializer' );
-          }());
-          </script>
 {% endblock %}
