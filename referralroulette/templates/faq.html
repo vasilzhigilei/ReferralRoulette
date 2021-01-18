@@ -1,70 +1,122 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container bg-lightsandywhite py-3">
-    <div class="row">
-        <div class="col-6 mx-auto">
-            <div class="accordion bg-sandywhite" id="accordionExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header bg-darksandywhite" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      What is ReferralRoulette?
-                    </button>
-                  </h2>
-                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      ReferralRoulette <strong>democratizes the referral sharing process</strong>. Users are able to leave their referral links here to be randomly selected to be used by others. This random referral link generation system allows for a fair and unbiased referral link sharing system, unlike link sharing on forums or websites which only promote the owner's link.
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header bg-darksandywhite" id="headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      How does ReferralRoulette select a referral link?
-                    </button>
-                  </h2>
-                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      ReferralRoulette uses a random number generator in order to select a referral link. This is the most fair system for sharing referral links, as the link a user uses isn't dependent on cronological link addition to the system or any other factors.
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header bg-darksandywhite" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      Don't websites like this already exist?
-                    </button>
-                  </h2>
-                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      Other websites either only promote the owner's link, don't have any structured categorization of links based on app (i.e. many 'Robinhood'), or are simply forums where users share their links, with the first few links being the only ones typically used.
-                      <br>
-                      ReferralRoulette is the first of it's kind, based on a community of active users.
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header bg-darksandywhite" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      How does ReferralRoulette make money?
-                    </button>
-                  </h2>
-                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      It doesn't, unless you decide to donate!
-                      <br>
-                      <br>
-                      <form action="https://www.paypal.com/donate" method="post" target="_top" style="text-align: center;">
-                        <input type="hidden" name="hosted_button_id" value="UMVAGQZNPCVUQ" />
-                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-                        <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <div class="accordion bg-sandywhite" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header bg-darksandywhite" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              What is ReferralRoulette?
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              ReferralRoulette <strong>democratizes the referral sharing process</strong>. Users are able to leave their referral links here to be randomly selected to be used by others. This random referral link generation system allows for a fair and unbiased referral link sharing system, unlike link sharing on forums or websites which only promote the owner's link.
+            </div>
+          </div>
         </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header bg-darksandywhite" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              How does ReferralRoulette select a referral link?
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              ReferralRoulette uses a random number generator in order to select a referral link. This is the most fair system for sharing referral links, as the link a user uses isn't dependent on cronological link addition to the system or any other factors.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header bg-darksandywhite" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Don't websites like this already exist?
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              Other websites either only promote the owner's link, don't have any structured categorization of links based on app (i.e. many 'Robinhood'), or are simply forums where users share their links, with the first few links being the only ones typically used.
+              <br>
+              <br>
+              ReferralRoulette is the first of it's kind, and based on a community of active users.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header bg-darksandywhite" id="headingFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              How does ReferralRoulette make money?
+            </button>
+          </h2>
+          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              It doesn't, unless you decide to donate!
+              <br>
+              <br>
+              <form action="https://www.paypal.com/donate" method="post" target="_top" style="text-align: center;">
+                <input type="hidden" name="hosted_button_id" value="UMVAGQZNPCVUQ" />
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header bg-darksandywhite" id="headingFive">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              How do I add my own links?
+            </button>
+          </h2>
+          <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              Login with your gmail account, then head over to your profile page by clicking your email in the header. Here you may add your own referral links! As soon as you add yours, it is automatically included in the random selection system!
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header bg-darksandywhite" id="headingSix">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+              Is there a way to boost my link occurence?
+            </button>
+          </h2>
+          <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              No, links are chosen randomly without any bias.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header bg-darksandywhite" id="headingSeven">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+              How can I suggest a feature or contact the developer?
+            </button>
+          </h2>
+          <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <h6><a href="/contact">Contact the developer.</a></h6>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header bg-darksandywhite" id="headingEight">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+              Is there a verification process for user submitted referral links?
+            </button>
+          </h2>
+          <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              Yes! All user links are verified to follow the link service's prefix, so even if the link is expired or no longer valid, you are still guaranteed to be sent to a page of the given service.
+              <br>
+              <br>
+              As well, the system verifies that there are no duplicate links in the system. This protects the random selection system from manipulation.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!--/row-->
+  </div>
+  <!--/row-->
 </div>
 <!--container-->
 {% endblock %}
