@@ -25,8 +25,6 @@ from django.views.generic import RedirectView
 
 handler404 = 'referralroulette.views.custom_page_not_found_view'
 handler500 = 'referralroulette.views.custom_error_view'
-handler403 = 'referralroulette.views.custom_permission_denied_view'
-handler400 = 'referralroulette.views.custom_bad_request_view'
 
 urlpatterns = [
     path('', views.index, name='index'),
