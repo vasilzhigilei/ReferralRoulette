@@ -230,3 +230,9 @@ def faq(request):
         'pagetitle': 'FAQ',
     }
     return render(request, "faq.html", context)
+
+def privacypolicy(request):
+    return render(request, "privacypolicy.html")
+
+def cookiepolicy(request):
+    return render(request, "cookiepolicy.html")
