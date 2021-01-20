@@ -10,7 +10,7 @@
         <div class="col-md-12 padding rounded servicelist">
             {% for service in top_services %}
             <div class="servicecard hvr-shadow" id="{{ service.name }}" style="background-color: {{ service.background_color }}; border-color: {{ service.text_color }}; color: {{ service.text_color }};">
-              <img class="servicecard-img" src="{{ service.image.url }}">
+              <img class="servicecard-img" src="{{ service.image.url }}" alt="{{ service.name }} logo">
               <h5 class="servicecard-text">{{ service.description }}</h5>
               <a href="/for/{{ service.slug }}">
                 <span class="link-spanner"></span>
@@ -31,19 +31,19 @@
       <div class="row" style="text-align: center;">
         <div class="col-md-1"></div>
         <div class="col-md-3">
-          <img src="{% static '/icons/signup.png' %}" style="margin-bottom: 16px; width: 90px;">
+          <img src="{% static '/icons/signup.png' %}" alt="Sign up icon" style="margin-bottom: 16px; width: 90px;">
           <div class="caption text-center">
             <p class="text-muted" style="font-size: 16px; line-height: 24px;">Sign up to any of these services using a <strong>randomly generated</strong> referral code.</p>
           </div>
         </div>
         <div class="col-md-4">
-          <img src="{% static '/icons/add-money.png' %}" style="margin-bottom: 16px; width: 90px;">
+          <img src="{% static '/icons/add-money.png' %}" alt="Earn money icon" style="margin-bottom: 16px; width: 90px;">
           <div class="caption text-center">
             <p class="text-muted" style="font-size: 16px; line-height: 24px;">Add your own referral links on <strong>ReferralRoulette</strong> and start earning NOW!</p>
           </div>
         </div>
         <div class="col-md-3">
-          <img src="{% static '/icons/socialshare.png' %}" style="margin-bottom: 16px; width: 90px;">
+          <img src="{% static '/icons/socialshare.png' %}" alt="Social share icon" style="margin-bottom: 16px; width: 90px;">
           <div class="caption text-center">
             <p class="text-muted" style="font-size: 16px; line-height: 24px;"><strong>Share ReferralRoulette</strong> with your friends and family! Fair and random URL selection!</p>
           </div>

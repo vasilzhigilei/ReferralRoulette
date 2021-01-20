@@ -50,7 +50,7 @@
             <div class="card-body servicelist">
               {% for service in queryset %}
                         <div class="servicecard servicecard-two hvr-shadow" id="{{ service.name }}" style="background-color: {{ service.background_color }}; border-color: {{ service.text_color }}; color: {{ service.text_color }};">
-                            <img class="servicecard-img" src="{{ service.image.url }}">
+                            <img class="servicecard-img" src="{{ service.image.url }}" alt="{{ service.name }} logo">
                             <h5 class="servicecard-text">{{ service.description }}</h5>
                             <a href="/for/{{ service.slug }}">
                             <span class="link-spanner"></span>

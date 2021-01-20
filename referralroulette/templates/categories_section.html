@@ -5,7 +5,7 @@
       {% for category in categories %}
       <div class="categorycard hvr-shadow" id="{{ category.name }}" style="color: {{category.color}}; border-color: {{ category.color }};">
         <h5 class="categorycard-text">{{ category.name }}</h5>
-        <img class="categorycard-img" src="{{ category.image.url }}">
+        <img class="categorycard-img" src="{{ category.image.url }}" alt="{{ category.name }} category icon">
         <a href="/categories/{{ category.slug }}">
           <span class="link-spanner"></span>
         </a>
