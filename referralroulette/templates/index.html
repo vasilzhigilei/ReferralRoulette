@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% load static %}
 <div class="bg-lightsandywhite topbottompadding">
   <div class="container servicecontainer">
     <h1 class="display-5">Earn rewards for yourself & others for free!</h1>
@@ -19,9 +20,39 @@
     </div>
   </div>
 </div>
-<div class="bg-sandywhite spacer">
+<div class="bg-sandywhite">
   <div class="container bg-image topbottompadding">
     {% include "categories_section.html" %}
+  </div>
+</div>
+<div class="bg-lightsandywhite">
+  <div class="container topbottompadding">
+      <div class="row" style="text-align: center; padding: 15px 30px;">
+        <div class="col-md-4">
+          <img src="{% static '/icons/signup.png' %}" style="margin-bottom: 16px; width: 90px;">
+          <div class="caption text-center">
+            <p class="text-muted" style="font-size: 16px; line-height: 24px;">Sign up to any of these services using a randomly generated referral code.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <img src="{% static '/icons/add-money.png' %}" style="margin-bottom: 16px; width: 90px;">
+          <div class="caption text-center">
+            <p class="text-muted" style="font-size: 16px; line-height: 24px;">Add your own referral links on <strong>ReferralRoulette</strong> and start earning NOW!</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <img src="{% static '/icons/socialshare.png' %}" style="margin-bottom: 16px; width: 90px;">
+          <div class="caption text-center">
+            <p class="text-muted" style="font-size: 16px; line-height: 24px;"><strong>Share this page</strong> with your friends and family! Fair and random URL selection!</p>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<div class="bg-sandywhite">
+  <div class="container topbottompadding">
+    <h1 class="display-5">Welcome to ReferralRoulette</h1>
+    <h3 class="text-muted">The easiest and fairest way to use and share referral links!</h1>
   </div>
 </div>
 {% endblock %}
