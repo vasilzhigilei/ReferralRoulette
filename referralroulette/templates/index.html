@@ -4,7 +4,7 @@
 <div class="bg-lightsandywhite topbottompadding">
   <div class="container servicecontainer">
     <h1 class="display-5">Earn rewards for yourself & others for free!</h1>
-    <h3 class="text-muted">Click on a card to be sent to a random user's referral link!</h1>
+    <h3 class="text-muted">Click on a card to be sent to a random user's referral link!</h3>
     <div class="row">
         <div class="col-md-12 padding rounded servicelist">
             {% for service in top_services %}
@@ -28,7 +28,8 @@
 <div class="bg-lightsandywhite">
   <div class="container topbottompadding">
       <div class="row" style="text-align: center; padding: 15px 30px;">
-        <div class="col-md-4">
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
           <img src="{% static '/icons/signup.png' %}" style="margin-bottom: 16px; width: 90px;">
           <div class="caption text-center">
             <p class="text-muted" style="font-size: 16px; line-height: 24px;">Sign up to any of these services using a randomly generated referral code.</p>
@@ -40,19 +41,28 @@
             <p class="text-muted" style="font-size: 16px; line-height: 24px;">Add your own referral links on <strong>ReferralRoulette</strong> and start earning NOW!</p>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
           <img src="{% static '/icons/socialshare.png' %}" style="margin-bottom: 16px; width: 90px;">
           <div class="caption text-center">
             <p class="text-muted" style="font-size: 16px; line-height: 24px;"><strong>Share this page</strong> with your friends and family! Fair and random URL selection!</p>
           </div>
         </div>
+        <div class="col-md-1"></div>
       </div>
   </div>
 </div>
 <div class="bg-sandywhite">
-  <div class="container topbottompadding">
-    <h1 class="display-5">Welcome to ReferralRoulette</h1>
-    <h3 class="text-muted">The easiest and fairest way to use and share referral links!</h1>
+  <div class="container topbottompadding" style="text-align: center;">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <h1 class="display-6">Welcome to ReferralRoulette</h1>
+        <h4 class="text-muted">The easiest and fairest way to use and share referral links!</h4>
+        <p>ReferralRoulette allows you to easily share all of your referral links with everyone. Receive referral credit and perks at your favorite apps and services from others using your links!</p>
+        <h1 class="display-6">Why ReferralRoulette?</h1>
+        <p>ReferralRoulette is <strong>fair</strong>. Click on a listed app or service and be presented with a referral link for that app/service, chosen from a randomly selected user. This allows all user's referral links to have the chance to be seen and used, making this the ultimate fair way of sharing referral links with others.</p>
+      </div>
+    </div> 
   </div>
 </div>
 {% endblock %}
