@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 {% load static %}
+{% load socialaccount %}
 <div class="bg-lightsandywhite topbottompadding">
   <div class="container servicecontainer">
     <h1 class="display-5">Earn rewards for yourself & others for free!</h1>
@@ -56,11 +57,11 @@
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-10">
-        <h1 class="display-6">Welcome to ReferralRoulette</h1>
+        <h2>Welcome to ReferralRoulette</h2>
         <h4 class="text-muted">The easiest and fairest way to use and share referral links!</h4>
         <p class="h5">ReferralRoulette allows you to <strong>easily share all of your referral links</strong> with everyone. <strong>Receive referral credit and perks</strong> at your favorite apps and services from others using your links!</p>
         <br>
-        <h1 class="display-6">Why ReferralRoulette?</h1>
+        <h2>Why ReferralRoulette?</h2>
         <p class="h5"><strong>ReferralRoulette is fair</strong>. Click on a listed app or service and be presented with a referral link for that app/service, chosen from a randomly selected user. This allows all users' referral links to have the chance to be seen and used, making this <strong>the ultimate fair way of sharing referral links with others</strong>.</p>
       </div>
     </div> 
@@ -71,8 +72,19 @@
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-10">
-          <p class="text-muted">Why wait? It's easy to join ReferralRoulette, and best of all, <strong>it's 100% free!</strong> Sign up and add your referral links, start earing your rewards now- <strong>no effort on your part!</strong> And while you're at it, why not check in here the next time you're signing up somewhere? You may end up with a pretty nice perk using someone's link!</p>
-          <p class="text-muted"><strong>Give some, get some</strong>. A community built on sharing and using other people's referral links.</p>
+          <p class="text-muted h5">Why wait? It's easy to join ReferralRoulette, and best of all, <strong>it's 100% free!</strong> Sign up and add your referral links, start earing your rewards now- <strong>no effort on your part!</strong> And while you're at it, why not check in here the next time you're signing up somewhere? You may end up with a pretty nice perk using someone's link!</p>
+          <br>
+          <p class="text-muted h5"><strong>Give some, get some</strong>. A community built on sharing and using other people's referral links.</p>
+          {% if user.is_authenticated %}
+            <a type="button" class="btn btn-secondary" href="/profile">
+              <p class="h5" style="margin-bottom: 0;">Add your own link</p>
+            </a>
+          {% else %}
+            <!-- Log in button -->
+            <a type="button" class="btn btn-secondary" href="{% provider_login_url 'google' %}?next={% firstof request.path '/' %}">
+              <p class="h5" style="margin-bottom: 0;">Sign Up Now to earn rewards</p>
+            </a>
+          {% endif %}
       </div>
       <div class="col-md-1"></div>
     </div>
