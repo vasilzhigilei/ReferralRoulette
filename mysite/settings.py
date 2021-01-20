@@ -42,13 +42,11 @@ else:
 SECRET_KEY = os.getenv('REFERRALROULETTE_SECRET_KEY')
 
 DEBUG = False
-#SECURE_SSL_REDIRECT = False
-#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'http')
-#if 'PRODUCTION' in os.environ:
-#    # SECURITY WARNING: don't run with debug turned on in production!
-#    DEBUG = False
-#    SECURE_SSL_REDIRECT = True
-#    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+if 'PRODUCTION' in os.environ:
+    # SECURITY WARNING: don't run with debug turned on in production!
+    DEBUG = False
+    SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.herokuapp.com', 'referralroulette.com']
 from django.contrib.messages import constants as messages
