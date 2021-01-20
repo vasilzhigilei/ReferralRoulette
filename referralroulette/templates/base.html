@@ -63,7 +63,7 @@
           <div class="col-md-1"></div>
           <div class="col-md-10">
             <div class="navbar navbar-expand-lg navbar-light">
-              <a href="/" class="h1 navbar-brand nomargin">Referral Roulette</a>
+              <a href="/" aria-label="Home page" class="h1 navbar-brand nomargin">Referral Roulette</a>
               <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
                           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <i title="" class="fa fa-bars"></i>
@@ -71,17 +71,17 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav" style="margin-left: auto;">
                   <li class="nav-item">
-                    <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">Featured</a>
+                    <a class="nav-link {% if request.path == '/' %}active{% endif %}" aria-label="Featured services" href="/">Featured</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {% if request.path == '/categories' %}active{% endif %}" href="/categories">Categories</a>
+                    <a class="nav-link {% if request.path == '/categories' %}active{% endif %}" aria-label="Categories list" href="/categories">Categories</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {% if request.path == '/faq' %}active{% endif %}" href="/faq">FAQ</a>
+                    <a class="nav-link {% if request.path == '/faq' %}active{% endif %}" aria-label="Frequently asked questions" href="/faq">FAQ</a>
                   </li>
                   {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/profile' %}active{% endif %}" href="/profile">{{ user.email }}</a>
+                        <a class="nav-link {% if request.path == '/profile' %}active{% endif %}" aria-label="My profile" href="/profile">{{ user.email }}</a>
                     </li>
                   {% endif %}
                   <li class="nav-item">
@@ -92,11 +92,11 @@
                         {% if redirect_field_value %}
                           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
                         {% endif %}
-                        <button class="btn btn-outline-danger auth-button" name="next" value="/" role="button" type="submit">Logout</button>
+                        <button class="btn btn-outline-danger auth-button" aria-label="Logout" name="next" value="/" role="button" type="submit">Logout</button>
                       </form>
                     {% else %}
                       <!-- Log in/Sign up button -->
-                      <a class="btn btn-outline-success auth-button" href="{% provider_login_url 'google' %}?next={% firstof request.path '/' %}">Log in with Google</a>
+                      <a class="btn btn-outline-success auth-button" aria-label="Log in with Google" href="{% provider_login_url 'google' %}?next={% firstof request.path '/' %}">Log in with Google</a>
                     {% endif %}
                   </li>
                 </ul>

@@ -16,7 +16,7 @@
                 <div class="servicecard hvr-shadow" id="{{ service.name }}" style="background-color: {{ service.background_color }}; border-color: {{ service.text_color }}; color: {{ service.text_color }};">
                   <img class="servicecard-img" src="{{ service.image.url }}" alt="{{ service.name }} logo">
                   <h5 class="servicecard-text">{{ service.description }}</h5>
-                  <a href="/for/{{ service.slug }}">
+                  <a href="/for/{{ service.slug }}" aria-label="{{ service.name }} referral link page">
                     <span class="link-spanner"></span>
                   </a>
                 </div>
