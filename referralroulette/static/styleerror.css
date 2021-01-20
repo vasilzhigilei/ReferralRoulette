@@ -1,0 +1,34 @@
+
+/*======================
+    404 page
+=======================*/
+
+
+.page_404{
+    padding:40px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.page_404 img{
+    width:100%;
+}
+
+.four_zero_four_bg{
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+ 
+ 
+ .four_zero_four_bg h1{
+    font-size:80px;
+ }
+ 
+.four_zero_four_bg h3{
+    font-size:80px;
+}
+
+.contant_box_404{
+    margin-top:-50px;
+}
