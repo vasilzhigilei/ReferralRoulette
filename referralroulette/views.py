@@ -142,8 +142,9 @@ def profile(request):
         if num_results != 0:
             messages.error(request, "You've already added this app's link.")
         else:
-            if not referral.code:
-                prefix = ServiceModel.objects.get(slug=referral.slug).prefix
+            service = ServiceModel.objects.get(slug=referral.slug)
+            if not service.code:
+                prefix = service.prefix
                 if(len(referral.link) < len(prefix)):
                     messages.error(request, "Link does not match prefix: " + prefix)
                 elif (prefix != referral.link[0:len(prefix)]):
