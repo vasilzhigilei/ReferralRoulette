@@ -284,6 +284,8 @@ a {
     margin-right: 0; /* bootstrap rows have extra neg margins */
     display: flex;
     align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .profile-referral-link-child {
