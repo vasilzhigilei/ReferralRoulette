@@ -72,16 +72,16 @@
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-10">
-          <p class="text-muted h5">Why wait? It's easy to join Referral Roulette, and best of all, <strong>it's 100% free!</strong> Sign up and add your referral links, start earing your rewards now- <strong>no effort on your part!</strong> And while you're at it, why not check in here the next time you're signing up somewhere? You may end up with a pretty nice perk using someone's link!</p>
+          <p class="text-muted h5">Why wait? It's easy to join Referral Roulette, and best of all, <strong>it's 100% free!</strong> Sign up and add your referral links, start earning your rewards now- <strong>no effort on your part!</strong> And while you're at it, why not check in here the next time you're signing up somewhere? You may end up with a pretty nice perk using someone's link!</p>
           <br>
           <p class="text-muted h5"><strong>Give some, get some</strong>. A community built on sharing and using other people's referral links.</p>
           {% if user.is_authenticated %}
-            <a type="button" class="btn btn-secondary" href="/profile">
+            <a type="button" class="btn btn-secondary" href="/profile" style="margin-top: 20px;">
               <p class="h5" style="margin-bottom: 0;">Add your own links</p>
             </a>
           {% else %}
             <!-- Log in button -->
-            <a type="button" class="btn btn-secondary" href="{% provider_login_url 'google' %}?next={% firstof request.path '/' %}">
+            <a type="button" class="btn btn-secondary" href="{% provider_login_url 'google' %}?next={% firstof request.path '/' %}" style="margin-top: 20px;">
               <p class="h5" style="margin-bottom: 0;">Sign Up Now to earn rewards</p>
             </a>
           {% endif %}
