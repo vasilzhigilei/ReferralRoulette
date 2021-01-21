@@ -43,12 +43,6 @@
           </div>
           <script async src="https://static.addtoany.com/menu/page.js"></script>
           <!-- AddToAny END -->
-          <!--<div class="mt-auto" style="margin: auto auto;">
-            <input type="text" style="position: absolute; left: -999em" id="url">
-            <button id="copy-button-url" style="height: 48px;" class="btn btn-outline-secondary" data-clipboard-target="#url" type="button">
-              <span><img src="{% static 'icons/clipboard.svg' %}" class="copyimage" alt="Copy to clipboard"><span style="margin-left: 10px; font-weight: bold;">Copy page URL</span></span>
-            </button>
-          </div> -->
         </div>
         <div class="col-md-1"></div>
       </div>
@@ -91,19 +85,19 @@
           <div class="card bg-lightsandywhite mb-3">
             <div class="row" style="text-align: center; padding: 15px 30px;">
               <div class="col-md-4">
-                <img src="{% static '/icons/signup.png' %}" alt="Sign up icon" style="margin-bottom: 16px; width: 45px;">
+                <img src="{% static '/icons/signup_90px.png' %}" alt="Sign up icon" style="margin-bottom: 16px; width: 45px;">
                 <div class="caption text-center">
                   <p class="text-muted" style="font-size: 16px; line-height: 24px;">Sign up at <strong>{{ for_service.name }}</strong> using the referral code above.</p>
                 </div>
               </div>
               <div class="col-md-4">
-                <img src="{% static '/icons/add-money.png' %}" alt="Earn money icon" style="margin-bottom: 16px; width: 45px;">
+                <img src="{% static '/icons/add-money_90px.png' %}" alt="Earn money icon" style="margin-bottom: 16px; width: 45px;">
                 <div class="caption text-center">
                   <p class="text-muted" style="font-size: 16px; line-height: 24px;">Add your own referral links on <strong>Referral Roulette</strong> and start earning NOW!</p>
                 </div>
               </div>
               <div class="col-md-4">
-                <img src="{% static '/icons/socialshare.png' %}" alt="Social share icon" style="margin-bottom: 16px; width: 45px;">
+                <img src="{% static '/icons/socialshare_90px.png' %}" alt="Social share icon" style="margin-bottom: 16px; width: 45px;">
                 <div class="caption text-center">
                   <p class="text-muted" style="font-size: 16px; line-height: 24px;"><strong>Share this page</strong> with your friends and family! Fair and random URL selection!</p>
                 </div>
@@ -188,19 +182,19 @@
         <div class="modal-footer" style="display: block; text-align: center;">
           <div class="row" style="margin: 0 15%;">
             <div class="col-md-4">
-              <img src="{% static '/icons/signup.png' %}" alt="Sign up icon" style="margin-bottom: 16px; width: 45px;">
+              <img src="{% static '/icons/signup_90px.png' %}" alt="Sign up icon" style="margin-bottom: 16px; width: 45px;">
               <div class="caption text-center">
                 <p class="text-muted" style="font-size: 16px; line-height: 24px;">Sign up at <strong>{{ for_service.name }}</strong> using the referral code above.</p>
               </div>
             </div>
             <div class="col-md-4">
-              <img src="{% static '/icons/add-money.png' %}" alt="Earn money icon" style="margin-bottom: 16px; width: 45px;">
+              <img src="{% static '/icons/add-money_90px.png' %}" alt="Earn money icon" style="margin-bottom: 16px; width: 45px;">
               <div class="caption text-center">
                 <p class="text-muted" style="font-size: 16px; line-height: 24px;">Add your own referral links on <strong>Referral Roulette</strong> and start earning NOW!</p>
               </div>
             </div>
             <div class="col-md-4">
-              <img src="{% static '/icons/socialshare.png' %}" alt="Social share icon" style="margin-bottom: 16px; width: 45px;">
+              <img src="{% static '/icons/socialshare_90px.png' %}" alt="Social share icon" style="margin-bottom: 16px; width: 45px;">
               <div class="caption text-center">
                 <p class="text-muted" style="font-size: 16px; line-height: 24px;"><strong>Share this page</strong> with your friends and family! Fair and random URL selection!</p>
               </div>
@@ -218,7 +212,7 @@
               Sign Up Now to earn rewards
             </a>
           {% endif %}
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" aria-label="Close referral link pop-up" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-  <div class="bg-lightsandywhite topbottompadding" style="text-align: center;">
-    <div class="container bg-lightimage">
+  <div class="bg-lightsandywhite" style="text-align: center;">
+    <div class="container bg-lightimage topbottompadding">
       <br>
       <h1 class="display-5"><a class="link" href="/categories">Browse Referral Link Categories</a></h1>
       {% include "categories_section.html" %}
@@ -12,7 +12,7 @@
         <h3 style="margin-bottom: 15px;">Most Popular for {{ category }}</h3>
         <div class="row">
             <div class="col-md-12 padding rounded servicelist">
-                {% for service in services %}
+                {% for service in category_services %}
                 <div class="servicecard hvr-shadow" id="{{ service.name }}" style="background-color: {{ service.background_color }}; border-color: {{ service.text_color }}; color: {{ service.text_color }};">
                   <img class="servicecard-img" src="{{ service.image.url }}" alt="{{ service.name }} logo">
                   <h5 class="servicecard-text">{{ service.description }}</h5>

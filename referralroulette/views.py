@@ -209,7 +209,8 @@ def categories_tag(request, slug):
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
     context = {
-        'services': ServiceModel.objects.filter(tags__name__in=[slug]),
+        'services': ServiceModel.objects.all(), # for the search bar, all pages
+        'category_services': ServiceModel.objects.filter(tags__name__in=[slug]),
         'categories': CategoryModel.objects.all(),
         'featured': featured,
         'category': slug.title(),
