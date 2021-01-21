@@ -142,14 +142,18 @@ def profile(request):
         if num_results != 0:
             messages.error(request, "You've already added this app's link.")
         else:
-            prefix = ServiceModel.objects.get(slug=referral.slug).prefix
-            if(len(referral.link) < len(prefix)):
-                messages.error(request, "Link does not match prefix: " + prefix)
-            elif (prefix != referral.link[0:len(prefix)]):
-                messages.error(request, "Link does not match prefix: " + prefix)
+            if not referral.code:
+                prefix = ServiceModel.objects.get(slug=referral.slug).prefix
+                if(len(referral.link) < len(prefix)):
+                    messages.error(request, "Link does not match prefix: " + prefix)
+                elif (prefix != referral.link[0:len(prefix)]):
+                    messages.error(request, "Link does not match prefix: " + prefix)
+                else:
+                    referral.save()
+                    messages.success(request, "Successfully added link!")
             else:
                 referral.save()
-                messages.success(request, "Successfully added link!")
+                messages.success(request, "Successfully added code!")
         return HttpResponseRedirect(reverse('profile'))
     
     featured = {
