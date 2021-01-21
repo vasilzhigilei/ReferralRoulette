@@ -17,7 +17,7 @@ class ServiceModel(models.Model):
     text_color = ColorField(default='#212529')
     tags = TaggableManager()
     clicks = models.IntegerField(default=0)
-    active = models.BooleanField(default=True)
+    code = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

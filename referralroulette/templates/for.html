@@ -11,7 +11,7 @@
             <img class="for-image" src="{{ for_service.image.url }}" alt="{{ for_service.name }} logo" style="filter: drop-shadow(0 0 2px {{ for_service.background_color }});">
           </a>
           <br>
-          <h4>{{ for_service.name }} Referral Link Tags:</h4>
+          <h4>{{ for_service.name }} Referral {% if for_service.code %}Code{% else %}Link{% endif %} Tags:</h4>
           {% for tag in for_service.tags.all %}
               <a href="/categories/{{ tag.slug }}" class="for-badge badge rounded-pill bg-info text-light">#{{ tag }}</a>
           {% endfor %}
@@ -21,14 +21,18 @@
             <br>
             <div class="mt-auto buttoncontainer" onclick="generatenew('{{ for_service.slug }}')">
                 <button type="button" class="indexbutton">
+                  {% if for_service.code %}
+                    NEW RANDOM CODE
+                  {% else %}
                     NEW RANDOM LINK
-                    <div class="fill fill-two"></div>
+                  {% endif %}
+                  <div class="fill fill-two"></div>
                 </button>
             </div>
         </div>
         <div class="col-md-3 padding d-flex align-items-end flex-column">
           <div style="width: 100%; text-align: left;">
-            <h5>{{ for_service.name }} Referral Link Statistics:</h5>
+            <h5>{{ for_service.name }} Referral {% if for_service.code %}Code{% else %}Link{% endif %} Statistics:</h5>
             <h6>Popularity (link views): <span id="clicks">{{ for_service.clicks }}</span></h6>
             <h6>Users: {{ users }}</h6>
           </div>
@@ -99,7 +103,7 @@
               <div class="col-md-4">
                 <img src="{% static '/icons/socialshare_90px.png' %}" alt="Social share icon" style="margin-bottom: 16px; width: 45px;">
                 <div class="caption text-center">
-                  <p class="text-muted" style="font-size: 16px; line-height: 24px;"><strong>Share this page</strong> with your friends and family! Fair and random URL selection!</p>
+                  <p class="text-muted" style="font-size: 16px; line-height: 24px;"><strong>Share this page</strong> with your friends and family! Fair and random {% if for_service.code %}code{% else %}URL{% endif %} selection!</p>
                 </div>
               </div>
             </div>
@@ -131,11 +135,11 @@
           <div class="card bg-lightsandywhite mb-3">
             <div class="card-body">
               <h5 class="card-title">Support Referral Roulette!</h5>
-              <form action="https://www.paypal.com/donate" method="post" target="_top" style="text-align: center;">
-                <input type="hidden" name="hosted_button_id" value="UMVAGQZNPCVUQ" />
+              <form action="https://www.paypal.com/donate" method="post" target="_top">
+                <input type="hidden" name="hosted_button_id" value="3Y74F3AJ6NVGY" />
                 <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
                 <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-              </form>
+              </form>                
             </div>
           </div>
         </div>
@@ -168,13 +172,19 @@
                           <span><img src="{% static '/icons/clipboard.svg' %}" class="copyimage" alt="Copy to clipboard"></span>
                       </button> <!-- possible bug with inspect element changing size exiting copy button svg size -->
                   </div>
-                  <div class="input-group-append">
-                      <button onclick="window.open(document.getElementById('link').value, '_blank');" id="open-button" style="height: 100%;" class="btn btn-outline-info" data-clipboard-target="#link" type="button">
-                          <span><img src="{% static '/icons/open-link.svg' %}" class="copyimage" alt="Open in new tab"></span>
-                      </button> <!-- possible bug with inspect element changing size exiting copy button svg size -->
-                  </div>
+                  {% if not for_service.code %}
+                    <div class="input-group-append">
+                        <button onclick="window.open(document.getElementById('link').value, '_blank');" id="open-button" style="height: 100%;" class="btn btn-outline-info" data-clipboard-target="#link" type="button">
+                            <span><img src="{% static '/icons/open-link.svg' %}" class="copyimage" alt="Open in new tab"></span>
+                        </button> <!-- possible bug with inspect element changing size exiting copy button svg size -->
+                    </div>
+                  {% endif %}
               </div>
-              <small id="codeHelp" class="form-text">Copy link or open in a new tab.</small>
+              {% if for_service.code %}
+                <small id="codeHelp" class="form-text">Copy code and enter it in the {{ for_service.name }} website.</small>
+              {% else %}
+                <small id="codeHelp" class="form-text">Copy link or open in a new tab.</small>
+              {% endif %}
             </div>
             <div class="col-md-2"></div>
           </div>
@@ -196,7 +206,7 @@
             <div class="col-md-4">
               <img src="{% static '/icons/socialshare_90px.png' %}" alt="Social share icon" style="margin-bottom: 16px; width: 45px;">
               <div class="caption text-center">
-                <p class="text-muted" style="font-size: 16px; line-height: 24px;"><strong>Share this page</strong> with your friends and family! Fair and random URL selection!</p>
+                <p class="text-muted" style="font-size: 16px; line-height: 24px;"><strong>Share this page</strong> with your friends and family! Fair and random {% if for_service.code %}code{% else %}URL{% endif %} selection!</p>
               </div>
             </div>
           </div>
@@ -204,7 +214,7 @@
         <div class="modal-footer">
           {% if user.is_authenticated %}
             <a type="button" class="btn btn-secondary" href="/profile">
-              Add your own link
+              Add your own {% if for_service.code %}code{% else %}link{% endif %}
             </a>
           {% else %}
             <!-- Log in button -->
