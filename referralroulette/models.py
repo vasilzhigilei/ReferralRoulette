@@ -6,11 +6,11 @@ from django.utils import timezone
 class ServiceModel(models.Model):
     name = models.CharField(max_length=30)
     slug = models.SlugField(unique=True)
-    description = models.CharField(max_length=100, default="")
+    description = models.CharField(max_length=300, default="")
     company_description = models.CharField(max_length=3000, default="")
     referral_description = models.CharField(max_length=3000, default="")
-    prefix = models.CharField(max_length=100, default="", blank=True)
-    default_link = models.CharField(max_length=100, default="")
+    prefix = models.CharField(max_length=200, default="", blank=True)
+    default_link = models.CharField(max_length=200, default="")
     image = models.ImageField(upload_to="service_images",
                               default="/service_images/missing.png")
     background_color = ColorField(default='#F5F5F5')
