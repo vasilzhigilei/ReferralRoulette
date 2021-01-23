@@ -41,7 +41,7 @@ else:
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('REFERRALROULETTE_SECRET_KEY')
 
-DEBUG = False
+DEBUG = True
 if 'PRODUCTION' in os.environ:
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = False
