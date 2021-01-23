@@ -22,6 +22,7 @@
                 classes: "tag-cloud-item",
                 minRotation: 0,
                 maxRotation: 0,
+                abortThreshold: 1000,
             }
             options.list = {{ words|safe }};
             var canvas = document.getElementById('my_canvas');
