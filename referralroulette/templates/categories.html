@@ -14,7 +14,7 @@
         <script>
             var options = {
                 weightFactor: function (size) {
-                    return (Math.min(size/5, 1.0)*5+1)*15; // min 15, max (1+1)*75 @ 6 tags across services
+                    return Math.floor((Math.min(size/6, 1.0)*2.5+1)*20); // min 20px, max (2.5+1)*20=70px @ 6 tags across services
                 },
                 backgroundColor: '#ece7e400',
                 drawOutOfBound: false,
