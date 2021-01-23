@@ -4,8 +4,7 @@
     <div class="container" style="text-align: center;">
         <br>
         <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
+            <div class="col-lg-8 col-xl-6 mx-auto">
                 {% if messages %}
                     <div class="messages">
                         {% for message in messages %}
@@ -30,44 +29,47 @@
                 <form id="referralform" method="POST">
                     {% csrf_token %}
                     <div class="row">
-                        <div class="col-auto">
+                        <div class="col-12 col-sm-12 col-md-auto">
                             {{ form.service }}
                             <small class="form-text">Add link/code for...</small>
                         </div>
-                        <div class="col">
+                        <div class="col-7 col-sm-7 col-md">
                             {{ form.link }}
                             <small class="form-text">Paste referral link or code here.</small>
                         </div>
-                        <div class="col-auto">
+                        <div class="col-5 col-sm-5 col-md-auto">
                             <button type="submit" class="btn btn-success">Add link</button>
                         </div>
                     </div>
                     <br>
                 </form>
                 {% for link in user_links %}
-                <form action="{% url 'delete_referral' link.slug %}" method="POST">
-                    {% csrf_token %}
-                    <div class="row bg-sandywhite profile-referral-link-row">
-                        <div class="col-auto profile-referral-link-child">
-                            {{ link.service }}
+                    <form action="{% url 'delete_referral' link.slug %}" method="POST">
+                        {% csrf_token %}
+                        <div class="row bg-sandywhite profile-referral-link-row">
+                            <div class="col order-1 col-md-auto profile-referral-link-child">
+                                {{ link.service }}
+                            </div>
+                            <div class="col-12 order-5 col-md order-md-2 profile-referral-link-child">
+                                {{ link.link }}
+                            </div>
+                            <div class="col-auto order-3 profile-referral-link-child float-right">
+                                Views:&nbsp;{{ link.clicks }}
+                            </div>
+                            <div class="col-auto order-4 profile-referral-link-child float-right">
+                                <button type="submit" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                                <!-- known bootstrap tooltip disappearing bug here -->
+                            </div>
                         </div>
-                        <div class="col profile-referral-link-child">
-                            {{ link.link }}
-                        </div>
-                        <div class="col-auto profile-referral-link-child">
-                            Views:&nbsp;{{ link.clicks }}
-                        </div>
-                        <div class="col-auto profile-referral-link-child">
-                            <button type="submit" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                            <!-- known bootstrap tooltip disappearing bug here -->
-                        </div>
-                    </div>
-                </form>
+                    </form>
                 {% endfor %}
+                <div style="text-align: center; margin-top: 20px;">
+                    <h5>Have a referral link or code for a service not yet on Referral Roulette?</h5>
+                    <p><a href="/contact">Contact us</a> with the referral terms and details, as well as your code/link for an example. The service will be added within 48hrs.</p>
+                </div>
             </div>
-            <div class="col-md-3"></div>
         </div>
         <br>
     </div>
