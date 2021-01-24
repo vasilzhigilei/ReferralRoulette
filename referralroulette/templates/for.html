@@ -34,7 +34,7 @@
           <div style="width: 100%; text-align: left;">
             <h5>{{ for_service.name }} Referral {% if for_service.code %}Code{% else %}Link{% endif %} Statistics:</h5>
             <h6>Popularity (link views): <span id="clicks">{{ for_service.clicks }}</span></h6>
-            <h6>Users: {{ users }}</h6>
+            <h6>Users: <span class="users">{{ users }}</span></h6>
           </div>
           <!-- AddToAny BEGIN -->
           <div style="margin-right: auto; margin-left: auto;" class="mt-auto a2a_kit a2a_kit_size_32 a2a_default_style">
@@ -185,6 +185,7 @@
               {% else %}
                 <small id="codeHelp" class="form-text">Copy link or open in a new tab.</small>
               {% endif %}
+              <p class="h5">{% if for_service.code %}Code{% else %}Link{% endif %} randomly selected from <span class="users">{{ users }}</span> users.</p>
             </div>
             <div class="col-md-2"></div>
           </div>

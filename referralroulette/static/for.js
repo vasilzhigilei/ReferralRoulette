@@ -6,9 +6,15 @@ myModal.show();
 
 function generatenew(slug){
     fetch("/api/generatereferral/" + slug).then(function(response) {
-        response.text().then(function(text) {
-            document.getElementById('link').value = text;
-            if(text != "No referral links") {
+        response.json().then(function(data) {
+            link = data['link']
+            users = data['users']
+            spans = document.getElementsByClassName('users')
+            for (var i = 0; i < spans.length; i++) {
+                spans[i].textContent = users;
+            }
+            document.getElementById('link').value = link;
+            if(link != "No referral links") {
                 strval = document.getElementById('clicks').textContent;
                 document.getElementById('clicks').textContent = (Number(strval) + 1).toString();
             };

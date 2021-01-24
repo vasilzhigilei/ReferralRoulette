@@ -14,6 +14,7 @@ import json
 import urllib
 from datetime import datetime
 from django.http import Http404
+import json
 random.seed(datetime.now())
 
 def index(request):
@@ -127,8 +128,12 @@ def generate_referral(request, slug):
         service_object = ServiceModel.objects.get(slug=slug)
         service_object.clicks += 1
         service_object.save()
-        link = link_object.link
-        return HttpResponse(link)
+        data = {
+            'link': link_object.link,
+            'users': len(links)
+        }
+        print(data)
+        return HttpResponse(json.dumps(data), content_type='application/json')
 
 def redirect(request, slug):
     try:
