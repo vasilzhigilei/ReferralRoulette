@@ -74,6 +74,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
 
     'storages',
+
+    'tinymce',
 ]
 
 LOGIN_REDIRECT_URL = "/"

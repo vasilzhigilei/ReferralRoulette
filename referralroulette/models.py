@@ -2,13 +2,14 @@ from django.db import models
 from taggit.managers import TaggableManager
 from colorfield.fields import ColorField
 from django.utils import timezone
+from tinymce import models as tinymce_models
 
 class ServiceModel(models.Model):
     name = models.CharField(max_length=30)
     slug = models.SlugField(unique=True)
     description = models.CharField(max_length=300, default="")
-    company_description = models.CharField(max_length=3000, default="")
-    referral_description = models.CharField(max_length=3000, default="")
+    referral_description = tinymce_models.HTMLField('Referral Description')
+    company_description = tinymce_models.HTMLField('Company Description')
     prefix = models.CharField(max_length=200, default="", blank=True)
     default_link = models.CharField(max_length=200, default="")
     image = models.ImageField(upload_to="service_images",
