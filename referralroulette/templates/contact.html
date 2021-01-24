@@ -6,6 +6,10 @@
         <div class="row">
             <div class="col-lg-8 col-xl-6 mx-auto">
                 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                <div class="alert alert-primary">
+                    <h5>Suggesting a new website, app, or service?</h5>
+                    <p style="margin: 0;">Please include the referral program details for both referrer and referee, as well as your own personal referral link or code. Thank you!</p>
+                </div>
                 {% if messages %}
                     <div class="messages">
                         {% for message in messages %}
@@ -28,7 +32,7 @@
                     {% endfor %}
                 {% endif %}
                 <h1>Contact Us</h1>
-                <form id="contactform" method="post">
+                <form id="contactform" method="post" style="margin-bottom: 30px;">
                     {% csrf_token %}
                     <div>
                         {{ form.subject }}
@@ -46,10 +50,6 @@
                         <button class="btn btn-success" type="submit">Submit</button>
                     </div>
                 </form>
-                <div style="text-align: center; margin-top: 20px;">
-                    <h5>Suggesting a new website, app, or service?</h5>
-                    <p>Please include the referral program details for both referrer and referee, as well as your own personal referral link or code. Thank you!</p>
-                </div>
             </div>
         </div>
     </div>
