@@ -37,5 +37,4 @@ $(document).ready(function(){
     setTooltip(e.trigger, 'Failed!');
     hideTooltip(e.trigger);
   });
-  document.getElementById('url').value = document.URL;
 });

@@ -16,3 +16,15 @@ function generatenew(slug){
         });
     });
 }
+
+$('#link').click(function(){
+    ga('send','event','Click','Input Field');
+});
+
+$('#copy-button').click(function(){
+    ga('send','event','Click','Copy Button');
+});
+
+$('#open-button').click(function(){
+    ga('send','event','Click','Open New Tab Button');
+});
