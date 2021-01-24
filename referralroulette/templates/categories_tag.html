@@ -2,14 +2,12 @@
 {% block content %}
   <div class="bg-lightsandywhite" style="text-align: center;">
     <div class="container bg-lightimage topbottompadding">
-      <br>
-      <h1 class="display-5"><a class="link" href="/categories">Browse Referral Link Categories</a></h1>
       {% include "categories_section.html" %}
     </div>
   </div>
   <div class="container topbottompadding">
     <div class="container servicecontainer">
-        <h3 style="margin-bottom: 15px;">Most Popular for {{ category }}</h3>
+        <h3 style="margin-bottom: 15px;">Most Popular for <span style="text-shadow: -1px 0 #4f4f4f;">{{ category }}</span></h3>
         <div class="row">
             <div class="col-md-12 padding rounded servicelist">
                 {% for service in category_services %}
