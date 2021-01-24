@@ -18,13 +18,13 @@ function generatenew(slug){
 }
 
 $('#link').click(function(){
-    gtag('event','Modal Click','Input Field');
+    gtag('event','link_interaction',{'method':'input field'});
 });
 
 $('#copy-button').click(function(){
-    gtag('event','Modal Click','Copy Button');
+    gtag('event','link_interaction',{'method':'copy button'});
 });
 
 $('#open-button').click(function(){
-    gtag('event','Modal Click','Open New Tab Button');
+    gtag('event','link_interaction',{'method':'open button'});
 });
