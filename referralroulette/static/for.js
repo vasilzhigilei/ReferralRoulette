@@ -15,6 +15,7 @@ function generatenew(slug){
             myModal.show();
         });
     });
+    gtag('event','generate_new_link',{'service':slug});
 }
 
 $('#link').click(function(){
