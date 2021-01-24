@@ -13,6 +13,7 @@ import random
 import json
 import urllib
 from datetime import datetime
+from django.http import Http404
 random.seed(datetime.now())
 
 def index(request):
@@ -31,6 +32,10 @@ def index(request):
     return render(request, "index.html", context)
 
 def for_service(request, slug):
+    try:
+        for_service = ServiceModel.objects.get(slug=slug)
+    except ServiceModel.DoesNotExist:
+        raise Http404
     links = ReferralModel.objects.filter(slug=slug)
     link = ""
     if len(links) == 0:
@@ -51,7 +56,10 @@ def for_service(request, slug):
         'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
-    for_service = ServiceModel.objects.get(slug=slug)
+    
+    pagetitle = for_service.name + ' Referral Link'
+    if for_service.code:
+        pagetitle = for_service.name + ' Referral Code'
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
         'for_service': for_service,
@@ -59,7 +67,7 @@ def for_service(request, slug):
         'link': link,
         'users': len(links),
         'featured': featured,
-        'pagetitle': for_service.name,
+        'pagetitle': pagetitle,
         'categories': CategoryModel.objects.all(),
     }
     # should have a try except here of ServiceModel.DoesNotExist
