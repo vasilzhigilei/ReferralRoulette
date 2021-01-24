@@ -67,7 +67,8 @@ $(document).ready(function() {
         searchInputPlaceholder: 'Search state...',
         allowClear: true,
         selectionAdapter: $.fn.select2.amd.require("SearchableSingleSelection"),
-        dropdownAdapter: $.fn.select2.amd.require("UnsearchableDropdown")
+        dropdownAdapter: $.fn.select2.amd.require("UnsearchableDropdown"),
+        width: '100%'
     });
     
     $('b[role="presentation"]').hide();
