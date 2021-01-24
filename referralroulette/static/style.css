@@ -389,3 +389,7 @@ a {
 .socialbutton {
     padding: 2px !important;
 }
+
+.accordion-button {
+    text-align: left;
+}
