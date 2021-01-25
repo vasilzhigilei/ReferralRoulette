@@ -190,8 +190,7 @@ def add_referral(request):
                     messages.success(request, "Successfully added code!")
                 else:
                     referral.save()
-                    messages.success(request, "Successfully added link!")
-                
+                    messages.success(request, "Successfully added link!")    
         return HttpResponseRedirect(reverse('profile'))
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
