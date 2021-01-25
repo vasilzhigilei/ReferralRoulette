@@ -30,7 +30,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('for/', RedirectView.as_view(url='/')), # empty for/ should redirect to index.html
     path('for/<slug:slug>', views.for_service, name='for_service'),
-    path('api/generatereferral/<str:slug>', views.generate_referral, name='generate_referral'),
     path('categories', views.categories, name='categories'),
     path('categories/<slug:slug>', views.categories_tag, name='categories_tag'),
     path('faq', views.faq, name='faq'),
@@ -39,6 +38,8 @@ urlpatterns = [
     path('policies/privacy', views.privacypolicy, name='privacypolicy'),
     path('profile', views.profile, name='profile'),
     path('redirect/<str:slug>', views.redirect, name='redirect'),
+    path('api/generatereferral/<str:slug>', views.generate_referral, name='generate_referral'),
+    path('api/addreferral', views.add_referral, name='add_referral'),
     path('api/deletereferral/<str:slug>', views.delete_referral, name='delete_referral'),
     path('admin/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),

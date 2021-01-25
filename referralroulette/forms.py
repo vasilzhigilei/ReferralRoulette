@@ -7,20 +7,16 @@ from .models import ReferralModel, ServiceModel, ContactModel
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('username', 'email', 'first_name', 'last_name', 'last_login', 'date_joined')
+        fields = ('username', 'email', 'last_login', 'date_joined')
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control forminput'}), 
             'email': forms.TextInput(attrs={'class': 'form-control forminput', 'readonly': 'readonly'}), 
-            'first_name': forms.TextInput(attrs={'class': 'form-control forminput'}), 
-            'last_name': forms.TextInput(attrs={'class': 'form-control forminput'}), 
             'last_login': forms.TextInput(attrs={'class': 'form-control forminput', 'readonly': 'readonly'}), 
             'date_joined': forms.TextInput(attrs={'class': 'form-control forminput', 'readonly': 'readonly'}),
         }
         labels = {
             'username': gettext_lazy('Username'),
             'email': gettext_lazy('Email'),
-            'first_name': gettext_lazy('First name'),
-            'last_name': gettext_lazy('Last name'),
             'last_login': gettext_lazy('Last login'),
             'date_joined': gettext_lazy('Date joined'),
         }

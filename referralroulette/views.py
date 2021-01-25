@@ -144,6 +144,29 @@ def redirect(request, slug):
 
 @login_required(login_url='/accounts/google/login/')
 def profile(request):
+    form = ProfileForm(request.POST or None, instance=request.user)
+    user_links = ReferralModel.objects.filter(email=request.user.email)
+    if form.is_valid():
+        form.save()
+        messages.success(request, "Successfully updated profile!")
+        return HttpResponseRedirect(reverse('profile'))
+    featured = {
+        'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
+        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
+        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
+    }
+    context = {
+        'services': ServiceModel.objects.all(), # for the search bar, all pages
+        'profileform': form,
+        'referralform': ReferralForm(),
+        'user_links': user_links,
+        'featured': featured,
+        'pagetitle': 'My Profile',
+    }
+    return render(request, "profile.html", context)
+
+def add_referral(request):
     form = ReferralForm(request.POST or None)
 
     user_links = ReferralModel.objects.filter(email=request.user.email)
@@ -170,7 +193,6 @@ def profile(request):
                     messages.success(request, "Successfully added link!")
                 
         return HttpResponseRedirect(reverse('profile'))
-    
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
         'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
@@ -179,7 +201,8 @@ def profile(request):
     }
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
-        'form': form,
+        'profileform': ProfileForm(),
+        'referralform': form,
         'user_links': user_links,
         'featured': featured,
         'pagetitle': 'My Profile',

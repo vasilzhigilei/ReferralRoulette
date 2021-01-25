@@ -8,12 +8,12 @@
                 {% if messages %}
                     <div class="messages">
                         {% for message in messages %}
-                            <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{message}}</div>
+                            <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}><strong>{{message}}</strong></div>
                         {% endfor %}
                     </div>
                 {% endif %}
-                {% if form.errors %}
-                    {% for field in form %}
+                {% if profileform.errors %}
+                    {% for field in profileform %}
                         {% for error in field.errors %}
                             <div class="alert alert-danger">
                                 <strong>{{ error|escape }}</strong>
@@ -26,23 +26,72 @@
                         </div>
                     {% endfor %}
                 {% endif %}
-                <form id="referralform" method="POST">
-                    {% csrf_token %}
-                    <div class="row">
-                        <div class="col-12 col-sm-12 col-md-auto">
-                            {{ form.service }}
-                            <small class="form-text">Add link/code for...</small>
+                {% if referralform.errors %}
+                    {% for field in referralform %}
+                        {% for error in field.errors %}
+                            <div class="alert alert-danger">
+                                <strong>{{ error|escape }}</strong>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            <strong>{{ error|escape }}</strong>
                         </div>
-                        <div class="col-7 col-sm-7 col-md">
-                            {{ form.link }}
-                            <small class="form-text">Paste referral link or code here.</small>
-                        </div>
-                        <div class="col-5 col-sm-5 col-md-auto">
-                            <button type="submit" class="btn btn-success">Add link</button>
-                        </div>
+                    {% endfor %}
+                {% endif %}
+                <div class="card border-info mb-3 bg-sandywhite">
+                    <div class="card-header bg-darksandywhite"><h5 style="margin: 0;">My Profile</h5></div>
+                    <div class="card-body" style="padding-bottom: 0;">
+                        <form id="profileform" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-6 col-sm-6 col-md-6">
+                                    {{ profileform.username }}
+                                    <small class="form-text">Username.</small>
+                                </div>
+                                <div class="col-6 col-sm-6 col-md-6">
+                                    {{ profileform.email }}
+                                    <small class="form-text">Email.</small>
+                                </div>
+                                <div class="col-6 col-sm-6 col-md-4">
+                                    {{ profileform.last_login }}
+                                    <small class="form-text">Last login.</small>
+                                </div>
+                                <div class="col-6 col-sm-6 col-md-4">
+                                    {{ profileform.date_joined }}
+                                    <small class="form-text">Date joined.</small>
+                                </div>
+                                <div class="col-6 col-sm-6 col-md-4 mx-auto">
+                                    <button type="submit" class="btn btn-success">Update Username</button>
+                                </div>
+                            </div>
+                            <br>
+                        </form>
                     </div>
-                    <br>
-                </form>
+                </div>
+                <div class="card border-info mb-3 bg-sandywhite">
+                    <div class="card-header bg-darksandywhite"><h5 style="margin: 0;">Add your referral links or codes</h5></div>
+                    <div class="card-body" style="padding-bottom: 0;">
+                        <form id="referralform" action="{% url 'add_referral' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-auto">
+                                    {{ referralform.service }}
+                                    <small class="form-text">Add link/code for...</small>
+                                </div>
+                                <div class="col-7 col-sm-7 col-md">
+                                    {{ referralform.link }}
+                                    <small class="form-text">Paste referral link or code here.</small>
+                                </div>
+                                <div class="col-5 col-sm-5 col-md-auto">
+                                    <button type="submit" class="btn btn-success">Add link</button>
+                                </div>
+                            </div>
+                            <br>
+                        </form>
+                    </div>
+                </div>
                 {% for link in user_links %}
                     <form action="{% url 'delete_referral' link.slug %}" method="POST">
                         {% csrf_token %}
