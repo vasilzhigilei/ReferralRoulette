@@ -71,17 +71,17 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav" style="margin-left: auto;">
                   <li class="nav-item">
-                    <a class="nav-link {% if request.path == '/' %}active{% endif %}" aria-label="Featured services" href="/">Featured</a>
+                    <a class="nav-link {% if request.path == '/' %}active{% endif %}" aria-label="Featured services" href="/"><strong>Featured</strong></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {% if request.path == '/categories' %}active{% endif %}" aria-label="Categories list" href="/categories">Categories</a>
+                    <a class="nav-link {% if request.path == '/categories' %}active{% endif %}" aria-label="Categories list" href="/categories"><strong>Categories</strong></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {% if request.path == '/faq' %}active{% endif %}" aria-label="Frequently asked questions" href="/faq">FAQ</a>
+                    <a class="nav-link {% if request.path == '/faq' %}active{% endif %}" aria-label="Frequently asked questions" href="/faq"><strong>FAQ</strong></a>
                   </li>
                   {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/profile' %}active{% endif %}" aria-label="My profile" href="/profile">{{ user.email }}</a>
+                        <a class="nav-link {% if request.path == '/profile' %}active{% endif %}" aria-label="My profile" href="/profile"><strong>{{ user.username }}</strong></a>
                     </li>
                   {% endif %}
                   <li class="nav-item">
