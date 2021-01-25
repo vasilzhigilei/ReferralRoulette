@@ -92,11 +92,11 @@
                         {% if redirect_field_value %}
                           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
                         {% endif %}
-                        <button class="btn btn-outline-danger auth-button" aria-label="Logout" name="next" value="/" role="button" type="submit">Logout</button>
+                        <button class="btn btn-outline-danger auth-button" aria-label="Logout" name="next" value="/" role="button" type="submit"><strong>Logout</strong></button>
                       </form>
                     {% else %}
                       <!-- Log in/Sign up button -->
-                      <a class="btn btn-outline-success auth-button" aria-label="Log in with Google" href="{% provider_login_url 'google' %}?next={% firstof request.path '/' %}">Log in with Google</a>
+                      <a class="btn btn-outline-success auth-button" aria-label="Log in with Google" href="{% provider_login_url 'google' %}?next={% firstof request.path '/' %}"><strong>Log in with Google</strong></a>
                     {% endif %}
                   </li>
                 </ul>
