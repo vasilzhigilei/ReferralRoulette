@@ -97,7 +97,7 @@
                         {% csrf_token %}
                         <div class="row bg-sandywhite profile-referral-link-row">
                             <div class="col order-1 col-md-auto profile-referral-link-child">
-                                {{ link.service }}
+                                <a href="/for/{{ link.slug }}">{{ link.service }}</a>
                             </div>
                             <div class="col-12 order-5 col-md order-md-2 profile-referral-link-child">
                                 {{ link.link }}
