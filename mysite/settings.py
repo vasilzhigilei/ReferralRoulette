@@ -24,10 +24,16 @@ if 'AZURE' in os.environ:
     STATIC_LOCATION = "static"
     MEDIA_LOCATION = "media"
 
-    AZURE_ACCOUNT_NAME = "djangostorage"
-    AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
-    STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
-    MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
+    # OLD direct-to-azure-blob FILE ACCESS
+    #AZURE_ACCOUNT_NAME = "djangostorage"
+    #AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
+    #STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+    #MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
+
+    # NEW through cloudflare cdn method, CNAME to AZURE_CUSTOM_DOMAIN essentially
+    CUSTOM_DOMAIN = "cdn.referralroulette.com"
+    STATIC_URL = f'https://{CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+    MEDIA_URL = f'https://{CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
 else:
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
     STATIC_ROOT = os.path.join(BASE_DIR, 'referralroulette/static')
@@ -45,8 +51,8 @@ DEBUG = True
 if 'PRODUCTION' in os.environ:
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = False
-    SECURE_SSL_REDIRECT = True
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    #SECURE_SSL_REDIRECT = True
+    #SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.herokuapp.com', 'referralroulette.com']
 from django.contrib.messages import constants as messages
