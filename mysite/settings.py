@@ -31,9 +31,10 @@ if 'AZURE' in os.environ:
     #MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
 
     # NEW through cloudflare cdn method, CNAME to AZURE_CUSTOM_DOMAIN essentially
-    CUSTOM_DOMAIN = "cdn.referralroulette.com"
-    STATIC_URL = f'https://{CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
-    MEDIA_URL = f'https://{CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
+    AZURE_ACCOUNT_NAME = "djangostorage"
+    AZURE_CUSTOM_DOMAIN = "cdn.referralroulette.com"
+    STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+    MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
 else:
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
     STATIC_ROOT = os.path.join(BASE_DIR, 'referralroulette/static')
