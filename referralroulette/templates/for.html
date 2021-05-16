@@ -167,17 +167,19 @@
               <br>
               <div class="input-group input-group-lg">
                   <input class="form-control" value="{{ link }}" type="text" id="link" style="font-weight: bold;" readonly>
-                  <div class="input-group-append">
-                      <button id="copy-button" style="height: 100%;" class="btn btn-outline-secondary" data-clipboard-target="#link" type="button">
-                          <span><img src="{% static '/icons/clipboard.svg' %}" class="copyimage" alt="Copy to clipboard"></span>
-                      </button> <!-- possible bug with inspect element changing size exiting copy button svg size -->
-                  </div>
-                  {% if not for_service.code %}
+                  {% if link != "No referral links" %}
                     <div class="input-group-append">
-                        <button onclick="window.open(document.getElementById('link').value, '_blank');" id="open-button" style="height: 100%;" class="btn btn-outline-info" data-clipboard-target="#link" type="button">
-                            <span><img src="{% static '/icons/open-link.svg' %}" class="copyimage" alt="Open in new tab"></span>
+                        <button id="copy-button" style="height: 100%;" class="btn btn-outline-secondary" data-clipboard-target="#link" type="button">
+                            <span><img src="{% static '/icons/clipboard.svg' %}" class="copyimage" alt="Copy to clipboard"></span>
                         </button> <!-- possible bug with inspect element changing size exiting copy button svg size -->
                     </div>
+                    {% if not for_service.code %}
+                      <div class="input-group-append">
+                          <button onclick="window.open(document.getElementById('link').value, '_blank');" id="open-button" style="height: 100%;" class="btn btn-outline-info" data-clipboard-target="#link" type="button">
+                              <span><img src="{% static '/icons/open-link.svg' %}" class="copyimage" alt="Open in new tab"></span>
+                          </button> <!-- possible bug with inspect element changing size exiting copy button svg size -->
+                      </div>
+                    {% endif %}
                   {% endif %}
               </div>
               {% if for_service.code %}
