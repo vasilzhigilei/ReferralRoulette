@@ -20,8 +20,8 @@ random.seed(datetime.now())
 def index(request):
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
-        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
-        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'cryptocurrency': ServiceModel.objects.filter(tags__name__in=['cryptocurrency']).order_by('-clicks')[0:5],
+        'travel': ServiceModel.objects.filter(tags__name__in=['hotels', 'transport']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
     context = {
