@@ -138,7 +138,7 @@ def redirect(request, slug):
         service = ServiceModel.objects.get(slug=slug)
         return HttpResponseRedirect(service.default_link)
     except ServiceModel.DoesNotExist:
-        return HttpResponseRedirect("/") # need some error page, and implement 404 management
+        return HttpResponseRedirect("/")
 
 @login_required(login_url='/accounts/google/login/')
 def profile(request):
@@ -213,11 +213,6 @@ def delete_referral(request, slug):
     return HttpResponseRedirect("/profile")
 
 def categories(request):
-    categories = CategoryModel.objects.all()
-    top_of_categories = {}
-    for category in categories:
-        top_of_categories[category] = ServiceModel.objects.filter(tags__name__in=[category.slug]).order_by('-clicks')[0:8]
-    
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
         'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
@@ -233,7 +228,6 @@ def categories(request):
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
         'categories': categories,
-        'top_of_categories': top_of_categories,
         'featured': featured,
         'pagetitle': 'Categories',
         'words': words
@@ -250,7 +244,6 @@ def categories_tag(request, slug):
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
         'category_services': ServiceModel.objects.filter(tags__name__in=[slug]),
-        'categories': CategoryModel.objects.all(),
         'featured': featured,
         'category': slug.title(),
         'pagetitle': slug.title(),
