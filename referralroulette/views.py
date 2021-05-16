@@ -117,7 +117,11 @@ def contact(request):
 def generate_referral(request, slug):
     links = ReferralModel.objects.filter(slug=slug)
     if len(links) == 0:
-        return HttpResponse("No referral links")
+        data = {
+            'link': "No referral links",
+            'users': 0
+        }
+        return HttpResponse(json.dumps(data), content_type='application/json')
     else:
         i = random.randint(0,len(links)-1)
         link_object = links[i]
