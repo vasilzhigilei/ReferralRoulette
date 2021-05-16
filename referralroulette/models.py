@@ -41,4 +41,4 @@ class ContactModel(models.Model):
     from_email = models.EmailField()
     time = models.DateTimeField(blank=True, default=timezone.now)
     subject = models.CharField(max_length=100)
-    message = models.CharField(max_length=3000)
+    message = models.TextField(max_length=3000)
