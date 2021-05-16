@@ -83,6 +83,8 @@ INSTALLED_APPS = [
     'storages',
 
     'tinymce',
+
+    'django_user_agents',
 ]
 
 LOGIN_REDIRECT_URL = "/"
@@ -113,7 +115,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'mysite.middleware.CanonicalDomainMiddleware',
+    'django_user_agents.middleware.UserAgentMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
