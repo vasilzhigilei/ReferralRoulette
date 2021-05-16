@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.urls import reverse
 from django.template.defaultfilters import slugify
 from django.contrib.auth.decorators import login_required
-from .models import ServiceModel, ReferralModel, CategoryModel
+from .models import ServiceModel, ReferralModel
 from .forms import ProfileForm, ReferralForm, ContactForm
 from taggit.models import Tag
 from django.db.models import Count
@@ -27,7 +27,6 @@ def index(request):
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
         'top_services': ServiceModel.objects.order_by('-clicks')[0:20],
-        'categories': CategoryModel.objects.all(),
         'featured': featured,
     }
     return render(request, "index.html", context)
@@ -69,7 +68,6 @@ def for_service(request, slug):
         'users': len(links),
         'featured': featured,
         'pagetitle': pagetitle,
-        'categories': CategoryModel.objects.all(),
     }
     # should have a try except here of ServiceModel.DoesNotExist
     return render(request, "for.html", context)
