@@ -60,15 +60,20 @@
                 </a>
             </div>
             <div class="card-body servicelist">
-              {% for service in queryset %}
-                        <div class="servicecard servicecard-two hvr-shadow" id="{{ service.name }}" style="background-color: {{ service.background_color }}; border-color: {{ service.text_color }}; color: {{ service.text_color }};">
-                            <img class="servicecard-img" src="{{ service.image.url }}" alt="{{ service.name }} logo">
-                            <h5 class="servicecard-text">{{ service.description }}</h5>
-                            <a href="/for/{{ service.slug }}">
-                            <span class="link-spanner"></span>
-                            </a>
-                        </div>
-                    {% endfor %}
+                {% for service in queryset %}
+                    <div class="servicecard servicecard-two hvr-shadow" id="{{ service.name }}" style="background-color: {{ service.background_color }}; border-color: {{ service.text_color }}; color: {{ service.text_color }};">
+                        <img class="servicecard-img" src="{{ service.image.url }}" alt="{{ service.name }} logo">
+                        <h5 class="servicecard-text">{{ service.description }}</h5>
+                        <a href="/for/{{ service.slug }}">
+                        <span class="link-spanner"></span>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="mb-md-3">
+                <a type="button" class="btn btn-primary" href="/categories/{{ category }}" style="max-width: 100%;">
+                    <p class="h6" style="margin-bottom: 0; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">Browse {{ categories|get_item:category }}</p>
+                </a>
             </div>
           </div>
         {% endfor %}
