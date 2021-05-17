@@ -21,7 +21,7 @@ def index(request):
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
         'cryptocurrency': ServiceModel.objects.filter(tags__name__in=['cryptocurrency']).order_by('-clicks')[0:5],
-        'travel': ServiceModel.objects.filter(tags__name__in=['hotels', 'transport']).order_by('-clicks')[0:5],
+        'travel': ServiceModel.objects.filter(tags__name__in=['travel']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
     context = {
@@ -52,8 +52,8 @@ def for_service(request, slug):
     
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
-        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
-        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'cryptocurrency': ServiceModel.objects.filter(tags__name__in=['cryptocurrency']).order_by('-clicks')[0:5],
+        'travel': ServiceModel.objects.filter(tags__name__in=['travel']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
     
@@ -101,8 +101,8 @@ def contact(request):
                 return HttpResponseRedirect(reverse('contact'))
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
-        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
-        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'cryptocurrency': ServiceModel.objects.filter(tags__name__in=['cryptocurrency']).order_by('-clicks')[0:5],
+        'travel': ServiceModel.objects.filter(tags__name__in=['travel']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
     context = {
@@ -154,8 +154,8 @@ def profile(request):
         return HttpResponseRedirect(reverse('profile'))
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
-        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
-        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'cryptocurrency': ServiceModel.objects.filter(tags__name__in=['cryptocurrency']).order_by('-clicks')[0:5],
+        'travel': ServiceModel.objects.filter(tags__name__in=['travel']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
     context = {
@@ -196,8 +196,8 @@ def add_referral(request):
         return HttpResponseRedirect(reverse('profile'))
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
-        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
-        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'cryptocurrency': ServiceModel.objects.filter(tags__name__in=['cryptocurrency']).order_by('-clicks')[0:5],
+        'travel': ServiceModel.objects.filter(tags__name__in=['travel']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
     context = {
@@ -217,10 +217,21 @@ def delete_referral(request, slug):
     return HttpResponseRedirect("/profile")
 
 def categories(request):
+    categories = [{"slug": "finance", "name": "Finance"}, 
+                {"slug": "cryptocurrency", "name": "Cryptocurrency"},
+                {"slug": "travel", "name": "Travel"},
+                {"slug": "finance", "name": "Finance"},
+                {"slug": "finance", "name": "Finance"},
+                {"slug": "finance", "name": "Finance"},
+        ]
+    top_of_categories = {}
+    for category in categories:
+        top_of_categories[category] = ServiceModel.objects.filter(tags__name__in=[category.slug]).order_by('-clicks')[0:8]
+
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
-        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
-        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'cryptocurrency': ServiceModel.objects.filter(tags__name__in=['cryptocurrency']).order_by('-clicks')[0:5],
+        'travel': ServiceModel.objects.filter(tags__name__in=['travel']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
 
@@ -232,6 +243,7 @@ def categories(request):
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
         'categories': categories,
+        'top_of_categories': top_of_categories,
         'featured': featured,
         'pagetitle': 'Categories',
         'words': words
@@ -241,8 +253,8 @@ def categories(request):
 def categories_tag(request, slug):
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
-        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
-        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'cryptocurrency': ServiceModel.objects.filter(tags__name__in=['cryptocurrency']).order_by('-clicks')[0:5],
+        'travel': ServiceModel.objects.filter(tags__name__in=['travel']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
     context = {
@@ -257,8 +269,8 @@ def categories_tag(request, slug):
 def browse(request):
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
-        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
-        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'cryptocurrency': ServiceModel.objects.filter(tags__name__in=['cryptocurrency']).order_by('-clicks')[0:5],
+        'travel': ServiceModel.objects.filter(tags__name__in=['travel']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
 
@@ -272,8 +284,8 @@ def browse(request):
 def faq(request):
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
-        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
-        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'cryptocurrency': ServiceModel.objects.filter(tags__name__in=['cryptocurrency']).order_by('-clicks')[0:5],
+        'travel': ServiceModel.objects.filter(tags__name__in=['travel']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
     context = {
