@@ -227,13 +227,13 @@ def categories(request):
     categories = {"finance": "Finance",
                 "cryptocurrency": "Cryptocurrency",
                 "travel": "Travel",
-                "finance": "Finance",
+                "food": "Food",
                 "retail": "Retail",
                 "health": "Health",
     }
     top_of_categories = {}
     for category_key in categories: # category_key is slug
-        top_of_categories[category_key] = ServiceModel.objects.filter(tags__name__in=[category_key]).order_by('-clicks')[0:8]
+        top_of_categories[category_key] = ServiceModel.objects.filter(tags__name__in=[category_key]).order_by('-clicks')[0:6]
 
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
