@@ -18,12 +18,23 @@
             </div>
             {% endfor %}
         </div>
+        <div class="col-md-12">
+          <a type="button" class="btn btn-info" href="/browse" style="margin-top: 20px;">
+            <p class="h5" style="margin-bottom: 0;">Browse More</p>
+          </a>
+        </div>
+        
     </div>
   </div>
 </div>
 <div class="bg-sandywhite" style="text-align: center;">
   <div class="container bg-image topbottompadding">
+    <div class="px-2">
     <h3>View Referral Link <a href="/categories">Categories</a></h3>
+    <h4 style="margin-bottom: 0;">
+      <a href="/categories/finance">Finance</a> &bull; <a href="/categories/cryptocurrency">Cryptocurrency</a> &bull; <a href="/categories/travel">Travel</a> &bull; <a href="/categories/food">Food</a> &bull; <a href="/categories/retail">Retail</a> &bull; <a href="/categories/health">Health</a>
+    </h4>
+    </div>
   </div>
 </div>
 <div class="bg-lightsandywhite">
@@ -33,19 +44,19 @@
         <div class="col-md-3">
           <img src="{% static '/icons/signup_colored_90px.png' %}" alt="Sign up icon" style="margin-bottom: 16px; width: 90px;">
           <div class="caption text-center">
-            <p class="text-muted" style="font-size: 16px; line-height: 24px;">Sign up to any of these services using a <strong>randomly generated</strong> referral code.</p>
+            <p class="text-muted" style="font-size: 16px; line-height: 24px; margin-bottom: 0;">Sign up to any of these services using a <strong>randomly generated</strong> referral code.</p>
           </div>
         </div>
         <div class="col-md-4">
           <img src="{% static '/icons/add-money_colored_90px.png' %}" alt="Earn money icon" style="margin-bottom: 16px; width: 90px;">
           <div class="caption text-center">
-            <p class="text-muted" style="font-size: 16px; line-height: 24px;">Add your own referral links on <strong>Referral Roulette</strong> and start earning NOW!</p>
+            <p class="text-muted" style="font-size: 16px; line-height: 24px; margin-bottom: 0;">Add your own referral links on <strong>Referral Roulette</strong> and start earning NOW!</p>
           </div>
         </div>
         <div class="col-md-3">
           <img src="{% static '/icons/socialshare_colored_90px.png' %}" alt="Social share icon" style="margin-bottom: 16px; width: 90px;">
           <div class="caption text-center">
-            <p class="text-muted" style="font-size: 16px; line-height: 24px;"><strong>Share Referral Roulette</strong> with your friends and family! Fair and random URL selection!</p>
+            <p class="text-muted" style="font-size: 16px; line-height: 24px; margin-bottom: 0;"><strong>Share Referral Roulette</strong> with your friends and family! Fair and random URL selection!</p>
           </div>
         </div>
         <div class="col-md-1"></div>
@@ -75,12 +86,12 @@
           <p class="text-muted h5"><strong>Give some, get some</strong>. A community built on sharing and using other people's referral links.</p>
           {% if user.is_authenticated %}
             <a type="button" class="btn btn-secondary" href="/profile" style="margin-top: 20px;">
-              <p class="h5" style="margin-bottom: 0;">Add your own links</p>
+              <p class="h6" style="margin-bottom: 0;">Add your own links</p>
             </a>
           {% else %}
             <!-- Log in button -->
-            <a type="button" class="btn btn-secondary" href="{% provider_login_url 'google' %}?next={% firstof request.path '/' %}" style="margin-top: 20px;">
-              <p class="h5" style="margin-bottom: 0;">Sign Up Now to earn rewards</p>
+            <a type="button" class="btn btn-secondary" href="{% provider_login_url 'google' %}?next=/profile" style="margin-top: 20px;">
+              <p class="h6" style="margin-bottom: 0;">Sign Up Now to earn rewards</p>
             </a>
           {% endif %}
       </div>

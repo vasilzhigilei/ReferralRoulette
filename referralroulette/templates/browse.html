@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+{% load socialaccount %}
+<div class="bg-lightsandywhite topbottompadding" style="text-align: center;">
+    <div class="container servicecontainer">
+        <h1 class="display-5">Browse All Referral Links</h1>
+        <h3 class="text-muted">Click on a card to be sent to a random user's referral link!</h3>
+        <div class="row">
+            <div class="col-md-12 padding rounded servicelist">
+                {% for service in services %}
+                    <div class="servicecard hvr-shadow" id="{{ service.name }}" style="background-color: {{ service.background_color }}; border-color: {{ service.text_color }}; color: {{ service.text_color }};">
+                        <img class="servicecard-img" src="{{ service.image.url }}" alt="{{ service.name }} logo">
+                        <h5 class="servicecard-text">{{ service.description }}</h5>
+                        <a href="/for/{{ service.slug }}" aria-label="{{ service.name }} referral link page">
+                            <span class="link-spanner"></span>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
