@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.urls import reverse
 from django.template.defaultfilters import slugify
 from django.contrib.auth.decorators import login_required
-from .models import ServiceModel, ReferralModel, CategoryModel
+from .models import ServiceModel, ReferralModel
 from .forms import ProfileForm, ReferralForm, ContactForm
 from taggit.models import Tag
 from django.db.models import Count
@@ -17,17 +17,23 @@ from django.http import Http404
 import json
 random.seed(datetime.now())
 
+from django.template.defaulttags import register
+
+@register.filter
+def get_item(dictionary, key):
+    return dictionary.get(key)
+
+
 def index(request):
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
-        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
-        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'cryptocurrency': ServiceModel.objects.filter(tags__name__in=['cryptocurrency']).order_by('-clicks')[0:5],
+        'travel': ServiceModel.objects.filter(tags__name__in=['travel']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
         'top_services': ServiceModel.objects.order_by('-clicks')[0:20],
-        'categories': CategoryModel.objects.all(),
         'featured': featured,
     }
     return render(request, "index.html", context)
@@ -53,8 +59,8 @@ def for_service(request, slug):
     
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
-        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
-        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'cryptocurrency': ServiceModel.objects.filter(tags__name__in=['cryptocurrency']).order_by('-clicks')[0:5],
+        'travel': ServiceModel.objects.filter(tags__name__in=['travel']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
     
@@ -69,7 +75,6 @@ def for_service(request, slug):
         'users': len(links),
         'featured': featured,
         'pagetitle': pagetitle,
-        'categories': CategoryModel.objects.all(),
     }
     # should have a try except here of ServiceModel.DoesNotExist
     return render(request, "for.html", context)
@@ -103,8 +108,8 @@ def contact(request):
                 return HttpResponseRedirect(reverse('contact'))
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
-        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
-        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'cryptocurrency': ServiceModel.objects.filter(tags__name__in=['cryptocurrency']).order_by('-clicks')[0:5],
+        'travel': ServiceModel.objects.filter(tags__name__in=['travel']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
     context = {
@@ -119,7 +124,11 @@ def contact(request):
 def generate_referral(request, slug):
     links = ReferralModel.objects.filter(slug=slug)
     if len(links) == 0:
-        return HttpResponse("No referral links")
+        data = {
+            'link': "No referral links",
+            'users': 0
+        }
+        return HttpResponse(json.dumps(data), content_type='application/json')
     else:
         i = random.randint(0,len(links)-1)
         link_object = links[i]
@@ -140,7 +149,7 @@ def redirect(request, slug):
         service = ServiceModel.objects.get(slug=slug)
         return HttpResponseRedirect(service.default_link)
     except ServiceModel.DoesNotExist:
-        return HttpResponseRedirect("/") # need some error page, and implement 404 management
+        return HttpResponseRedirect("/")
 
 @login_required(login_url='/accounts/google/login/')
 def profile(request):
@@ -152,8 +161,8 @@ def profile(request):
         return HttpResponseRedirect(reverse('profile'))
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
-        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
-        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'cryptocurrency': ServiceModel.objects.filter(tags__name__in=['cryptocurrency']).order_by('-clicks')[0:5],
+        'travel': ServiceModel.objects.filter(tags__name__in=['travel']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
     context = {
@@ -194,8 +203,8 @@ def add_referral(request):
         return HttpResponseRedirect(reverse('profile'))
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
-        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
-        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'cryptocurrency': ServiceModel.objects.filter(tags__name__in=['cryptocurrency']).order_by('-clicks')[0:5],
+        'travel': ServiceModel.objects.filter(tags__name__in=['travel']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
     context = {
@@ -215,15 +224,21 @@ def delete_referral(request, slug):
     return HttpResponseRedirect("/profile")
 
 def categories(request):
-    categories = CategoryModel.objects.all()
+    categories = {"finance": "Finance",
+                "cryptocurrency": "Cryptocurrency",
+                "travel": "Travel",
+                "food": "Food",
+                "retail": "Retail",
+                "health": "Health",
+    }
     top_of_categories = {}
-    for category in categories:
-        top_of_categories[category] = ServiceModel.objects.filter(tags__name__in=[category.slug]).order_by('-clicks')[0:8]
-    
+    for category_key in categories: # category_key is slug
+        top_of_categories[category_key] = ServiceModel.objects.filter(tags__name__in=[category_key]).order_by('-clicks')[0:6]
+
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
-        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
-        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'cryptocurrency': ServiceModel.objects.filter(tags__name__in=['cryptocurrency']).order_by('-clicks')[0:5],
+        'travel': ServiceModel.objects.filter(tags__name__in=['travel']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
 
@@ -245,25 +260,39 @@ def categories(request):
 def categories_tag(request, slug):
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
-        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
-        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'cryptocurrency': ServiceModel.objects.filter(tags__name__in=['cryptocurrency']).order_by('-clicks')[0:5],
+        'travel': ServiceModel.objects.filter(tags__name__in=['travel']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
         'category_services': ServiceModel.objects.filter(tags__name__in=[slug]),
-        'categories': CategoryModel.objects.all(),
         'featured': featured,
         'category': slug.title(),
         'pagetitle': slug.title(),
     }
     return render(request, "categories_tag.html", context)
 
+def browse(request):
+    featured = {
+        'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
+        'cryptocurrency': ServiceModel.objects.filter(tags__name__in=['cryptocurrency']).order_by('-clicks')[0:5],
+        'travel': ServiceModel.objects.filter(tags__name__in=['travel']).order_by('-clicks')[0:5],
+        'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
+    }
+
+    context = {
+        'services': ServiceModel.objects.all(), # for the search bar, all pages. For "Browse" page also used for loop
+        'featured': featured,
+        'pagetitle': 'Categories',
+    }
+    return render(request, "browse.html", context)
+
 def faq(request):
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
-        'hotels': ServiceModel.objects.filter(tags__name__in=['hotels']).order_by('-clicks')[0:5],
-        'transport': ServiceModel.objects.filter(tags__name__in=['transport']).order_by('-clicks')[0:5],
+        'cryptocurrency': ServiceModel.objects.filter(tags__name__in=['cryptocurrency']).order_by('-clicks')[0:5],
+        'travel': ServiceModel.objects.filter(tags__name__in=['travel']).order_by('-clicks')[0:5],
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
     context = {

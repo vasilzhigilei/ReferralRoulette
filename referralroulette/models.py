@@ -30,15 +30,8 @@ class ReferralModel(models.Model):
     email = models.CharField(max_length=50)
     clicks = models.IntegerField(default=0)
 
-class CategoryModel(models.Model):
-    name = models.CharField(max_length=30)
-    slug = models.SlugField(unique=True)
-    color = ColorField(default='#212529')
-    image = models.ImageField(upload_to="category_images",
-                              default="/category_images/missing.png")
-
 class ContactModel(models.Model):
     from_email = models.EmailField()
     time = models.DateTimeField(blank=True, default=timezone.now)
     subject = models.CharField(max_length=100)
-    message = models.CharField(max_length=3000)
+    message = models.TextField(max_length=3000)

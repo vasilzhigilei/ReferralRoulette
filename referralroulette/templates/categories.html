@@ -4,13 +4,16 @@
 <div class="bg-lightsandywhite" style="text-align: center;">
     <div class="container bg-lightimage topbottompadding">
         <h1 class="display-5">Browse Referral Link Categories</h1>
-        {% include "categories_section.html" %}
+        {% if request.user_agent.is_pc %}
+            <h3 style="margin-bottom: 0;">Click on a tag below to view category</h3>
+        {% else %}
+            <h3 style="margin-bottom: 0;">Tap on a tag below to view category</h3>
+        {% endif %}
     </div>
 </div>
 <div class="bg-sandywhite topbottompadding" style="text-align: center;">
     <div class="container">
         <script src="{% static '/wordcloud2.js' %}"></script>
-        <h4>Press on a tag to view category</h4>
         <div id="surrounding_div" style="width: 100%; height: 300px; text-align: center;">
             <div id="canvas_cloud" class="word_cloud" style="left: 50%;
             transform: translateX(-50%);"></div>
@@ -47,25 +50,30 @@
 </div>
 <div class="bg-lightsandywhite topbottompadding" style="text-align: center;">
     <div class="container">
-        <h3 style="margin-bottom: 15px;">Most Popular for Each Featured Category</h3>
+        <h3 style="margin-bottom: 15px;">Most Popular in Featured Categories</h3>
         <div class="servicelist">
         {% for category, queryset in top_of_categories.items %}
         <div class="card bg-sandywhite" style="width: 48%; margin: 1%;">
             <div class="card-header bg-darksandywhite">
-                <a href="/categories/{{ category.slug }}">
-                    <h4 style="margin:0; margin-right:5px;">{{ category.name }}</h4>
+                <a href="/categories/{{ category }}">
+                    <h4 style="margin:0; margin-right:5px;">{{ categories|get_item:category }}</h4>
                 </a>
             </div>
             <div class="card-body servicelist">
-              {% for service in queryset %}
-                        <div class="servicecard servicecard-two hvr-shadow" id="{{ service.name }}" style="background-color: {{ service.background_color }}; border-color: {{ service.text_color }}; color: {{ service.text_color }};">
-                            <img class="servicecard-img" src="{{ service.image.url }}" alt="{{ service.name }} logo">
-                            <h5 class="servicecard-text">{{ service.description }}</h5>
-                            <a href="/for/{{ service.slug }}">
-                            <span class="link-spanner"></span>
-                            </a>
-                        </div>
-                    {% endfor %}
+                {% for service in queryset %}
+                    <div class="servicecard servicecard-two hvr-shadow" id="{{ service.name }}" style="background-color: {{ service.background_color }}; border-color: {{ service.text_color }}; color: {{ service.text_color }};">
+                        <img class="servicecard-img" src="{{ service.image.url }}" alt="{{ service.name }} logo">
+                        <h5 class="servicecard-text">{{ service.description }}</h5>
+                        <a href="/for/{{ service.slug }}">
+                        <span class="link-spanner"></span>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="mb-md-3">
+                <a type="button" class="btn btn-primary" href="/categories/{{ category }}" style="max-width: 100%;">
+                    <p class="h6" style="margin-bottom: 0; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">Browse {{ categories|get_item:category }}</p>
+                </a>
             </div>
           </div>
         {% endfor %}

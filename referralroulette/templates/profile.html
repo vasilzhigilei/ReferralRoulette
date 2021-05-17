@@ -92,28 +92,36 @@
                         </form>
                     </div>
                 </div>
-                {% for link in user_links %}
-                    <form action="{% url 'delete_referral' link.slug %}" method="POST">
-                        {% csrf_token %}
-                        <div class="row bg-sandywhite profile-referral-link-row">
-                            <div class="col order-1 col-md-auto profile-referral-link-child">
-                                <a href="/for/{{ link.slug }}">{{ link.service }}</a>
-                            </div>
-                            <div class="col-12 order-5 col-md order-md-2 profile-referral-link-child">
-                                {{ link.link }}
-                            </div>
-                            <div class="col-auto order-3 profile-referral-link-child float-right">
-                                Views:&nbsp;{{ link.clicks }}
-                            </div>
-                            <div class="col-auto order-4 profile-referral-link-child float-right">
-                                <button type="submit" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
-                                    <i class="fa fa-trash"></i>
-                                </button>
-                                <!-- known bootstrap tooltip disappearing bug here -->
-                            </div>
+                {% if user_links|length == 0 %}
+                    <div class="row bg-sandywhite profile-referral-link-row">
+                        <div class="col-12 profile-referral-link-child" style="text-align: center;">
+                            Nothing here yet! Add a link first.
                         </div>
-                    </form>
-                {% endfor %}
+                    </div>
+                {% else %}
+                    {% for link in user_links %}
+                        <form action="{% url 'delete_referral' link.slug %}" method="POST">
+                            {% csrf_token %}
+                            <div class="row bg-sandywhite profile-referral-link-row">
+                                <div class="col order-1 col-md-auto profile-referral-link-child">
+                                    <a href="/for/{{ link.slug }}">{{ link.service }}</a>
+                                </div>
+                                <div class="col-12 order-5 col-md order-md-2 profile-referral-link-child">
+                                    {{ link.link }}
+                                </div>
+                                <div class="col-auto order-3 profile-referral-link-child float-right">
+                                    Views:&nbsp;{{ link.clicks }}
+                                </div>
+                                <div class="col-auto order-4 profile-referral-link-child float-right">
+                                    <button type="submit" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                    <!-- known bootstrap tooltip disappearing bug here -->
+                                </div>
+                            </div>
+                        </form>
+                    {% endfor %}
+                {% endif %}
                 <div style="text-align: center; margin-top: 20px;">
                     <h5>Have a referral link or code for a service not yet on Referral Roulette?</h5>
                     <p><a href="/contact">Contact us</a> with the referral terms and details, as well as your code/link for an example. The service will be added within 48hrs.</p>
