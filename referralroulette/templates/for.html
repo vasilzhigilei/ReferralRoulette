@@ -239,7 +239,7 @@
             </a>
           {% else %}
             <!-- Log in button -->
-            <a type="button" class="btn btn-secondary" href="{% provider_login_url 'google' %}?next={% firstof request.path '/' %}">
+            <a type="button" class="btn btn-secondary" href="{% provider_login_url 'google' %}?next=/profile">
               Sign Up Now to earn rewards
             </a>
           {% endif %}
