@@ -30,6 +30,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('for/', RedirectView.as_view(url='/')), # empty for/ should redirect to index.html
     path('for/<slug:slug>', views.for_service, name='for_service'),
+    path('browse', views.browse, name='browse'),
     path('categories', views.categories, name='categories'),
     path('categories/<slug:slug>', views.categories_tag, name='categories_tag'),
     path('faq', views.faq, name='faq'),

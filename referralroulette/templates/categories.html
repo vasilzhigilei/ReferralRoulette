@@ -4,16 +4,16 @@
 <div class="bg-lightsandywhite" style="text-align: center;">
     <div class="container bg-lightimage topbottompadding">
         <h1 class="display-5">Browse Referral Link Categories</h1>
+        {% if request.user_agent.is_pc %}
+            <h3>Click on a tag below to view category</h3>
+        {% else %}
+            <h3>Tap on a tag below to view category</h3>
+        {% endif %}
     </div>
 </div>
 <div class="bg-sandywhite topbottompadding" style="text-align: center;">
     <div class="container">
         <script src="{% static '/wordcloud2.js' %}"></script>
-        {% if request.user_agent.is_pc %}
-            <h4>Click on a tag below to view category</h4>
-        {% else %}
-            <h4>Tap on a tag below to view category</h4>
-        {% endif %}
         <div id="surrounding_div" style="width: 100%; height: 300px; text-align: center;">
             <div id="canvas_cloud" class="word_cloud" style="left: 50%;
             transform: translateX(-50%);"></div>
