@@ -17,6 +17,13 @@ from django.http import Http404
 import json
 random.seed(datetime.now())
 
+from django.template.defaulttags import register
+
+@register.filter
+def get_item(dictionary, key):
+    return dictionary.get(key)
+
+
 def index(request):
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
@@ -217,16 +224,16 @@ def delete_referral(request, slug):
     return HttpResponseRedirect("/profile")
 
 def categories(request):
-    categories = [{"slug": "finance", "name": "Finance"}, 
-                {"slug": "cryptocurrency", "name": "Cryptocurrency"},
-                {"slug": "travel", "name": "Travel"},
-                {"slug": "finance", "name": "Finance"},
-                {"slug": "finance", "name": "Finance"},
-                {"slug": "finance", "name": "Finance"},
-        ]
+    categories = {"finance": "Finance",
+                "cryptocurrency": "Cryptocurrency",
+                "travel": "Travel",
+                "finance": "Finance",
+                "retail": "Retail",
+                "health": "Health",
+    }
     top_of_categories = {}
-    for category in categories:
-        top_of_categories[category] = ServiceModel.objects.filter(tags__name__in=[category.slug]).order_by('-clicks')[0:8]
+    for category_key in categories: # category_key is slug
+        top_of_categories[category_key] = ServiceModel.objects.filter(tags__name__in=[category_key]).order_by('-clicks')[0:8]
 
     featured = {
         'finance': ServiceModel.objects.filter(tags__name__in=['finance']).order_by('-clicks')[0:5],
