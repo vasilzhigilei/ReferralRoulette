@@ -79,6 +79,9 @@
                     <a class="nav-link {% if request.path == '/' %}active{% endif %}" aria-label="Featured services" href="/"><strong>Featured</strong></a>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link {% if request.path == '/browse' %}active{% endif %}" aria-label="Categories list" href="/browse"><strong>Browse All</strong></a>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link {% if request.path == '/categories' %}active{% endif %}" aria-label="Categories list" href="/categories"><strong>Categories</strong></a>
                   </li>
                   <li class="nav-item">
