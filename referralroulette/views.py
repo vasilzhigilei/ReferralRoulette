@@ -284,7 +284,7 @@ def browse(request):
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages. For "Browse" page also used for loop
         'featured': featured,
-        'pagetitle': 'Categories',
+        'pagetitle': 'Browse',
     }
     return render(request, "browse.html", context)
 
