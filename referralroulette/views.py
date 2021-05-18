@@ -229,7 +229,7 @@ def categories(request):
                 "travel": "Travel",
                 "food": "Food",
                 "retail": "Retail",
-                "health": "Health",
+                "rewards": "Rewards",
     }
     top_of_categories = {}
     for category_key in categories: # category_key is slug
