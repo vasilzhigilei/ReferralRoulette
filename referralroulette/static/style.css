@@ -36,14 +36,14 @@ body {
 }
 
 .bg-lightimage {
-    background-image: url('../static/background_colored_400px.png');
+    background-image: url('../static/background_400px.png');
     background-size: contain;
     background-position: center;
     box-shadow: inset 0 0px 15px 15px #fdf6f3;
 }
 
 .bg-image {
-    background-image: url('../static/background_colored_400px.png');
+    background-image: url('../static/background_400px.png');
     background-size: contain;
     background-position: center;
     background-repeat: repeat;
