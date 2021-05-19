@@ -64,9 +64,9 @@ def for_service(request, slug):
         'food': ServiceModel.objects.filter(tags__name__in=['food']).order_by('-clicks')[0:5],
     }
     
-    pagetitle = for_service.name + ' Referral Link'
+    pagetitle = for_service.name + ' Referral Link ' + for_service.description
     if for_service.code:
-        pagetitle = for_service.name + ' Referral Code'
+        pagetitle = for_service.name + ' Referral Code ' + for_service.description
     context = {
         'services': ServiceModel.objects.all(), # for the search bar, all pages
         'for_service': for_service,
