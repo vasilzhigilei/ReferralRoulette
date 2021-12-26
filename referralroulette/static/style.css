@@ -254,8 +254,8 @@ a {
 }
 
 .copyimage {
-  height: 60%;
-  width: auto;
+    width: 17px;
+    display: inline-block;
 }
 
 .navbar-toggler-icon{

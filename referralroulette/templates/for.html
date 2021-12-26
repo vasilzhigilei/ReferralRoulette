@@ -187,14 +187,14 @@
                   <input class="form-control" value="{{ link }}" type="text" id="link" style="font-weight: bold;" readonly>
                   {% if link != "No referral links" %}
                     <div class="input-group-append">
-                        <button id="copy-button" style="height: 100%;" class="btn btn-outline-secondary" data-clipboard-target="#link" type="button">
+                        <button id="copy-button" style="height: 100%; padding: .5rem 1rem .375rem;" class="btn btn-outline-secondary" data-clipboard-target="#link" type="button">
                             <span><img src="{% static '/icons/clipboard.svg' %}" class="copyimage" alt="Copy to clipboard"></span>
                         </button> <!-- possible bug with inspect element changing size exiting copy button svg size -->
                     </div>
                     {% if not for_service.code %}
                       <div class="input-group-append">
-                          <button onclick="window.open(document.getElementById('link').value, '_blank');" id="open-button" style="height: 100%;" class="btn btn-outline-info" data-clipboard-target="#link" type="button">
-                              <span><img src="{% static '/icons/open-link.svg' %}" class="copyimage" alt="Open in new tab"></span>
+                          <button onclick="window.open(document.getElementById('link').value, '_blank');" id="open-button" style="height: 100%; padding: .5rem 1rem .375rem;" class="btn btn-outline-info" data-clipboard-target="#link" type="button">
+                              <span style="width: 17px; display: inline-block;"><img src="{% static '/icons/open-link.svg' %}" class="copyimage" alt="Open in new tab"></span>
                           </button> <!-- possible bug with inspect element changing size exiting copy button svg size -->
                       </div>
                     {% endif %}
