@@ -188,7 +188,7 @@
                   {% if link != "No referral links" %}
                     <div class="input-group-append">
                         <button id="copy-button" style="height: 100%; padding: .5rem 1rem .375rem;" class="btn btn-outline-secondary" data-clipboard-target="#link" type="button">
-                            <span><img src="{% static '/icons/clipboard.svg' %}" class="copyimage" alt="Copy to clipboard"></span>
+                            <span style="width: 17px; display: inline-block;"><img src="{% static '/icons/clipboard.svg' %}" class="copyimage" alt="Copy to clipboard"></span>
                         </button> <!-- possible bug with inspect element changing size exiting copy button svg size -->
                     </div>
                     {% if not for_service.code %}
