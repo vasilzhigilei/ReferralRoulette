@@ -1,4 +1,2 @@
 # ReferralRoulette
-Inspired by my Referral project- except bigger &amp; better.
-
-https://referralroulette.com/
+https://web.archive.org/web/20211016185119/https://referralroulette.com/
